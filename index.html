@@ -138,13 +138,40 @@
             <h1>🎯 Fallacy Quiz</h1>
             <p>Identify the logical fallacy in each scenario. Choose your difficulty level to begin.</p>
           </header>
-          <div class="quiz-levels" id="quiz-levels">
-            <!-- Filled by JS -->
+
+          <!-- Mode Tabs -->
+          <div class="quiz-mode-tabs">
+            <button class="quiz-mode-tab active" data-mode="classic" id="tab-classic">🎯 Classic Quiz</button>
+            <button class="quiz-mode-tab" data-mode="extractor" id="tab-extractor">🔍 Extractor Mode</button>
           </div>
-          <div class="quiz-option-mixed">
-            <button class="btn btn-large btn-accent" id="quiz-mixed">
-              🎲 Mixed Mode — All Levels
-            </button>
+
+          <!-- Classic Quiz Setup -->
+          <div id="classic-setup">
+            <div class="quiz-levels" id="quiz-levels">
+              <!-- Filled by JS -->
+            </div>
+            <div class="quiz-option-mixed">
+              <button class="btn btn-large btn-accent" id="quiz-mixed">
+                🎲 Mixed Mode — All Levels
+              </button>
+            </div>
+          </div>
+
+          <!-- Extractor Quiz Setup -->
+          <div id="extractor-setup" class="hidden">
+            <div class="extractor-intro">
+              <div class="extractor-intro-icon">🔍</div>
+              <h3>Fallacy Extractor</h3>
+              <p>Read multi-paragraph passages and identify the hidden logical fallacy. Select your answer from the full list of fallacies — no multiple choice hints!</p>
+            </div>
+            <div class="quiz-levels" id="extractor-levels">
+              <!-- Filled by JS -->
+            </div>
+            <div class="quiz-option-mixed">
+              <button class="btn btn-large btn-accent" id="extractor-mixed">
+                🎲 Mixed Mode — All Levels
+              </button>
+            </div>
           </div>
         </div>
 
@@ -199,6 +226,55 @@
             </div>
           </div>
         </div>
+
+        <!-- Extractor Active -->
+        <div id="extractor-active" class="hidden">
+          <div class="quiz-header">
+            <div class="quiz-progress">
+              <span id="extractor-question-num">1</span> / <span id="extractor-total">5</span>
+            </div>
+            <div class="quiz-score">
+              Score: <span id="extractor-score">0</span>
+            </div>
+            <button class="btn btn-small btn-outline" id="extractor-quit">Quit</button>
+          </div>
+          <div class="quiz-progress-bar">
+            <div class="quiz-progress-fill" id="extractor-progress-fill"></div>
+          </div>
+          <div class="quiz-card">
+            <p class="extractor-label">🔍 Read the passage and identify the fallacy</p>
+            <div class="quiz-scenario extractor-passage" id="extractor-passage">
+              <!-- Filled by JS -->
+            </div>
+            <button class="btn btn-primary extractor-select-btn" id="extractor-select-btn">Select a Fallacy…</button>
+            <div class="extractor-feedback hidden" id="extractor-feedback">
+              <!-- Filled by JS -->
+            </div>
+            <button class="btn btn-primary hidden" id="extractor-next">Next Passage →</button>
+          </div>
+        </div>
+
+        <!-- Extractor Results -->
+        <div id="extractor-results" class="hidden">
+          <div class="results-card">
+            <div class="results-emoji" id="extractor-results-emoji">🎉</div>
+            <h2 id="extractor-results-title">Extractor Complete!</h2>
+            <p class="results-score">You scored <strong id="extractor-results-score-num">0</strong> out of <strong id="extractor-results-total-num">5</strong></p>
+            <div class="results-bar-container">
+              <div class="results-bar">
+                <div class="results-bar-fill" id="extractor-results-bar-fill"></div>
+              </div>
+            </div>
+            <p class="results-message" id="extractor-results-message"></p>
+            <div class="results-actions">
+              <button class="btn btn-primary" id="extractor-results-retry">Try Again</button>
+              <button class="btn btn-outline" id="extractor-results-home">Back to Setup</button>
+            </div>
+            <div class="results-review" id="extractor-results-review">
+              <!-- Filled by JS -->
+            </div>
+          </div>
+        </div>
       </div>
     </main>
   </div>
@@ -210,6 +286,17 @@
         <h2 class="modal-title">All fallacies</h2>
         <p class="modal-description">Select one to quickly review its definition, examples, and level before answering.</p>
         <div class="fallacy-picker-list" id="fallacy-picker-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="extractor-picker-modal">
+    <div class="modal">
+      <button class="modal-close" id="extractor-picker-close">&times;</button>
+      <div class="modal-content">
+        <h2 class="modal-title">🔍 Select the Fallacy</h2>
+        <p class="modal-description">Choose the fallacy you think is present in the passage.</p>
+        <div class="fallacy-picker-list" id="extractor-picker-list"></div>
       </div>
     </div>
   </div>

@@ -380,11 +380,32 @@
     answers: []       // { scenario, correctId, chosenId, correct }
   };
 
+  var quizMode = "classic"; // "classic" or "extractor"
+
+  // Mode tabs
+  document.getElementById("tab-classic").addEventListener("click", function () {
+    quizMode = "classic";
+    document.getElementById("tab-classic").classList.add("active");
+    document.getElementById("tab-extractor").classList.remove("active");
+    document.getElementById("classic-setup").classList.remove("hidden");
+    document.getElementById("extractor-setup").classList.add("hidden");
+  });
+  document.getElementById("tab-extractor").addEventListener("click", function () {
+    quizMode = "extractor";
+    document.getElementById("tab-extractor").classList.add("active");
+    document.getElementById("tab-classic").classList.remove("active");
+    document.getElementById("extractor-setup").classList.remove("hidden");
+    document.getElementById("classic-setup").classList.add("hidden");
+  });
+
   function renderQuizSetup() {
     document.getElementById("quiz-setup").classList.remove("hidden");
     document.getElementById("quiz-active").classList.add("hidden");
     document.getElementById("quiz-results").classList.add("hidden");
+    document.getElementById("extractor-active").classList.add("hidden");
+    document.getElementById("extractor-results").classList.add("hidden");
 
+    // Classic setup
     var container = document.getElementById("quiz-levels");
     var html = "";
     for (var lvl = 1; lvl <= 4; lvl++) {
@@ -408,6 +429,9 @@
         startQuiz(parseInt(card.dataset.level, 10));
       });
     });
+
+    // Extractor setup
+    renderExtractorSetup();
   }
 
   document.getElementById("quiz-mixed").addEventListener("click", function () {
@@ -667,6 +691,274 @@
     renderQuizSetup();
   });
 
+  // ---- Extractor Quiz ----
+  var EXTRACTOR_QUIZ_LENGTH = 5;
+
+  var extractor = {
+    level: null,
+    passages: [],
+    current: 0,
+    score: 0,
+    answers: []
+  };
+
+  function getExtractorScoreKey(level) {
+    return level ? "ext-" + level : "ext-mixed";
+  }
+
+  function renderExtractorSetup() {
+    var container = document.getElementById("extractor-levels");
+    var html = "";
+    for (var lvl = 1; lvl <= 4; lvl++) {
+      var info = window.LEVEL_INFO[lvl];
+      var scoreKey = getExtractorScoreKey(lvl);
+      var best = state.quizScores[scoreKey] ? state.quizScores[scoreKey].best : null;
+      var passageCount = window.EXTRACTOR_PASSAGES.filter(function (p) { return p.level === lvl; }).length;
+      html += '<div class="quiz-level-card" data-level="' + lvl + '">'
+        + '<div class="quiz-level-icon">' + info.icon + '</div>'
+        + '<div class="quiz-level-info">'
+        + '<h3 style="color:' + info.color + '">Level ' + lvl + ': ' + info.name + '</h3>'
+        + '<p>' + passageCount + ' passages</p>'
+        + '</div>'
+        + '<div class="quiz-level-best">'
+        + (best !== null ? '<strong>' + best + '%</strong>Best' : '<span style="color:var(--text-dim)">Not tried</span>')
+        + '</div>'
+        + '</div>';
+    }
+    container.innerHTML = html;
+
+    container.querySelectorAll(".quiz-level-card").forEach(function (card) {
+      card.addEventListener("click", function () {
+        startExtractor(parseInt(card.dataset.level, 10));
+      });
+    });
+  }
+
+  document.getElementById("extractor-mixed").addEventListener("click", function () {
+    startExtractor(null);
+  });
+
+  function startExtractor(level) {
+    extractor.level = level;
+    extractor.current = 0;
+    extractor.score = 0;
+    extractor.answers = [];
+
+    var pool = window.EXTRACTOR_PASSAGES;
+    if (level !== null) {
+      pool = pool.filter(function (p) { return p.level === level; });
+    }
+    extractor.passages = shuffleArray(pool.slice()).slice(0, EXTRACTOR_QUIZ_LENGTH);
+
+    if (extractor.passages.length === 0) {
+      alert("No passages available for this level. Please try another level or Mixed Mode.");
+      return;
+    }
+
+    document.getElementById("quiz-setup").classList.add("hidden");
+    document.getElementById("extractor-results").classList.add("hidden");
+    document.getElementById("extractor-active").classList.remove("hidden");
+
+    document.getElementById("extractor-total").textContent = extractor.passages.length;
+    renderExtractorQuestion();
+  }
+
+  function renderExtractorQuestion() {
+    var p = extractor.passages[extractor.current];
+    document.getElementById("extractor-question-num").textContent = extractor.current + 1;
+    document.getElementById("extractor-score").textContent = extractor.score;
+    document.getElementById("extractor-progress-fill").style.width =
+      ((extractor.current / extractor.passages.length) * 100) + "%";
+
+    document.getElementById("extractor-passage").innerHTML = renderParagraphsHTML(p.text, "scenario-paragraph");
+
+    document.getElementById("extractor-select-btn").classList.remove("hidden");
+    document.getElementById("extractor-select-btn").textContent = "Select a Fallacy…";
+    document.getElementById("extractor-feedback").classList.add("hidden");
+    document.getElementById("extractor-feedback").classList.remove("correct", "wrong");
+    document.getElementById("extractor-next").classList.add("hidden");
+  }
+
+  document.getElementById("extractor-select-btn").addEventListener("click", function () {
+    openExtractorPicker();
+  });
+
+  function openExtractorPicker() {
+    var listEl = document.getElementById("extractor-picker-list");
+    var sorted = window.FALLACIES_DATA.slice().sort(function (a, b) {
+      if (a.level !== b.level) return a.level - b.level;
+      return a.name.localeCompare(b.name);
+    });
+    listEl.innerHTML = sorted.map(function (f) {
+      var info = window.LEVEL_INFO[f.level];
+      return '<button class="fallacy-picker-item" data-id="' + f.id + '">'
+        + info.icon + ' L' + f.level + " • " + escapeHTML(f.name)
+        + '</button>';
+    }).join("");
+
+    listEl.querySelectorAll(".fallacy-picker-item").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        closeExtractorPicker();
+        handleExtractorAnswer(btn.dataset.id);
+      });
+    });
+
+    document.getElementById("extractor-picker-modal").classList.add("active");
+  }
+
+  function closeExtractorPicker() {
+    document.getElementById("extractor-picker-modal").classList.remove("active");
+  }
+
+  document.getElementById("extractor-picker-close").addEventListener("click", closeExtractorPicker);
+  document.getElementById("extractor-picker-modal").addEventListener("click", function (e) {
+    if (e.target === this) closeExtractorPicker();
+  });
+
+  function handleExtractorAnswer(chosenId) {
+    var p = extractor.passages[extractor.current];
+    var isCorrect = chosenId === p.fallacyId;
+    var chosenFallacy = window.FALLACIES_DATA.find(function (f) { return f.id === chosenId; });
+    var correctFallacy = window.FALLACIES_DATA.find(function (f) { return f.id === p.fallacyId; });
+
+    if (isCorrect) extractor.score++;
+
+    extractor.answers.push({
+      text: p.text,
+      correctId: p.fallacyId,
+      correctName: correctFallacy ? correctFallacy.name : p.fallacyId,
+      chosenId: chosenId,
+      chosenName: chosenFallacy ? chosenFallacy.name : chosenId,
+      explanation: p.explanation,
+      highlight: p.highlight,
+      level: p.level,
+      correct: isCorrect
+    });
+
+    // Hide select button
+    document.getElementById("extractor-select-btn").classList.add("hidden");
+
+    // Show feedback
+    var feedbackEl = document.getElementById("extractor-feedback");
+    feedbackEl.classList.remove("hidden", "correct", "wrong");
+    feedbackEl.classList.add(isCorrect ? "correct" : "wrong");
+
+    var feedbackHTML = '<div class="extractor-feedback-title">';
+    if (isCorrect) {
+      feedbackHTML += '✅ Correct! This is ' + escapeHTML(correctFallacy ? correctFallacy.name : p.fallacyId);
+    } else {
+      feedbackHTML += '❌ Incorrect — You chose: ' + escapeHTML(chosenFallacy ? chosenFallacy.name : chosenId);
+      feedbackHTML += '<br>The correct answer is: <strong>' + escapeHTML(correctFallacy ? correctFallacy.name : p.fallacyId) + '</strong>';
+    }
+    feedbackHTML += '</div>';
+
+    if (p.highlight) {
+      feedbackHTML += '<div class="extractor-feedback-highlight">"' + escapeHTML(p.highlight) + '"</div>';
+    }
+
+    feedbackHTML += '<div class="extractor-feedback-explanation">' + escapeHTML(p.explanation) + '</div>';
+
+    var levelInfo = window.LEVEL_INFO[p.level];
+    feedbackHTML += '<div class="extractor-feedback-meta">Level: '
+      + escapeHTML(levelInfo.icon) + ' ' + escapeHTML(levelInfo.name)
+      + ' (L' + p.level + ')</div>';
+
+    feedbackEl.innerHTML = feedbackHTML;
+
+    document.getElementById("extractor-next").classList.remove("hidden");
+  }
+
+  document.getElementById("extractor-next").addEventListener("click", function () {
+    extractor.current++;
+    if (extractor.current >= extractor.passages.length) {
+      showExtractorResults();
+    } else {
+      renderExtractorQuestion();
+    }
+  });
+
+  document.getElementById("extractor-quit").addEventListener("click", function () {
+    renderQuizSetup();
+  });
+
+  function showExtractorResults() {
+    document.getElementById("extractor-active").classList.add("hidden");
+    document.getElementById("extractor-results").classList.remove("hidden");
+
+    var total = extractor.passages.length;
+    var score = extractor.score;
+    var pct = Math.round((score / total) * 100);
+
+    // Update global stats
+    state.totalQuizCorrect += score;
+    state.totalQuizAnswered += total;
+
+    // Update level best
+    var lvlKey = getExtractorScoreKey(extractor.level);
+    if (!state.quizScores[lvlKey] || pct > state.quizScores[lvlKey].best) {
+      state.quizScores[lvlKey] = { best: pct, attempts: (state.quizScores[lvlKey] ? state.quizScores[lvlKey].attempts : 0) + 1 };
+    } else {
+      state.quizScores[lvlKey].attempts++;
+    }
+    saveState();
+
+    document.getElementById("extractor-results-score-num").textContent = score;
+    document.getElementById("extractor-results-total-num").textContent = total;
+
+    var fill = document.getElementById("extractor-results-bar-fill");
+    fill.style.width = "0%";
+    setTimeout(function () {
+      fill.style.width = pct + "%";
+      fill.style.background = pct >= 80 ? "var(--success)" : pct >= 50 ? "var(--warning)" : "var(--danger)";
+    }, 100);
+
+    var emoji, title, msg;
+    if (pct === 100) {
+      emoji = "🏆"; title = "Perfect Extraction!"; msg = "You identified every fallacy flawlessly!";
+    } else if (pct >= 80) {
+      emoji = "🎉"; title = "Excellent!"; msg = "You have a sharp eye for hidden fallacies.";
+    } else if (pct >= 60) {
+      emoji = "👍"; title = "Good Job!"; msg = "You're getting better at spotting fallacies in context.";
+    } else if (pct >= 40) {
+      emoji = "📚"; title = "Keep Practicing!"; msg = "Review the wiki to improve your fallacy detection skills.";
+    } else {
+      emoji = "💪"; title = "Don't Give Up!"; msg = "Study the fallacies in the wiki and try the extractor again.";
+    }
+
+    document.getElementById("extractor-results-emoji").textContent = emoji;
+    document.getElementById("extractor-results-title").textContent = title;
+    document.getElementById("extractor-results-message").textContent = msg;
+
+    // Review
+    var reviewEl = document.getElementById("extractor-results-review");
+    if (extractor.answers.length > 0) {
+      var reviewHTML = "<h3>Review Your Answers</h3>";
+      extractor.answers.forEach(function (a, i) {
+        reviewHTML += '<div class="review-item">'
+          + '<div class="review-item-header">'
+          + '<span class="review-icon">' + (a.correct ? "✅" : "❌") + '</span>'
+          + '<span class="review-answer">Q' + (i + 1) + ': You chose: ' + escapeHTML(a.chosenName) + '</span>'
+          + '</div>';
+        if (!a.correct) {
+          reviewHTML += '<div class="review-correct-answer">Correct answer: ' + escapeHTML(a.correctName) + '</div>';
+        }
+        if (a.highlight) {
+          reviewHTML += '<div class="review-explanation" style="font-style:italic;margin-bottom:4px">"' + escapeHTML(a.highlight) + '"</div>';
+        }
+        reviewHTML += '<div class="review-explanation">' + escapeHTML(a.explanation) + '</div>'
+          + '</div>';
+      });
+      reviewEl.innerHTML = reviewHTML;
+    }
+  }
+
+  document.getElementById("extractor-results-retry").addEventListener("click", function () {
+    startExtractor(extractor.level);
+  });
+  document.getElementById("extractor-results-home").addEventListener("click", function () {
+    renderQuizSetup();
+  });
+
   // ---- Utilities ----
   function shuffleArray(arr) {
     for (var i = arr.length - 1; i > 0; i--) {
@@ -701,6 +993,7 @@
     if (e.key === "Escape") {
       closeFallacyModal();
       closeFallacyPicker();
+      closeExtractorPicker();
     }
   });
 
