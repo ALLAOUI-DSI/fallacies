@@ -13,7 +13,8 @@
       readFallacies: [],       // array of fallacy ids that have been read
       quizScores: {},          // { level: { best, attempts } }
       totalQuizCorrect: 0,
-      totalQuizAnswered: 0
+      totalQuizAnswered: 0,
+      theme: "dark"
     };
   }
 
@@ -38,6 +39,21 @@
     }
   }
 
+  function applyTheme(theme) {
+    var nextTheme = theme === "light" ? "light" : "dark";
+    state.theme = nextTheme;
+    document.body.classList.toggle("theme-light", nextTheme === "light");
+    updateThemeToggleLabel();
+  }
+
+  function updateThemeToggleLabel() {
+    var toggleBtn = document.getElementById("theme-toggle");
+    if (!toggleBtn) return;
+    toggleBtn.textContent = state.theme === "light" ? "🌙 Dark mode: Off" : "🌙 Dark mode: On";
+  }
+
+  applyTheme(state.theme);
+
   // ---- Navigation ----
   const views = {
     dashboard: document.getElementById("view-dashboard"),
@@ -45,6 +61,10 @@
     quiz: document.getElementById("view-quiz")
   };
   const navLinks = document.querySelectorAll(".nav-link");
+  const sharedFallacyModal = document.getElementById("fallacy-modal");
+  if (sharedFallacyModal && sharedFallacyModal.parentElement !== document.body) {
+    document.body.appendChild(sharedFallacyModal);
+  }
 
   function switchView(name) {
     Object.values(views).forEach(function (v) { v.classList.remove("active"); });
@@ -77,8 +97,23 @@
     switchView("quiz");
   });
 
+  document.getElementById("theme-toggle").addEventListener("click", function () {
+    applyTheme(state.theme === "light" ? "dark" : "light");
+    saveState();
+  });
+
+  document.getElementById("reset-score").addEventListener("click", function () {
+    state.quizScores = {};
+    state.totalQuizCorrect = 0;
+    state.totalQuizAnswered = 0;
+    saveState();
+    renderDashboard();
+    if (views.quiz.classList.contains("active")) renderQuizSetup();
+  });
+
   // ---- Dashboard ----
   function renderDashboard() {
+    updateThemeToggleLabel();
     var data = window.FALLACIES_DATA;
     var totalFallacies = data.length;
     var readCount = state.readFallacies.length;
@@ -256,13 +291,21 @@
       + '<h2 class="modal-title">' + escapeHTML(f.name) + '</h2>'
       + '<p class="modal-category">Category: ' + escapeHTML(f.category) + '</p>'
       + '<p class="modal-definition">' + escapeHTML(f.definition) + '</p>'
-      + '<p class="modal-description">' + escapeHTML(f.description) + '</p>'
+      + '<div class="modal-description">' + renderParagraphsHTML(f.description, "modal-description-paragraph") + '</div>'
       + '<h3 class="modal-section-title">Examples</h3>';
 
     f.examples.forEach(function (ex) {
       html += '<div class="example-card">'
         + '<div class="example-text">"' + escapeHTML(ex.text) + '"</div>'
         + '<div class="example-explanation">→ ' + escapeHTML(ex.explanation) + '</div>'
+        + '</div>';
+    });
+
+    html += '<h3 class="modal-section-title">Quiz Scenarios</h3>';
+    f.quizScenarios.forEach(function (scenario) {
+      html += '<div class="example-card">'
+        + '<div class="example-text">"' + escapeHTML(scenario.text) + '"</div>'
+        + '<div class="example-explanation">→ ' + escapeHTML(scenario.explanation) + '</div>'
         + '</div>';
     });
 
@@ -294,6 +337,39 @@
   function closeFallacyModal() {
     document.getElementById("fallacy-modal").classList.remove("active");
   }
+
+  function openFallacyPicker() {
+    var listEl = document.getElementById("fallacy-picker-list");
+    var sorted = window.FALLACIES_DATA.slice().sort(function (a, b) {
+      if (a.level !== b.level) return a.level - b.level;
+      return a.name.localeCompare(b.name);
+    });
+    listEl.innerHTML = sorted.map(function (f) {
+      var info = window.LEVEL_INFO[f.level];
+      return '<button class="fallacy-picker-item" data-id="' + f.id + '">'
+        + info.icon + ' L' + f.level + " • " + escapeHTML(f.name)
+        + '</button>';
+    }).join("");
+
+    listEl.querySelectorAll(".fallacy-picker-item").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        closeFallacyPicker();
+        openFallacyModal(btn.dataset.id);
+      });
+    });
+
+    document.getElementById("fallacy-picker-modal").classList.add("active");
+  }
+
+  function closeFallacyPicker() {
+    document.getElementById("fallacy-picker-modal").classList.remove("active");
+  }
+
+  document.getElementById("quiz-fallacy-picker-btn").addEventListener("click", openFallacyPicker);
+  document.getElementById("fallacy-picker-close").addEventListener("click", closeFallacyPicker);
+  document.getElementById("fallacy-picker-modal").addEventListener("click", function (e) {
+    if (e.target === this) closeFallacyPicker();
+  });
 
   // ---- Quiz ----
   var quiz = {
@@ -372,7 +448,9 @@
           explanation: s.explanation,
           fallacyId: f.id,
           fallacyName: f.name,
-          level: f.level
+          level: f.level,
+          levelName: window.LEVEL_INFO[f.level].name,
+          levelIcon: window.LEVEL_INFO[f.level].icon
         });
       });
     });
@@ -418,6 +496,9 @@
         explanation: q.explanation,
         correctId: q.fallacyId,
         correctName: q.fallacyName,
+        level: q.level,
+        levelName: q.levelName,
+        levelIcon: q.levelIcon,
         options: options
       };
     });
@@ -430,7 +511,7 @@
     document.getElementById("quiz-progress-fill").style.width =
       ((quiz.current / quiz.questions.length) * 100) + "%";
 
-    document.getElementById("quiz-scenario").textContent = q.text;
+    document.getElementById("quiz-scenario").innerHTML = renderParagraphsHTML(q.text, "scenario-paragraph");
 
     var optionsEl = document.getElementById("quiz-options");
     optionsEl.innerHTML = q.options.map(function (opt) {
@@ -451,6 +532,7 @@
   function handleQuizAnswer(chosenId) {
     var q = quiz.questions[quiz.current];
     var isCorrect = chosenId === q.correctId;
+    var chosenOption = q.options.find(function (o) { return o.id === chosenId; });
 
     if (isCorrect) quiz.score++;
 
@@ -459,8 +541,11 @@
       correctId: q.correctId,
       correctName: q.correctName,
       chosenId: chosenId,
-      chosenName: q.options.find(function (o) { return o.id === chosenId; }).name,
+      chosenName: chosenOption ? chosenOption.name : "Unknown",
       explanation: q.explanation,
+      level: q.level,
+      levelName: q.levelName,
+      levelIcon: q.levelIcon,
       correct: isCorrect
     });
 
@@ -479,7 +564,11 @@
     feedbackEl.innerHTML = '<div class="quiz-feedback-title">'
       + (isCorrect ? "✅ Correct!" : "❌ Incorrect — The answer is: " + escapeHTML(q.correctName))
       + '</div>'
-      + '<div>' + escapeHTML(q.explanation) + '</div>';
+      + '<div>' + escapeHTML(q.explanation) + '</div>'
+      + '<div class="quiz-feedback-meta"><strong>Level:</strong> '
+      + escapeHTML(q.levelIcon) + ' '
+      + escapeHTML(q.levelName) + " (L" + q.level + ")"
+      + "</div>";
 
     document.getElementById("quiz-next").classList.remove("hidden");
   }
@@ -558,6 +647,9 @@
         if (!a.correct) {
           reviewHTML += '<div class="review-correct-answer">Correct answer: ' + escapeHTML(a.correctName) + '</div>';
         }
+        reviewHTML += '<div class="review-correct-answer">Level: '
+          + escapeHTML(a.levelIcon) + " "
+          + escapeHTML(a.levelName) + " (L" + a.level + ")</div>";
         reviewHTML += '<div class="review-explanation">' + escapeHTML(a.explanation) + '</div>'
           + '</div>';
       });
@@ -583,15 +675,27 @@
     return arr;
   }
 
+  function renderParagraphsHTML(text, className) {
+    return String(text || "")
+      .split(/\n\s*\n/)
+      .filter(function (part) { return part.trim(); })
+      .map(function (part) {
+        return '<p class="' + className + '">' + escapeHTML(part.trim()) + "</p>";
+      }).join("");
+  }
+
   function escapeHTML(str) {
     var div = document.createElement("div");
-    div.appendChild(document.createTextNode(str));
+    div.appendChild(document.createTextNode(String(str)));
     return div.innerHTML;
   }
 
   // ---- Keyboard ----
   document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") closeFallacyModal();
+    if (e.key === "Escape") {
+      closeFallacyModal();
+      closeFallacyPicker();
+    }
   });
 
   // ---- Init ----

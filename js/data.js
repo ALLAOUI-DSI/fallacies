@@ -18,7 +18,7 @@ window.FALLACIES_DATA = [
     category: "Relevance",
     level: 1,
     definition: "Attacking the person making the argument rather than the argument itself.",
-    description: "Instead of addressing someone's point, you attack their character, background, or personal traits. This is fallacious because the truth of a claim doesn't depend on who says it. Even a flawed person can make a valid argument.",
+    description: "Instead of addressing someone's point, you attack their character, background, or personal traits.\n\nThis is fallacious because the truth of a claim doesn't depend on who says it. Even a flawed person can make a valid argument.",
     examples: [
       { text: "You can't trust John's opinion on climate change — he didn't even finish college.", explanation: "John's education level doesn't determine whether his specific argument about climate change is true or false." },
       { text: "Why should we listen to her dietary advice? She's overweight herself!", explanation: "A person's own health doesn't invalidate nutritional facts they might present." },
@@ -26,7 +26,7 @@ window.FALLACIES_DATA = [
       { text: "She's too young to have a valid opinion on politics.", explanation: "Age alone doesn't determine the quality of a political argument." }
     ],
     quizScenarios: [
-      { text: "\"Dr. Smith's research on vaccines is unreliable because she was once fined for a parking violation.\"", explanation: "This attacks Dr. Smith's character (a minor legal issue) instead of addressing her actual research findings." },
+      { text: "\"Dr. Smith's research on vaccines is unreliable because she was once fined for a parking violation.\"\n\n\"If she breaks one law, we should ignore everything she publishes.\"", explanation: "This attacks Dr. Smith's character (a minor legal issue) instead of addressing her actual research findings." },
       { text: "\"You think we should protect the environment? That's rich coming from someone who drives an SUV.\"", explanation: "The speaker's personal choices don't invalidate the environmental argument being made." },
       { text: "\"My opponent says we need better schools, but he was a C student himself. How can we take him seriously?\"", explanation: "Past academic performance doesn't make an argument about education policy wrong." }
     ]
