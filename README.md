@@ -4,7 +4,7 @@ An interactive, mobile-first web app to learn and master logical fallacies. Prog
 
 ## Features
 
-- **📖 Wiki** — Browse 30+ logical fallacies with definitions, detailed explanations, and real-world examples
+- **📖 Wiki** — Browse 36 logical fallacies with definitions, detailed explanations, and real-world examples
 - **🎯 Quiz** — Test your skills by identifying fallacies in realistic scenarios
 - **📊 Dashboard** — Track your learning progress across all levels
 - **Progressive Learning** — Four difficulty levels: 🌱 Beginner → 🌿 Intermediate → 🌳 Advanced → 🏆 Expert
@@ -42,7 +42,7 @@ This is a static web app ready to deploy on any static hosting:
 ├── css/
 │   └── style.css       # Mobile-first responsive styles
 ├── js/
-│   ├── data.js         # Comprehensive fallacy dataset (30+ fallacies)
+│   ├── data.js         # Comprehensive fallacy dataset (36 fallacies)
 │   └── app.js          # Application logic (navigation, wiki, quiz, progress)
 └── README.md
 ```
@@ -53,7 +53,7 @@ This is a static web app ready to deploy on any static hosting:
 |-------|-------|---------|
 | 🌱 Beginner | 9 | Ad Hominem, Straw Man, False Dilemma, Slippery Slope... |
 | 🌿 Intermediate | 9 | Circular Reasoning, Hasty Generalization, Tu Quoque... |
-| 🌳 Advanced | 9 | Appeal to Nature, Texas Sharpshooter, Cherry Picking... |
-| 🏆 Expert | 5 | Motte and Bailey, Kafkatrap, Gish Gallop, Sealioning... |
+| 🌳 Advanced | 11 | Appeal to Nature, Texas Sharpshooter, Cherry Picking... |
+| 🏆 Expert | 7 | Motte and Bailey, Kafkatrap, Gish Gallop, Sealioning... |
 
 Each fallacy includes a definition, description, 3+ examples, and 2+ quiz scenarios.
