@@ -43,6 +43,10 @@
         <!-- Progress Overview -->
         <section class="progress-section">
           <h2 class="section-title">Your Progress</h2>
+          <div class="dashboard-controls">
+            <button class="btn btn-small btn-outline" id="theme-toggle">🌙 Dark mode</button>
+            <button class="btn btn-small btn-outline" id="reset-score">Reset Quiz Score</button>
+          </div>
           <div class="progress-bar-container">
             <div class="progress-bar" id="overall-progress-bar">
               <div class="progress-fill" id="overall-progress-fill"></div>
@@ -163,6 +167,7 @@
               <!-- Filled by JS -->
             </div>
             <p class="quiz-prompt">Which fallacy is this?</p>
+            <button class="btn btn-small btn-outline quiz-fallacy-picker-btn" id="quiz-fallacy-picker-btn">Browse all fallacies</button>
             <div class="quiz-options" id="quiz-options">
               <!-- Filled by JS -->
             </div>
@@ -196,6 +201,17 @@
         </div>
       </div>
     </main>
+  </div>
+
+  <div class="modal-overlay" id="fallacy-picker-modal">
+    <div class="modal">
+      <button class="modal-close" id="fallacy-picker-close">&times;</button>
+      <div class="modal-content">
+        <h2 class="modal-title">All fallacies</h2>
+        <p class="modal-description">Select one to quickly review its definition, examples, and level before answering.</p>
+        <div class="fallacy-picker-list" id="fallacy-picker-list"></div>
+      </div>
+    </div>
   </div>
 
   <script src="js/data.js"></script>

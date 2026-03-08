@@ -7,6 +7,8 @@ An interactive, mobile-first web app to learn and master logical fallacies. Prog
 - **📖 Wiki** — Browse 36 logical fallacies with definitions, detailed explanations, and real-world examples
 - **🎯 Quiz** — Test your skills by identifying fallacies in realistic scenarios
 - **📊 Dashboard** — Track your learning progress across all levels
+- **🌗 Theme Toggle** — Switch between dark and light mode from the dashboard
+- **🔄 Score Reset** — Reset cumulative quiz score stats anytime
 - **Progressive Learning** — Four difficulty levels: 🌱 Beginner → 🌿 Intermediate → 🌳 Advanced → 🏆 Expert
 - **Mobile-First Design** — Clean, modern UI that works great on phones, tablets, and desktops
 - **No Backend** — 100% static, runs entirely in the browser with localStorage for progress
