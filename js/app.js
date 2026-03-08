@@ -692,6 +692,8 @@
   });
 
   // ---- Extractor Quiz ----
+  var EXTRACTOR_QUIZ_LENGTH = 5;
+
   var extractor = {
     level: null,
     passages: [],
@@ -700,12 +702,16 @@
     answers: []
   };
 
+  function getExtractorScoreKey(level) {
+    return level ? "ext-" + level : "ext-mixed";
+  }
+
   function renderExtractorSetup() {
     var container = document.getElementById("extractor-levels");
     var html = "";
     for (var lvl = 1; lvl <= 4; lvl++) {
       var info = window.LEVEL_INFO[lvl];
-      var scoreKey = "ext-" + lvl;
+      var scoreKey = getExtractorScoreKey(lvl);
       var best = state.quizScores[scoreKey] ? state.quizScores[scoreKey].best : null;
       var passageCount = window.EXTRACTOR_PASSAGES.filter(function (p) { return p.level === lvl; }).length;
       html += '<div class="quiz-level-card" data-level="' + lvl + '">'
@@ -742,9 +748,12 @@
     if (level !== null) {
       pool = pool.filter(function (p) { return p.level === level; });
     }
-    extractor.passages = shuffleArray(pool.slice()).slice(0, 5);
+    extractor.passages = shuffleArray(pool.slice()).slice(0, EXTRACTOR_QUIZ_LENGTH);
 
-    if (extractor.passages.length === 0) return;
+    if (extractor.passages.length === 0) {
+      alert("No passages available for this level. Please try another level or Mixed Mode.");
+      return;
+    }
 
     document.getElementById("quiz-setup").classList.add("hidden");
     document.getElementById("extractor-results").classList.add("hidden");
@@ -885,7 +894,7 @@
     state.totalQuizAnswered += total;
 
     // Update level best
-    var lvlKey = extractor.level ? "ext-" + extractor.level : "ext-mixed";
+    var lvlKey = getExtractorScoreKey(extractor.level);
     if (!state.quizScores[lvlKey] || pct > state.quizScores[lvlKey].best) {
       state.quizScores[lvlKey] = { best: pct, attempts: (state.quizScores[lvlKey] ? state.quizScores[lvlKey].attempts : 0) + 1 };
     } else {
