@@ -533,6 +533,9 @@
     var q = quiz.questions[quiz.current];
     var isCorrect = chosenId === q.correctId;
     var chosenOption = q.options.find(function (o) { return o.id === chosenId; });
+    if (!chosenOption) {
+      console.warn("Unexpected quiz answer option id:", chosenId);
+    }
 
     if (isCorrect) quiz.score++;
 
@@ -676,11 +679,14 @@
   }
 
   function renderParagraphsHTML(text, className) {
+    var safeClassName = /^[a-zA-Z_][a-zA-Z0-9\-_]*$/.test(String(className || ""))
+      ? String(className)
+      : "";
     return String(text || "")
-      .split(/\n\s*\n/)
+      .split(/\n+/)
       .filter(function (part) { return part.trim(); })
       .map(function (part) {
-        return '<p class="' + className + '">' + escapeHTML(part.trim()) + "</p>";
+        return '<p class="' + safeClassName + '">' + escapeHTML(part.trim()) + "</p>";
       }).join("");
   }
 
