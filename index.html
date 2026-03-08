@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fallacy Fighter — Master Logical Fallacies</title>
+  <meta name="description" content="Learn to identify and counter logical fallacies with interactive lessons and quizzes. Progress from beginner to expert.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+</head>
+<body>
+  <div id="app">
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+      <div class="nav-brand" id="nav-home">
+        <span class="nav-logo">🧠</span>
+        <span class="nav-title">Fallacy Fighter</span>
+      </div>
+      <div class="nav-links">
+        <button class="nav-link active" data-view="dashboard" id="nav-dashboard">
+          <span class="nav-icon">📊</span>
+          <span>Dashboard</span>
+        </button>
+        <button class="nav-link" data-view="wiki" id="nav-wiki">
+          <span class="nav-icon">📖</span>
+          <span>Wiki</span>
+        </button>
+        <button class="nav-link" data-view="quiz" id="nav-quiz">
+          <span class="nav-icon">🎯</span>
+          <span>Quiz</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Dashboard View -->
+    <main class="view active" id="view-dashboard">
+      <div class="container">
+        <header class="hero">
+          <h1>Master Logical Fallacies</h1>
+          <p class="hero-sub">Learn to spot flawed reasoning and think more clearly. Progress from beginner to expert with our interactive lessons and quizzes.</p>
+        </header>
+
+        <!-- Progress Overview -->
+        <section class="progress-section">
+          <h2 class="section-title">Your Progress</h2>
+          <div class="progress-bar-container">
+            <div class="progress-bar" id="overall-progress-bar">
+              <div class="progress-fill" id="overall-progress-fill"></div>
+            </div>
+            <span class="progress-text" id="overall-progress-text">0% Complete</span>
+          </div>
+          <div class="stats-grid" id="stats-grid">
+            <!-- Filled by JS -->
+          </div>
+        </section>
+
+        <!-- Level Cards -->
+        <section class="levels-section">
+          <h2 class="section-title">Learning Path</h2>
+          <div class="levels-grid" id="levels-grid">
+            <!-- Filled by JS -->
+          </div>
+        </section>
+
+        <!-- Quick Actions -->
+        <section class="actions-section">
+          <div class="action-card" id="action-wiki">
+            <div class="action-icon">📖</div>
+            <h3>Study Fallacies</h3>
+            <p>Browse the wiki to learn definitions, examples, and tips for spotting each fallacy.</p>
+            <button class="btn btn-primary">Open Wiki</button>
+          </div>
+          <div class="action-card" id="action-quiz">
+            <div class="action-icon">🎯</div>
+            <h3>Take a Quiz</h3>
+            <p>Test your skills by identifying fallacies in real-world scenarios.</p>
+            <button class="btn btn-accent">Start Quiz</button>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Wiki View -->
+    <main class="view" id="view-wiki">
+      <div class="container">
+        <header class="view-header">
+          <h1>📖 Fallacy Wiki</h1>
+          <p>Browse, learn, and master logical fallacies at your own pace.</p>
+        </header>
+
+        <!-- Filters -->
+        <div class="filters" id="wiki-filters">
+          <div class="filter-group">
+            <label class="filter-label">Level</label>
+            <div class="filter-chips" id="level-filter">
+              <button class="chip active" data-level="all">All</button>
+            </div>
+          </div>
+          <div class="filter-group">
+            <label class="filter-label">Category</label>
+            <div class="filter-chips" id="category-filter">
+              <button class="chip active" data-category="all">All</button>
+            </div>
+          </div>
+          <div class="filter-group">
+            <label class="filter-label">Search</label>
+            <input type="text" class="search-input" id="wiki-search" placeholder="Search fallacies...">
+          </div>
+        </div>
+
+        <!-- Fallacy List -->
+        <div class="fallacy-list" id="fallacy-list">
+          <!-- Filled by JS -->
+        </div>
+
+        <!-- Fallacy Detail Modal -->
+        <div class="modal-overlay" id="fallacy-modal">
+          <div class="modal" id="fallacy-detail">
+            <button class="modal-close" id="modal-close">&times;</button>
+            <div class="modal-content" id="modal-content">
+              <!-- Filled by JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Quiz View -->
+    <main class="view" id="view-quiz">
+      <div class="container">
+        <!-- Quiz Setup -->
+        <div id="quiz-setup">
+          <header class="view-header">
+            <h1>🎯 Fallacy Quiz</h1>
+            <p>Identify the logical fallacy in each scenario. Choose your difficulty level to begin.</p>
+          </header>
+          <div class="quiz-levels" id="quiz-levels">
+            <!-- Filled by JS -->
+          </div>
+          <div class="quiz-option-mixed">
+            <button class="btn btn-large btn-accent" id="quiz-mixed">
+              🎲 Mixed Mode — All Levels
+            </button>
+          </div>
+        </div>
+
+        <!-- Quiz Active -->
+        <div id="quiz-active" class="hidden">
+          <div class="quiz-header">
+            <div class="quiz-progress">
+              <span id="quiz-question-num">1</span> / <span id="quiz-total">10</span>
+            </div>
+            <div class="quiz-score">
+              Score: <span id="quiz-score">0</span>
+            </div>
+            <button class="btn btn-small btn-outline" id="quiz-quit">Quit</button>
+          </div>
+          <div class="quiz-progress-bar">
+            <div class="quiz-progress-fill" id="quiz-progress-fill"></div>
+          </div>
+          <div class="quiz-card" id="quiz-card">
+            <div class="quiz-scenario" id="quiz-scenario">
+              <!-- Filled by JS -->
+            </div>
+            <p class="quiz-prompt">Which fallacy is this?</p>
+            <div class="quiz-options" id="quiz-options">
+              <!-- Filled by JS -->
+            </div>
+            <div class="quiz-feedback hidden" id="quiz-feedback">
+              <!-- Filled by JS -->
+            </div>
+            <button class="btn btn-primary hidden" id="quiz-next">Next Question →</button>
+          </div>
+        </div>
+
+        <!-- Quiz Results -->
+        <div id="quiz-results" class="hidden">
+          <div class="results-card">
+            <div class="results-emoji" id="results-emoji">🎉</div>
+            <h2 id="results-title">Quiz Complete!</h2>
+            <p class="results-score">You scored <strong id="results-score-num">0</strong> out of <strong id="results-total-num">10</strong></p>
+            <div class="results-bar-container">
+              <div class="results-bar">
+                <div class="results-bar-fill" id="results-bar-fill"></div>
+              </div>
+            </div>
+            <p class="results-message" id="results-message"></p>
+            <div class="results-actions">
+              <button class="btn btn-primary" id="results-retry">Try Again</button>
+              <button class="btn btn-outline" id="results-home">Back to Setup</button>
+            </div>
+            <div class="results-review" id="results-review">
+              <!-- Filled by JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
