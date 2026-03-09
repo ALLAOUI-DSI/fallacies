@@ -387,15 +387,28 @@
     quizMode = "classic";
     document.getElementById("tab-classic").classList.add("active");
     document.getElementById("tab-extractor").classList.remove("active");
+    document.getElementById("tab-versus").classList.remove("active");
     document.getElementById("classic-setup").classList.remove("hidden");
     document.getElementById("extractor-setup").classList.add("hidden");
+    document.getElementById("versus-setup").classList.add("hidden");
   });
   document.getElementById("tab-extractor").addEventListener("click", function () {
     quizMode = "extractor";
     document.getElementById("tab-extractor").classList.add("active");
     document.getElementById("tab-classic").classList.remove("active");
+    document.getElementById("tab-versus").classList.remove("active");
     document.getElementById("extractor-setup").classList.remove("hidden");
     document.getElementById("classic-setup").classList.add("hidden");
+    document.getElementById("versus-setup").classList.add("hidden");
+  });
+  document.getElementById("tab-versus").addEventListener("click", function () {
+    quizMode = "versus";
+    document.getElementById("tab-versus").classList.add("active");
+    document.getElementById("tab-classic").classList.remove("active");
+    document.getElementById("tab-extractor").classList.remove("active");
+    document.getElementById("versus-setup").classList.remove("hidden");
+    document.getElementById("classic-setup").classList.add("hidden");
+    document.getElementById("extractor-setup").classList.add("hidden");
   });
 
   function renderQuizSetup() {
@@ -404,6 +417,8 @@
     document.getElementById("quiz-results").classList.add("hidden");
     document.getElementById("extractor-active").classList.add("hidden");
     document.getElementById("extractor-results").classList.add("hidden");
+    document.getElementById("versus-active").classList.add("hidden");
+    document.getElementById("versus-results").classList.add("hidden");
 
     // Classic setup
     var container = document.getElementById("quiz-levels");
@@ -432,6 +447,9 @@
 
     // Extractor setup
     renderExtractorSetup();
+
+    // Versus setup
+    renderVersusSetup();
   }
 
   document.getElementById("quiz-mixed").addEventListener("click", function () {
@@ -956,6 +974,252 @@
     startExtractor(extractor.level);
   });
   document.getElementById("extractor-results-home").addEventListener("click", function () {
+    renderQuizSetup();
+  });
+
+  // ---- Versus Quiz ----
+  var VERSUS_QUIZ_LENGTH = 10;
+
+  var versus = {
+    level: null,
+    questions: [],
+    current: 0,
+    score: 0,
+    answers: []
+  };
+
+  function getVersusScoreKey(level) {
+    return level ? "vs-" + level : "vs-mixed";
+  }
+
+  function renderVersusSetup() {
+    var container = document.getElementById("versus-levels");
+    var html = "";
+    for (var lvl = 1; lvl <= 4; lvl++) {
+      var info = window.LEVEL_INFO[lvl];
+      var scoreKey = getVersusScoreKey(lvl);
+      var best = state.quizScores[scoreKey] ? state.quizScores[scoreKey].best : null;
+      var scenarioCount = window.VERSUS_SCENARIOS.filter(function (s) { return s.level === lvl; }).length;
+      html += '<div class="quiz-level-card" data-level="' + lvl + '">'
+        + '<div class="quiz-level-icon">' + info.icon + '</div>'
+        + '<div class="quiz-level-info">'
+        + '<h3 style="color:' + info.color + '">Level ' + lvl + ': ' + info.name + '</h3>'
+        + '<p>' + scenarioCount + ' versus scenarios</p>'
+        + '</div>'
+        + '<div class="quiz-level-best">'
+        + (best !== null ? '<strong>' + best + '%</strong>Best' : '<span style="color:var(--text-dim)">Not tried</span>')
+        + '</div>'
+        + '</div>';
+    }
+    container.innerHTML = html;
+
+    container.querySelectorAll(".quiz-level-card").forEach(function (card) {
+      card.addEventListener("click", function () {
+        startVersus(parseInt(card.dataset.level, 10));
+      });
+    });
+  }
+
+  document.getElementById("versus-mixed").addEventListener("click", function () {
+    startVersus(null);
+  });
+
+  function startVersus(level) {
+    versus.level = level;
+    versus.current = 0;
+    versus.score = 0;
+    versus.answers = [];
+
+    var pool = window.VERSUS_SCENARIOS;
+    if (level !== null) {
+      pool = pool.filter(function (s) { return s.level === level; });
+    }
+    versus.questions = shuffleArray(pool.slice()).slice(0, VERSUS_QUIZ_LENGTH);
+
+    if (versus.questions.length === 0) {
+      alert("No versus scenarios available for this level. Please try another level or Mixed Mode.");
+      return;
+    }
+
+    document.getElementById("quiz-setup").classList.add("hidden");
+    document.getElementById("versus-results").classList.add("hidden");
+    document.getElementById("versus-active").classList.remove("hidden");
+
+    document.getElementById("versus-total").textContent = versus.questions.length;
+    renderVersusQuestion();
+  }
+
+  function renderVersusQuestion() {
+    var q = versus.questions[versus.current];
+    document.getElementById("versus-question-num").textContent = versus.current + 1;
+    document.getElementById("versus-score").textContent = versus.score;
+    document.getElementById("versus-progress-fill").style.width =
+      ((versus.current / versus.questions.length) * 100) + "%";
+
+    document.getElementById("versus-scenario").innerHTML = renderParagraphsHTML(q.text, "scenario-paragraph");
+
+    // Show the distinction hint
+    document.getElementById("versus-distinction").innerHTML =
+      '<div class="versus-distinction-text">💡 <strong>Key difference:</strong> ' + escapeHTML(q.distinction) + '</div>';
+
+    // Show two options (correct and wrong, shuffled)
+    var correctFallacy = window.FALLACIES_DATA.find(function (f) { return f.id === q.correctId; });
+    var wrongFallacy = window.FALLACIES_DATA.find(function (f) { return f.id === q.wrongId; });
+
+    var options = [
+      { id: q.correctId, name: correctFallacy ? correctFallacy.name : q.correctId, definition: correctFallacy ? correctFallacy.definition : "" },
+      { id: q.wrongId, name: wrongFallacy ? wrongFallacy.name : q.wrongId, definition: wrongFallacy ? wrongFallacy.definition : "" }
+    ];
+    shuffleArray(options);
+
+    var optionsEl = document.getElementById("versus-options");
+    optionsEl.innerHTML = options.map(function (opt) {
+      return '<button class="versus-option-btn" data-id="' + opt.id + '">'
+        + '<span class="versus-option-name">' + escapeHTML(opt.name) + '</span>'
+        + '<span class="versus-option-def">' + escapeHTML(opt.definition) + '</span>'
+        + '</button>';
+    }).join("");
+
+    optionsEl.querySelectorAll(".versus-option-btn").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        handleVersusAnswer(btn.dataset.id);
+      });
+    });
+
+    document.getElementById("versus-feedback").classList.add("hidden");
+    document.getElementById("versus-feedback").classList.remove("correct", "wrong");
+    document.getElementById("versus-next").classList.add("hidden");
+  }
+
+  function handleVersusAnswer(chosenId) {
+    var q = versus.questions[versus.current];
+    var isCorrect = chosenId === q.correctId;
+    var chosenFallacy = window.FALLACIES_DATA.find(function (f) { return f.id === chosenId; });
+    var correctFallacy = window.FALLACIES_DATA.find(function (f) { return f.id === q.correctId; });
+
+    if (isCorrect) versus.score++;
+
+    versus.answers.push({
+      text: q.text,
+      correctId: q.correctId,
+      correctName: correctFallacy ? correctFallacy.name : q.correctId,
+      chosenId: chosenId,
+      chosenName: chosenFallacy ? chosenFallacy.name : chosenId,
+      explanation: q.explanation,
+      distinction: q.distinction,
+      level: q.level,
+      correct: isCorrect
+    });
+
+    // Highlight options
+    var optionsEl = document.getElementById("versus-options");
+    optionsEl.querySelectorAll(".versus-option-btn").forEach(function (btn) {
+      btn.classList.add("disabled");
+      if (btn.dataset.id === q.correctId) btn.classList.add("correct");
+      if (btn.dataset.id === chosenId && !isCorrect) btn.classList.add("wrong");
+    });
+
+    // Show feedback
+    var feedbackEl = document.getElementById("versus-feedback");
+    feedbackEl.classList.remove("hidden", "correct", "wrong");
+    feedbackEl.classList.add(isCorrect ? "correct" : "wrong");
+    feedbackEl.innerHTML = '<div class="quiz-feedback-title">'
+      + (isCorrect ? "✅ Correct!" : "❌ Incorrect — The answer is: " + escapeHTML(correctFallacy ? correctFallacy.name : q.correctId))
+      + '</div>'
+      + '<div>' + escapeHTML(q.explanation) + '</div>'
+      + '<div class="quiz-feedback-meta"><strong>Level:</strong> '
+      + escapeHTML(window.LEVEL_INFO[q.level].icon) + ' '
+      + escapeHTML(window.LEVEL_INFO[q.level].name) + " (L" + q.level + ")"
+      + "</div>";
+
+    document.getElementById("versus-next").classList.remove("hidden");
+  }
+
+  document.getElementById("versus-next").addEventListener("click", function () {
+    versus.current++;
+    if (versus.current >= versus.questions.length) {
+      showVersusResults();
+    } else {
+      renderVersusQuestion();
+    }
+  });
+
+  document.getElementById("versus-quit").addEventListener("click", function () {
+    renderQuizSetup();
+  });
+
+  function showVersusResults() {
+    document.getElementById("versus-active").classList.add("hidden");
+    document.getElementById("versus-results").classList.remove("hidden");
+
+    var total = versus.questions.length;
+    var score = versus.score;
+    var pct = Math.round((score / total) * 100);
+
+    // Update global stats
+    state.totalQuizCorrect += score;
+    state.totalQuizAnswered += total;
+
+    // Update level best
+    var lvlKey = getVersusScoreKey(versus.level);
+    if (!state.quizScores[lvlKey] || pct > state.quizScores[lvlKey].best) {
+      state.quizScores[lvlKey] = { best: pct, attempts: (state.quizScores[lvlKey] ? state.quizScores[lvlKey].attempts : 0) + 1 };
+    } else {
+      state.quizScores[lvlKey].attempts++;
+    }
+    saveState();
+
+    document.getElementById("versus-results-score-num").textContent = score;
+    document.getElementById("versus-results-total-num").textContent = total;
+
+    var fill = document.getElementById("versus-results-bar-fill");
+    fill.style.width = "0%";
+    setTimeout(function () {
+      fill.style.width = pct + "%";
+      fill.style.background = pct >= 80 ? "var(--success)" : pct >= 50 ? "var(--warning)" : "var(--danger)";
+    }, 100);
+
+    var emoji, title, msg;
+    if (pct === 100) {
+      emoji = "🏆"; title = "Perfect Distinction!"; msg = "You can tell apart even the trickiest fallacy pairs!";
+    } else if (pct >= 80) {
+      emoji = "🎉"; title = "Excellent!"; msg = "You have a sharp eye for subtle differences between fallacies.";
+    } else if (pct >= 60) {
+      emoji = "👍"; title = "Good Job!"; msg = "You're getting better at distinguishing similar fallacies.";
+    } else if (pct >= 40) {
+      emoji = "📚"; title = "Keep Practicing!"; msg = "Review the wiki to learn the key differences between similar fallacies.";
+    } else {
+      emoji = "💪"; title = "Don't Give Up!"; msg = "Study the distinctions between similar fallacies and try again.";
+    }
+
+    document.getElementById("versus-results-emoji").textContent = emoji;
+    document.getElementById("versus-results-title").textContent = title;
+    document.getElementById("versus-results-message").textContent = msg;
+
+    // Review
+    var reviewEl = document.getElementById("versus-results-review");
+    if (versus.answers.length > 0) {
+      var reviewHTML = "<h3>Review Your Answers</h3>";
+      versus.answers.forEach(function (a, i) {
+        reviewHTML += '<div class="review-item">'
+          + '<div class="review-item-header">'
+          + '<span class="review-icon">' + (a.correct ? "✅" : "❌") + '</span>'
+          + '<span class="review-answer">Q' + (i + 1) + ': You chose: ' + escapeHTML(a.chosenName) + '</span>'
+          + '</div>';
+        if (!a.correct) {
+          reviewHTML += '<div class="review-correct-answer">Correct answer: ' + escapeHTML(a.correctName) + '</div>';
+        }
+        reviewHTML += '<div class="review-explanation">' + escapeHTML(a.explanation) + '</div>'
+          + '</div>';
+      });
+      reviewEl.innerHTML = reviewHTML;
+    }
+  }
+
+  document.getElementById("versus-results-retry").addEventListener("click", function () {
+    startVersus(versus.level);
+  });
+  document.getElementById("versus-results-home").addEventListener("click", function () {
     renderQuizSetup();
   });
 

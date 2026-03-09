@@ -1206,6 +1206,93 @@ body {
   color: var(--text-dim);
 }
 
+/* --- Versus Mode --- */
+.versus-distinction {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  padding: 14px 16px;
+  background: rgba(108, 99, 255, 0.08);
+  border: 1px solid rgba(108, 99, 255, 0.2);
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.versus-distinction-text {
+  color: var(--text-muted);
+}
+
+.versus-distinction-text strong {
+  color: var(--text);
+}
+
+.versus-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.versus-option-btn {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  padding: 16px 20px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.versus-option-btn:hover:not(.disabled) {
+  border-color: var(--primary);
+  background: var(--bg-card-hover);
+  transform: translateY(-1px);
+}
+
+.versus-option-name {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.versus-option-def {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.versus-option-btn.disabled {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.versus-option-btn.correct {
+  border-color: var(--success);
+  background: rgba(34, 197, 94, 0.1);
+  opacity: 1;
+}
+
+.versus-option-btn.wrong {
+  border-color: var(--danger);
+  background: rgba(239, 68, 68, 0.1);
+  opacity: 1;
+}
+
+@media (min-width: 640px) {
+  .versus-options {
+    flex-direction: row;
+  }
+
+  .versus-option-btn {
+    flex: 1;
+  }
+}
+
 /* --- Responsive — Tablet+ --- */
 @media (min-width: 640px) {
   .stats-grid {
