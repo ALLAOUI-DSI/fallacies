@@ -5,6 +5,7 @@ window.DATA_AR = {
   fallacies: {
     "ad-hominem": {
       description: "بدلاً من مناقشة حجة شخص ما، تقوم بمهاجمة شخصيته أو خلفيته أو سماته الشخصية.\n\nهذا مغالطة لأن صحة الادعاء لا تعتمد على من يقوله. حتى الشخص المعيب يمكنه تقديم حجة صحيحة.",
+      responseStrategy: "أعِد توجيه المحادثة نحو الحجة نفسها. اسأل: «هل يمكننا التركيز على النقطة الفعلية بدلاً من الهجمات الشخصية؟»",
       examples: [
         { text: "You can't trust John's opinion on climate change — he didn't even finish college.", explanation: "John's education level doesn't determine whether his specific argument about climate change is true or false." },
         { text: "Why should we listen to her dietary advice? She's overweight herself!", explanation: "A person's own health doesn't invalidate nutritional facts they might present." },
@@ -21,6 +22,7 @@ window.DATA_AR = {
     },
     "straw-man": {
       description: "تقوم بتشويه أو تضخيم أو تبسيط موقف شخص ما، ثم تحاجج ضد تلك النسخة المشوهة. يُسمى 'رجل القش' لأنك تحارب نسخة مزيفة وأضعف من الحجة الحقيقية.",
+      responseStrategy: "أعِد صياغة موقفك الأصلي بوضوح وقل: «هذا ليس ما قلته. حجتي الفعلية هي...» ثم كرر نقطتك الحقيقية.",
       examples: [
         { text: "Person A: 'We should have stricter gun regulations.' Person B: 'Why do you want to ban all guns and leave people defenseless?'", explanation: "Person A said 'stricter regulations,' not 'ban all guns.' Person B distorted the argument." },
         { text: "Person A: 'I think kids should spend less time on social media.' Person B: 'So you want to cut kids off from all technology and go back to the Stone Age?'", explanation: "Reducing social media time is very different from eliminating all technology." },
@@ -36,6 +38,7 @@ window.DATA_AR = {
     },
     "appeal-to-authority": {
       description: "على الرغم من أهمية آراء الخبراء، تحدث هذه المغالطة عندما يستشهد شخص بسلطة غير مؤهلة في المجال ذي الصلة، أو يعامل كلام السلطة كدليل مطلق. تأييد المشاهير لعلاج طبي ليس كدراسة طبية تثبت فعاليته.",
+      responseStrategy: "اسأل ما إذا كانت السلطة المُستشهد بها خبيرة فعلاً في المجال المعني، وما إذا كان خبراء مؤهلون آخرون يتفقون معها. اطلب الأدلة وراء ادعاء السلطة، وليس مجرد اسمها.",
       examples: [
         { text: "This diet pill must work — a famous actor endorses it!", explanation: "Being a famous actor doesn't make someone a nutrition or medical expert." },
         { text: "A Nobel Prize-winning physicist says this economic policy is best, so it must be true.", explanation: "Expertise in physics doesn't transfer to expertise in economics." },
@@ -49,6 +52,7 @@ window.DATA_AR = {
     },
     "false-dilemma": {
       description: "تقديم خيارين فقط عندما تكون هناك بدائل أخرى متاحة. هذا يبسط الموقف بشكل خاطئ ويجبر على اختيار ثنائي زائف.",
+      responseStrategy: "أشِر إلى الخيارات المفقودة: «هذان ليسا الخيارين الوحيدين. ماذا عن...» واقترح بديلاً واحداً على الأقل تم إغفاله.",
       examples: [
         { text: "You're either with us or against us.", explanation: "There are many positions between full support and opposition — neutrality, partial agreement, etc." },
         { text: "Either we ban all social media or we accept that kids will be cyberbullied. There's no other option.", explanation: "Many solutions exist between a total ban and no action: education, moderation tools, age restrictions, etc." },
@@ -64,6 +68,7 @@ window.DATA_AR = {
     },
     "slippery-slope": {
       description: "الادعاء بأن حدثاً واحداً سيؤدي حتماً إلى عواقب متطرفة بشكل متزايد، دون دليل على أن سلسلة الأحداث ستحدث فعلاً.",
+      responseStrategy: "اطلب أدلة تربط كل خطوة في السلسلة. قل: «ما الدليل على أن (أ) سيؤدي فعلاً إلى (ب)، ثم (ب) إلى (ج)؟»",
       examples: [
         { text: "If we allow students to redo one test, soon they'll want to redo every assignment, and eventually nobody will study at all.", explanation: "One accommodation doesn't automatically lead to the collapse of all academic standards." },
         { text: "If we legalize marijuana, next people will want to legalize all drugs, and society will collapse.", explanation: "Each policy change is an independent decision — legalizing one substance doesn't require legalizing all." },
@@ -78,6 +83,7 @@ window.DATA_AR = {
     },
     "red-herring": {
       description: "إدخال موضوع غير ذي صلة لصرف الانتباه عن القضية الأصلية. يغير المتحدث الموضوع بدلاً من معالجة الحجة المطروحة.",
+      responseStrategy: "سمِّ الانحراف وأعِد التوجيه: «هذه مسألة منفصلة. لنبقَ في الموضوع — كنا نناقش...» وأعِد صياغة النقطة الأصلية.",
       examples: [
         { text: "Why worry about pollution from our factory? Look at all the jobs we've created!", explanation: "Job creation, while important, doesn't address the pollution concern." },
         { text: "You say I was speeding, but what about all the other drivers who speed? Why single me out?", explanation: "Others' speeding doesn't change whether you were speeding." },
@@ -93,6 +99,7 @@ window.DATA_AR = {
     },
     "bandwagon": {
       description: "الادعاء بأن شيئاً ما صحيح أو جيد لمجرد أن كثيراً من الناس يؤمنون به أو يفعلونه. الشعبية لا تحدد الحقيقة أو الجودة.",
+      responseStrategy: "أشِر إلى أن الشعبية لا تعني الصواب. اسأل: «هل يمكنك إعطائي سبباً يتجاوز حقيقة أن كثيراً من الناس يؤمنون بذلك؟»",
       examples: [
         { text: "Everyone is buying cryptocurrency, so it must be a great investment.", explanation: "Popularity doesn't determine investment quality. Many popular investments have failed." },
         { text: "Millions of people believe in astrology, so there must be something to it.", explanation: "The number of believers doesn't provide scientific evidence for astrology." },
@@ -108,6 +115,7 @@ window.DATA_AR = {
     },
     "appeal-to-emotion": {
       description: "استخدام التلاعب العاطفي بدلاً من التفكير المنطقي لإقناع شخص ما. إثارة الشفقة أو الذنب أو الحماس لا تجعل الحجة صحيحة.",
+      responseStrategy: "اعترف بالعاطفة، ثم أعِد التركيز: «أفهم أن هذا يبدو مهماً، لكن ماذا تُظهر الأدلة فعلاً؟» افصل المشاعر عن الحقائق.",
       examples: [
         { text: "Think of the children! We can't allow this policy to pass!", explanation: "Invoking concern for children without explaining how the policy actually harms them is emotional manipulation." },
         { text: "If you don't donate, this puppy will suffer. Don't you care about animals?", explanation: "Using guilt and emotional imagery doesn't address whether the charity is effective or legitimate." },
@@ -122,6 +130,7 @@ window.DATA_AR = {
     },
     "appeal-to-fear": {
       description: "استخدام الخوف أو التهديدات للإقناع بدلاً من الأدلة. تخويف الناس ليوافقوك ليس حجة منطقية.",
+      responseStrategy: "اعترف بالقلق بهدوء، ثم اسأل: «ما الاحتمال الفعلي لحدوث ذلك؟ هل يمكننا النظر إلى البيانات بدلاً من أسوأ السيناريوهات؟»",
       examples: [
         { text: "If you don't buy this security system, your family could be in danger tonight!", explanation: "Using fear of home invasion to pressure a purchase isn't a logical argument for the product's value." },
         { text: "If you don't support this law, terrorists will attack us!", explanation: "Fear of terrorism doesn't demonstrate that this specific law is effective or necessary." },
@@ -136,6 +145,7 @@ window.DATA_AR = {
     },
     "circular-reasoning": {
       description: "استخدام النتيجة كمقدمة — الحجة تدور في حلقة مفرغة. أنت تفترض ما تحاول إثباته.",
+      responseStrategy: "حدِّد الحلقة المفرغة: «أنت تستخدم استنتاجك كنقطة انطلاق. هل يمكنك تقديم دليل مستقل لا يفترض مسبقاً ما تحاول إثباته؟»",
       examples: [
         { text: "The Bible is true because it's the word of God, and we know it's the word of God because the Bible says so.", explanation: "The Bible's truth is used to prove it's God's word, and God's word is used to prove it's true — a perfect circle." },
         { text: "She's a good leader because she has great leadership qualities.", explanation: "This just restates the claim in different words without providing evidence." },
@@ -150,6 +160,7 @@ window.DATA_AR = {
     },
     "hasty-generalization": {
       description: "استخلاص نتيجة عامة من عينة صغيرة أو غير ممثلة. ملاحظة واحدة أو عدد قليل من الحالات لا يكفي لدعم ادعاء واسع.",
+      responseStrategy: "اسأل عن حجم العينة ومدى تمثيلها: «على كم حالة يستند هذا؟ هل هذا كافٍ لاستخلاص استنتاج بهذا الاتساع؟»",
       examples: [
         { text: "I met two rude people from New York, so all New Yorkers must be rude.", explanation: "Two people out of millions isn't enough to generalize about an entire city's population." },
         { text: "My last two iPhones had problems, so Apple makes terrible products.", explanation: "Two devices don't represent the quality of all Apple products across millions of units." },
@@ -163,6 +174,7 @@ window.DATA_AR = {
     },
     "tu-quoque": {
       description: "رفض حجة شخص ما بالإشارة إلى أنه لا يمارس ما يدعو إليه. حتى لو كان الشخص منافقاً، فإن ذلك لا يبطل حجته.",
+      responseStrategy: "اعترف بعدم الاتساق إن كان صحيحاً، لكن أعِد التركيز: «سواء كنتُ متسقاً أم لا، فهذا لا يغير ما إذا كانت الحجة صحيحة. لنناقش النقطة نفسها.»",
       examples: [
         { text: "You say I should eat healthier, but I've seen you eating fast food!", explanation: "The other person's eating habits don't change whether the health advice is valid." },
         { text: "Don't lecture me about being late — you were late just last week!", explanation: "Someone else's tardiness doesn't make your own lateness acceptable." },
@@ -175,6 +187,7 @@ window.DATA_AR = {
     },
     "appeal-to-ignorance": {
       description: "الادعاء بأن شيئاً ما صحيح لأنه لم يُثبت خطأه، أو خاطئ لأنه لم يُثبت صحته. غياب الدليل ليس دليلاً على الغياب.",
+      responseStrategy: "وضِّح عبء الإثبات: «عدم القدرة على دحض شيء لا يجعله صحيحاً. ما الأدلة الإيجابية التي تدعم هذا الادعاء؟»",
       examples: [
         { text: "Nobody has proven that ghosts don't exist, so they must be real.", explanation: "The lack of disproof doesn't serve as proof of existence." },
         { text: "There's no evidence this food additive is harmful, so it must be perfectly safe.", explanation: "Lack of evidence of harm isn't the same as evidence of safety — it might just be understudied." },
@@ -187,6 +200,7 @@ window.DATA_AR = {
     },
     "post-hoc": {
       description: "افتراض أن (ب) حدث بسبب (أ) لمجرد أن (أ) سبق (ب). الارتباط الزمني لا يعني السببية.",
+      responseStrategy: "اطلب آلية سببية: «مجرد أن شيئاً تبع شيئاً آخر لا يعني أنه سببه. هل هناك سبب مُثبت لارتباط هذين الأمرين؟»",
       examples: [
         { text: "I wore my lucky socks and we won the game, so my socks caused the win.", explanation: "The timing is coincidental — socks have no causal power over athletic performance." },
         { text: "Crime rates dropped after we installed new street lights. The lights must have reduced crime.", explanation: "Many other factors could explain the drop — seasonal changes, increased policing, economic improvements, etc." },
@@ -200,6 +214,7 @@ window.DATA_AR = {
     },
     "loaded-question": {
       description: "طرح سؤال يحتوي على افتراض غير مثبت مدمج فيه. السؤال مصمم بحيث أي إجابة تقبل الافتراض.",
+      responseStrategy: "ارفض الافتراض المسبق قبل الإجابة: «أنا لا أقبل الافتراض المُضمَّن في هذا السؤال. دعني أعيد صياغته...» ثم اطرح نسخة عادلة.",
       examples: [
         { text: "Why do you hate freedom?", explanation: "This presumes the person hates freedom, which hasn't been established." },
         { text: "When did you stop cheating on your taxes?", explanation: "This assumes the person was cheating on taxes. Both 'I stopped last year' and 'I haven't stopped' confirm cheating." },
@@ -212,6 +227,7 @@ window.DATA_AR = {
     },
     "no-true-scotsman": {
       description: "إعادة تعريف المعايير لاستبعاد الأمثلة المضادة. عندما يُقدم مثال مضاد، يتم تغيير التعريف لاستبعاده.",
+      responseStrategy: "ثبِّت التعريف: «قبل أن نستمر، لنتفق على تعريف واضح. لا يمكنك تغييره في كل مرة يظهر فيها مثال مضاد.»",
       examples: [
         { text: "No real programmer uses that language. — But Tim uses it and he's a programmer. — Well, no REAL programmer would use it.", explanation: "The definition of 'real programmer' is being changed to exclude the counterexample." },
         { text: "True artists don't care about money. — But Picasso was very business-savvy. — Well, he wasn't a true artist then.", explanation: "Picasso is a widely recognized artist; redefining 'true artist' to exclude him is arbitrary." },
@@ -224,6 +240,7 @@ window.DATA_AR = {
     },
     "equivocation": {
       description: "استخدام كلمة ذات معانٍ متعددة كما لو كانت تعني نفس الشيء في جميع الاستخدامات. تحويل المعنى في منتصف الحجة يجعلها مضللة.",
+      responseStrategy: "نبِّه على تغيير المعنى: «أنت تستخدم هذه الكلمة بمعنيين مختلفين. لنكن دقيقين — أي معنى تقصد؟»",
       examples: [
         { text: "A feather is light. What is light cannot be dark. Therefore, a feather cannot be dark.", explanation: "'Light' shifts from meaning 'not heavy' to meaning 'not dark' — two completely different meanings." },
         { text: "The sign said 'fine for parking here,' so I parked. It must be fine!", explanation: "'Fine' as a penalty vs. 'fine' as acceptable — two different meanings." },
@@ -237,6 +254,7 @@ window.DATA_AR = {
     },
     "composition-division": {
       description: "افتراض أن ما ينطبق على الأجزاء ينطبق على الكل (التركيب)، أو أن ما ينطبق على الكل ينطبق على كل جزء (التقسيم).",
+      responseStrategy: "ميِّز بين الأجزاء والكل: «ما ينطبق على الأجزاء الفردية لا ينطبق بالضرورة على المجموعة، والعكس صحيح. هل يمكنك إثبات أنه ينطبق على كلا المستويين؟»",
       examples: [
         { text: "Every player on this team is a star, so this must be the best team in the league.", explanation: "Individual talent doesn't guarantee team chemistry, strategy, or overall performance." },
         { text: "Atoms are invisible. Humans are made of atoms. Therefore, humans are invisible.", explanation: "Properties of atoms don't necessarily transfer to the larger structures they compose." },
@@ -250,6 +268,7 @@ window.DATA_AR = {
     },
     "appeal-to-nature": {
       description: "الادعاء بأن شيئاً ما جيد لأنه طبيعي أو سيئ لأنه غير طبيعي. كون الشيء طبيعياً لا يجعله تلقائياً جيداً أو آمناً.",
+      responseStrategy: "قدِّم أمثلة مضادة: «كثير من الأشياء الطبيعية ضارة وكثير من الأشياء الاصطناعية مفيدة. هل يمكنك شرح لماذا كونه طبيعياً يجعله أفضل تحديداً؟»",
       examples: [
         { text: "Herbal remedies are better than medicine because they're all natural.", explanation: "Many effective medicines are synthetic, and many natural substances are toxic. 'Natural' doesn't mean 'better.'" },
         { text: "Homosexuality is unnatural, so it's wrong.", explanation: "Same-sex behavior is observed across many species in nature. But regardless, naturalness doesn't determine morality." },
@@ -262,6 +281,7 @@ window.DATA_AR = {
     },
     "genetic-fallacy": {
       description: "الحكم على شيء بأنه جيد أو سيئ بناءً على مصدره أو أصله، بدلاً من تقييم قيمته الحالية.",
+      responseStrategy: "افصل الأصل عن القيمة: «مصدر الفكرة لا يحدد ما إذا كانت صحيحة. لنقيِّم الحجة بناءً على أدلتها الخاصة.»",
       examples: [
         { text: "That idea came from a controversial politician, so it must be bad.", explanation: "The origin of an idea doesn't determine its quality. Even controversial figures can have good ideas." },
         { text: "This tradition has been around for centuries, so it must be valuable.", explanation: "Age of a practice doesn't prove its value — many old traditions have been harmful." },
@@ -274,6 +294,7 @@ window.DATA_AR = {
     },
     "middle-ground": {
       description: "افتراض أن الحقيقة يجب أن تكون حلاً وسطاً بين موقفين متعارضين. أحياناً يكون أحد الجانبين على حق بالكامل.",
+      responseStrategy: "أشِر إلى أن الحقيقة ليست دائماً في الوسط: «الحل الوسط ممتاز للمفاوضات، لكن الحقائق لا تُحسم بتقسيم الفارق. ماذا تدعم الأدلة؟»",
       examples: [
         { text: "Some scientists say the Earth is 4.5 billion years old and others say 6,000 years. The truth is probably somewhere in between.", explanation: "The scientific evidence overwhelmingly supports 4.5 billion years — the middle isn't automatically correct." },
         { text: "She says the project will take 2 weeks, he says 2 years. Let's compromise and say 6 months.", explanation: "The correct timeline should be based on analysis, not splitting the difference between estimates." },
@@ -286,6 +307,7 @@ window.DATA_AR = {
     },
     "texas-sharpshooter": {
       description: "انتقاء مجموعات البيانات التي تناسب حجة ما مع تجاهل البيانات التي لا تتوافق. مثل رسم الهدف حول مكان سقوط الرصاصات.",
+      responseStrategy: "اسأل ما إذا كان النمط قد تم التنبؤ به قبل جمع البيانات، أم اكتُشف بعد ذلك. قل: «هل تختار فقط البيانات التي تتوافق مع استنتاجك؟»",
       examples: [
         { text: "A psychic predicted 'something bad will happen in a major city' and then points to any negative event as proof.", explanation: "The prediction was so vague that almost any event could confirm it — the target was drawn after the shot." },
         { text: "This neighborhood has a cancer cluster, so the local power plant must be causing it.", explanation: "Random variation can produce clusters. Without controlled study, you can't assume the power plant is the cause." },
@@ -298,6 +320,7 @@ window.DATA_AR = {
     },
     "burden-of-proof": {
       description: "نقل عبء الإثبات إلى الطرف الخاطئ. من يقدم الادعاء هو من يجب عليه تقديم الدليل.",
+      responseStrategy: "ذكِّرهم بمن يتحمل عبء الإثبات: «أنت من أطلق الادعاء، لذا تقع عليك مسؤولية تقديم الأدلة. لست بحاجة لدحض شيء لم يُثبَت.»",
       examples: [
         { text: "I believe aliens built the pyramids. Can you prove they didn't?", explanation: "The person claiming alien construction has the burden of providing evidence for their extraordinary claim." },
         { text: "This supplement cures all diseases until someone proves it doesn't.", explanation: "Medical claims require evidence from the claimant, not disproof from skeptics." },
@@ -310,6 +333,7 @@ window.DATA_AR = {
     },
     "anecdotal": {
       description: "استخدام التجربة الشخصية بدلاً من الأدلة المنهجية. قصة واحدة لا تثبت نمطاً عاماً.",
+      responseStrategy: "اعترف بالقصة، ثم وسِّع النطاق: «هذه حالة مثيرة للاهتمام، لكن ماذا تقول البيانات الإجمالية؟ مثال واحد لا يمثل الصورة الكاملة.»",
       examples: [
         { text: "My grandfather smoked his whole life and lived to 95, so smoking can't be that bad.", explanation: "One person's experience doesn't change the statistical reality that smoking significantly increases health risks." },
         { text: "I never wear a seatbelt and I've never been hurt, so seatbelts are unnecessary.", explanation: "Personal luck doesn't negate decades of data showing seatbelts save lives." },
@@ -322,6 +346,7 @@ window.DATA_AR = {
     },
     "cherry-picking": {
       description: "اختيار البيانات التي تدعم موقفك فقط وتجاهل البيانات التي تتعارض معه. تقديم صورة غير مكتملة لدعم استنتاج مسبق.",
+      responseStrategy: "اطلب الصورة الكاملة: «هل هناك دراسات أو بيانات تتجاهلها؟ أريد رؤية جميع الأدلة، وليس فقط الأجزاء التي تدعم موقفك.»",
       examples: [
         { text: "Our company is doing great — look at our sales in December! (Ignores declining sales for the other 11 months)", explanation: "Highlighting one good month while ignoring an overall downward trend is cherry picking." },
         { text: "This city is very safe — here are five neighborhoods with low crime rates. (Ignores high-crime areas)", explanation: "Selecting only safe neighborhoods gives a misleading picture of overall city safety." },
@@ -334,6 +359,7 @@ window.DATA_AR = {
     },
     "motte-and-bailey": {
       description: "التبديل بين ادعاء مثير للجدل (القلعة الخارجية) وادعاء يسهل الدفاع عنه (القلعة الداخلية) عند التعرض للتحدي.",
+      responseStrategy: "ثبِّتهم على ادعائهم الأصلي: «حجتك الأولى كانت أقوى بكثير مما تدافع عنه الآن. هل تتمسك بادعائك الأصلي، أم أنك تغيِّر موقفك؟»",
       examples: [
         { text: "Claim: 'All modern art is meaningless garbage.' When challenged: 'I just mean some modern art is hard to understand.' Later returns to: 'Modern art is garbage.'", explanation: "The speaker retreats to a reasonable position when pressed, then returns to the extreme one." },
         { text: "Claim: 'Science can explain everything.' When challenged: 'I just mean science is a useful tool.' Then back to: 'Science explains everything.'", explanation: "The bold claim is swapped for a modest one under scrutiny, then quietly reasserted." },
@@ -346,6 +372,7 @@ window.DATA_AR = {
     },
     "kafkatrap": {
       description: "استخدام إنكار الاتهام كدليل على صحة الاتهام. أي محاولة للدفاع عن النفس تُستخدم ضدك.",
+      responseStrategy: "سمِّ الفخ صراحةً: «لقد صممت هذا بحيث تُعامَل أي إجابة أقدمها كدليل إدانة. هذا ليس إطاراً عادلاً للنقاش.»",
       examples: [
         { text: "If you deny being a bigot, that's exactly what a bigot would say.", explanation: "The accusation is unfalsifiable — denial is treated as confirmation." },
         { text: "The fact that you're getting defensive proves you're guilty.", explanation: "A natural emotional response to a false accusation is used as evidence against you." },
@@ -358,6 +385,7 @@ window.DATA_AR = {
     },
     "sealioning": {
       description: "المطالبة المستمرة بالأدلة مع التظاهر بالأدب والعقلانية. الهدف ليس التعلم بل إرهاق الخصم.",
+      responseStrategy: "ضع حدوداً واضحة: «لقد قدمت حججي. إن كنت مهتماً بصدق، إليك بعض المصادر. لست ملزماً بإعادة شرح موقفي إلى ما لا نهاية.»",
       examples: [
         { text: "\"I'm just asking questions! Can you provide a source? And for that source, can you provide a source? And explain that source?\"", explanation: "The endless requests aren't in good faith — they're designed to exhaust and frustrate." },
         { text: "\"I respectfully disagree. Could you explain exactly what you mean? And elaborate on that? And define each term? And provide three examples?\"", explanation: "The questions keep escalating, not because of genuine curiosity, but to wear down the other person." },
@@ -370,6 +398,7 @@ window.DATA_AR = {
     },
     "gish-gallop": {
       description: "إغراق الخصم بسيل من الحجج لجعل الرد مستحيلاً. الكمية تُستخدم بدلاً من الجودة.",
+      responseStrategy: "لا تلاحق كل نقطة. قل: «لقد طرحت ادعاءات كثيرة دفعة واحدة. لنتمهل ونعالجها واحدة تلو الأخرى، بدءاً من الأقوى.»",
       examples: [
         { text: "In a debate: 'What about inflation? And immigration? And the deficit? And jobs? And healthcare? And education? And taxes? And crime? And infrastructure?' (all in 30 seconds)", explanation: "Rapid-fire topics prevent any single issue from being properly discussed or rebutted." },
         { text: "An email listing 20 different complaints about a project, each requiring a detailed response, sent right before a deadline.", explanation: "The volume makes it impossible to address everything thoroughly, making the recipient look unprepared." },
@@ -382,6 +411,7 @@ window.DATA_AR = {
     },
     "nirvana-fallacy": {
       description: "رفض حل جيد لأنه ليس مثالياً. المقارنة بمعيار مستحيل بدلاً من تقييم التحسن الفعلي.",
+      responseStrategy: "أعِد صياغة المقارنة: «السؤال ليس ما إذا كان هذا الحل مثالياً، بل ما إذا كان أفضل من البديل. لا تدع الكمال يكون عدو الجيد.»",
       examples: [
         { text: "Why bother with seatbelt laws? People still die in car accidents even while wearing them.", explanation: "Seatbelts significantly reduce fatalities even though they don't prevent every death." },
         { text: "There's no point in learning Spanish because I'll never speak it as well as a native.", explanation: "Imperfect fluency is still useful — communicating is better than not communicating at all." },
@@ -394,6 +424,7 @@ window.DATA_AR = {
     },
     "reification": {
       description: "معاملة مفهوم مجرد كما لو كان شيئاً ملموساً أو مادياً. إعطاء صفات فيزيائية لأفكار مجردة.",
+      responseStrategy: "وضِّح التجريد: «هذا مفهوم مفيد، لكنه ليس كياناً حقيقياً له نوايا. لنتحدث عن الأشخاص أو الآليات المحددة المعنية فعلاً.»",
       examples: [
         { text: "The free market will decide what's best for society.", explanation: "'The free market' isn't a sentient entity that makes decisions — it's an abstraction describing many individual transactions." },
         { text: "Science says we should do X.", explanation: "'Science' doesn't say anything — scientists publish findings based on evidence. Treating 'science' as a unified authority reifies an abstract concept." },
@@ -406,6 +437,7 @@ window.DATA_AR = {
     },
     "moving-goalposts": {
       description: "تغيير معايير الإثبات أو النجاح بعد تحقيقها. بغض النظر عن الأدلة المقدمة، يتم رفع المعيار باستمرار.",
+      responseStrategy: "نبِّه على التحول: «لقد استوفيت معاييرك الأصلية. أنت الآن تطلب شيئاً مختلفاً. هل يمكننا الاتفاق على معيار ثابت قبل المتابعة؟»",
       examples: [
         { text: "You wanted a 10% sales increase? Well, now I need to see 20% before I'm convinced.", explanation: "The original target was met, but the criteria were changed to avoid accepting the result." },
         { text: "You proved X works in the lab? Well, show me it works in the real world. It works in the real world? Show me it works for 10 years.", explanation: "Each time evidence is provided, new requirements appear." },
@@ -419,6 +451,7 @@ window.DATA_AR = {
     },
     "false-equivalence": {
       description: "معاملة أشياء مختلفة بشكل كبير على أنها متساوية في المقارنة. تجاهل الاختلافات الجوهرية لخلق تكافؤ زائف.",
+      responseStrategy: "أبرِز عدم التوازن: «هذان الأمران ليسا مدعومين بالتساوي. أحدهما يملك أدلة أقوى بكثير من الآخر. لنقيِّمهما بشكل متناسب.»",
       examples: [
         { text: "Teaching both evolution and creationism in science class is fair and balanced.", explanation: "Evolution is supported by overwhelming scientific evidence; creationism is a religious belief. They aren't equivalent in a science context." },
         { text: "Both parties are equally corrupt, so it doesn't matter who you vote for.", explanation: "Even if both have issues, the degree and nature of problems likely differ significantly." },
@@ -431,6 +464,7 @@ window.DATA_AR = {
     },
     "appeal-to-tradition": {
       description: "الادعاء بأن شيئاً ما صحيح أو أفضل لأنه كان يُفعل دائماً بهذه الطريقة. القِدم لا يجعل الممارسة صحيحة.",
+      responseStrategy: "اسأل لماذا التقليد مهم هنا: «المدة التي قضيناها في فعل شيء ما لا تخبرنا إن كان الأفضل. ما الأدلة التي تُظهر أن هذا لا يزال الطريق الصحيح؟»",
       examples: [
         { text: "We've always used this filing system, so there's no reason to switch to a digital one.", explanation: "The age of a system doesn't mean it's still the best option." },
         { text: "Marriage has always been defined this way, so it should stay the same.", explanation: "Historical precedent doesn't constitute a logical argument against change." },
@@ -444,6 +478,7 @@ window.DATA_AR = {
     },
     "whataboutism": {
       description: "الرد على النقد بالإشارة إلى قضية مختلفة بدلاً من معالجة النقد الأصلي. تحويل الانتباه بدلاً من الإجابة.",
+      responseStrategy: "أعِد التوجيه إلى الموضوع الأصلي: «هذه مسألة منفصلة يمكننا مناقشتها لاحقاً. الآن، لنعالج النقطة التي أُثيرت فعلاً.»",
       examples: [
         { text: "You criticize our pollution? What about China's pollution?", explanation: "China's pollution doesn't excuse or address your own." },
         { text: "Why are you concerned about domestic issues when there are wars happening overseas?", explanation: "The existence of other problems doesn't invalidate the concern being raised." },
@@ -456,6 +491,7 @@ window.DATA_AR = {
     },
     "personal-incredulity": {
       description: "الادعاء بأن شيئاً ما غير صحيح لأنك لا تستطيع فهمه أو تخيله. عدم فهمك الشخصي لا يحدد الحقيقة.",
+      responseStrategy: "افصل الفهم عن الحقيقة: «صعوبة فهم شيء ما لا تجعله خاطئاً. لننظر إلى ما تقوله الأدلة والخبراء، لا حدسنا فقط.»",
       examples: [
         { text: "I can't understand how evolution could produce something as complex as the human eye, so it must not be true.", explanation: "Personal inability to understand a process doesn't invalidate the scientific evidence supporting it." },
         { text: "The universe can't possibly be expanding — I can't even imagine what it would expand into.", explanation: "Our inability to visualize cosmological concepts doesn't determine their truth." },
