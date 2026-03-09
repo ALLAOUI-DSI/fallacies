@@ -404,7 +404,7 @@
     answers: []       // { scenario, correctId, chosenId, correct }
   };
 
-  var quizMode = "classic"; // "classic" or "extractor"
+  var quizMode = "classic"; // "classic", "extractor", "versus", or "acebreaker"
 
   // Mode tabs
   document.getElementById("tab-classic").addEventListener("click", function () {
@@ -412,27 +412,44 @@
     document.getElementById("tab-classic").classList.add("active");
     document.getElementById("tab-extractor").classList.remove("active");
     document.getElementById("tab-versus").classList.remove("active");
+    document.getElementById("tab-acebreaker").classList.remove("active");
     document.getElementById("classic-setup").classList.remove("hidden");
     document.getElementById("extractor-setup").classList.add("hidden");
     document.getElementById("versus-setup").classList.add("hidden");
+    document.getElementById("acebreaker-setup").classList.add("hidden");
   });
   document.getElementById("tab-extractor").addEventListener("click", function () {
     quizMode = "extractor";
     document.getElementById("tab-extractor").classList.add("active");
     document.getElementById("tab-classic").classList.remove("active");
     document.getElementById("tab-versus").classList.remove("active");
+    document.getElementById("tab-acebreaker").classList.remove("active");
     document.getElementById("extractor-setup").classList.remove("hidden");
     document.getElementById("classic-setup").classList.add("hidden");
     document.getElementById("versus-setup").classList.add("hidden");
+    document.getElementById("acebreaker-setup").classList.add("hidden");
   });
   document.getElementById("tab-versus").addEventListener("click", function () {
     quizMode = "versus";
     document.getElementById("tab-versus").classList.add("active");
     document.getElementById("tab-classic").classList.remove("active");
     document.getElementById("tab-extractor").classList.remove("active");
+    document.getElementById("tab-acebreaker").classList.remove("active");
     document.getElementById("versus-setup").classList.remove("hidden");
     document.getElementById("classic-setup").classList.add("hidden");
     document.getElementById("extractor-setup").classList.add("hidden");
+    document.getElementById("acebreaker-setup").classList.add("hidden");
+  });
+  document.getElementById("tab-acebreaker").addEventListener("click", function () {
+    quizMode = "acebreaker";
+    document.getElementById("tab-acebreaker").classList.add("active");
+    document.getElementById("tab-classic").classList.remove("active");
+    document.getElementById("tab-extractor").classList.remove("active");
+    document.getElementById("tab-versus").classList.remove("active");
+    document.getElementById("acebreaker-setup").classList.remove("hidden");
+    document.getElementById("classic-setup").classList.add("hidden");
+    document.getElementById("extractor-setup").classList.add("hidden");
+    document.getElementById("versus-setup").classList.add("hidden");
   });
 
   function renderQuizSetup() {
@@ -443,6 +460,8 @@
     document.getElementById("extractor-results").classList.add("hidden");
     document.getElementById("versus-active").classList.add("hidden");
     document.getElementById("versus-results").classList.add("hidden");
+    document.getElementById("acebreaker-active").classList.add("hidden");
+    document.getElementById("acebreaker-results").classList.add("hidden");
 
     // Classic setup
     var container = document.getElementById("quiz-levels");
@@ -474,6 +493,9 @@
 
     // Versus setup
     renderVersusSetup();
+
+    // Ace Breaker setup
+    renderAceBreakerSetup();
   }
 
   document.getElementById("quiz-mixed").addEventListener("click", function () {
@@ -1244,6 +1266,241 @@
     startVersus(versus.level);
   });
   document.getElementById("versus-results-home").addEventListener("click", function () {
+    renderQuizSetup();
+  });
+
+  // ---- Ace Breaker Quiz ----
+  var ACEBREAKER_QUIZ_LENGTH = 10;
+
+  var acebreaker = {
+    level: null,
+    questions: [],
+    current: 0,
+    score: 0,
+    answers: []
+  };
+
+  function getAceBreakerScoreKey(level) {
+    return level ? "ab-" + level : "ab-mixed";
+  }
+
+  function renderAceBreakerSetup() {
+    var container = document.getElementById("acebreaker-levels");
+    var html = "";
+    for (var lvl = 1; lvl <= 4; lvl++) {
+      var info = getLevelInfo(lvl);
+      var scoreKey = getAceBreakerScoreKey(lvl);
+      var best = state.quizScores[scoreKey] ? state.quizScores[scoreKey].best : null;
+      var scenarioCount = window.ACE_BREAKER_SCENARIOS.filter(function (s) { return s.level === lvl; }).length;
+      html += '<div class="quiz-level-card" data-level="' + lvl + '">'
+        + '<div class="quiz-level-icon">' + info.icon + '</div>'
+        + '<div class="quiz-level-info">'
+        + '<h3 style="color:' + info.color + '">' + t("quiz.level") + ' ' + lvl + ': ' + info.name + '</h3>'
+        + '<p>' + scenarioCount + ' scenarios</p>'
+        + '</div>'
+        + '<div class="quiz-level-best">'
+        + (best !== null ? '<strong>' + best + '%</strong>' + t("quiz.best") : '<span style="color:var(--text-dim)">' + t("quiz.notTried") + '</span>')
+        + '</div>'
+        + '</div>';
+    }
+    container.innerHTML = html;
+
+    container.querySelectorAll(".quiz-level-card").forEach(function (card) {
+      card.addEventListener("click", function () {
+        startAceBreaker(parseInt(card.dataset.level, 10));
+      });
+    });
+  }
+
+  document.getElementById("acebreaker-mixed").addEventListener("click", function () {
+    startAceBreaker(null);
+  });
+
+  function startAceBreaker(level) {
+    acebreaker.level = level;
+    acebreaker.current = 0;
+    acebreaker.score = 0;
+    acebreaker.answers = [];
+
+    var pool = window.ACE_BREAKER_SCENARIOS;
+    if (level !== null) {
+      pool = pool.filter(function (s) { return s.level === level; });
+    }
+    acebreaker.questions = shuffleArray(pool.slice()).slice(0, ACEBREAKER_QUIZ_LENGTH);
+
+    if (acebreaker.questions.length === 0) {
+      alert("No scenarios available for this level.");
+      return;
+    }
+
+    document.getElementById("quiz-setup").classList.add("hidden");
+    document.getElementById("acebreaker-results").classList.add("hidden");
+    document.getElementById("acebreaker-active").classList.remove("hidden");
+
+    document.getElementById("acebreaker-total").textContent = acebreaker.questions.length;
+    renderAceBreakerQuestion();
+  }
+
+  function renderAceBreakerQuestion() {
+    var q = acebreaker.questions[acebreaker.current];
+    document.getElementById("acebreaker-question-num").textContent = acebreaker.current + 1;
+    document.getElementById("acebreaker-score").textContent = acebreaker.score;
+    document.getElementById("acebreaker-progress-fill").style.width =
+      ((acebreaker.current / acebreaker.questions.length) * 100) + "%";
+
+    document.getElementById("acebreaker-scenario").innerHTML = renderParagraphsHTML(q.text, "scenario-paragraph");
+
+    // Render response options
+    var optionsEl = document.getElementById("acebreaker-options");
+    optionsEl.innerHTML = q.responses.map(function (resp) {
+      return '<button class="acebreaker-option-btn" data-id="' + resp.id + '">'
+        + escapeHTML(resp.text)
+        + '</button>';
+    }).join("");
+
+    optionsEl.querySelectorAll(".acebreaker-option-btn").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        handleAceBreakerAnswer(btn.dataset.id);
+      });
+    });
+
+    document.getElementById("acebreaker-feedback").classList.add("hidden");
+    document.getElementById("acebreaker-feedback").classList.remove("correct", "wrong");
+    document.getElementById("acebreaker-next").classList.add("hidden");
+  }
+
+  function handleAceBreakerAnswer(chosenId) {
+    var q = acebreaker.questions[acebreaker.current];
+    var correctResp = q.responses.find(function (r) { return r.correct; });
+    var isCorrect = chosenId === correctResp.id;
+    var fallacy = window.FALLACIES_DATA.find(function (f) { return f.id === q.fallacyId; });
+
+    if (isCorrect) acebreaker.score++;
+
+    acebreaker.answers.push({
+      text: q.text,
+      chosenId: chosenId,
+      correctId: correctResp.id,
+      correctText: correctResp.text,
+      fallacyId: q.fallacyId,
+      fallacyName: fallacy ? fallacy.name : q.fallacyId,
+      explanation: q.explanation,
+      level: q.level,
+      correct: isCorrect
+    });
+
+    // Highlight options
+    var optionsEl = document.getElementById("acebreaker-options");
+    optionsEl.querySelectorAll(".acebreaker-option-btn").forEach(function (btn) {
+      btn.classList.add("disabled");
+      var resp = q.responses.find(function (r) { return r.id === btn.dataset.id; });
+      if (resp && resp.correct) btn.classList.add("correct");
+      if (btn.dataset.id === chosenId && !isCorrect) btn.classList.add("wrong");
+    });
+
+    // Show feedback
+    var feedbackEl = document.getElementById("acebreaker-feedback");
+    feedbackEl.classList.remove("hidden", "correct", "wrong");
+    feedbackEl.classList.add(isCorrect ? "correct" : "wrong");
+    feedbackEl.innerHTML = '<div class="quiz-feedback-title">'
+      + (isCorrect ? "✅ Correct!" : "❌ Not quite!")
+      + '</div>'
+      + '<div class="acebreaker-fallacy-reveal">🎭 <strong>Fallacy used:</strong> '
+      + escapeHTML(fallacy ? fallacy.name : q.fallacyId) + '</div>'
+      + '<div>' + escapeHTML(q.explanation) + '</div>'
+      + '<div class="quiz-feedback-meta"><strong>Level:</strong> '
+      + escapeHTML(getLevelInfo(q.level).icon) + ' '
+      + escapeHTML(getLevelInfo(q.level).name) + " (L" + q.level + ")"
+      + "</div>";
+
+    document.getElementById("acebreaker-next").classList.remove("hidden");
+  }
+
+  document.getElementById("acebreaker-next").addEventListener("click", function () {
+    acebreaker.current++;
+    if (acebreaker.current >= acebreaker.questions.length) {
+      showAceBreakerResults();
+    } else {
+      renderAceBreakerQuestion();
+    }
+  });
+
+  document.getElementById("acebreaker-quit").addEventListener("click", function () {
+    renderQuizSetup();
+  });
+
+  function showAceBreakerResults() {
+    document.getElementById("acebreaker-active").classList.add("hidden");
+    document.getElementById("acebreaker-results").classList.remove("hidden");
+
+    var total = acebreaker.questions.length;
+    var score = acebreaker.score;
+    var pct = Math.round((score / total) * 100);
+
+    // Update global stats
+    state.totalQuizCorrect += score;
+    state.totalQuizAnswered += total;
+
+    // Update level best
+    var lvlKey = getAceBreakerScoreKey(acebreaker.level);
+    if (!state.quizScores[lvlKey] || pct > state.quizScores[lvlKey].best) {
+      state.quizScores[lvlKey] = { best: pct, attempts: (state.quizScores[lvlKey] ? state.quizScores[lvlKey].attempts : 0) + 1 };
+    } else {
+      state.quizScores[lvlKey].attempts++;
+    }
+    saveState();
+
+    document.getElementById("acebreaker-results-score-num").textContent = score;
+    document.getElementById("acebreaker-results-total-num").textContent = total;
+
+    var fill = document.getElementById("acebreaker-results-bar-fill");
+    fill.style.width = "0%";
+    setTimeout(function () {
+      fill.style.width = pct + "%";
+      fill.style.background = pct >= 80 ? "var(--success)" : pct >= 50 ? "var(--warning)" : "var(--danger)";
+    }, 100);
+
+    var emoji, title, msg;
+    if (pct === 100) {
+      emoji = "🏆"; title = "Perfect Score!"; msg = "You're an ace breaker master!";
+    } else if (pct >= 80) {
+      emoji = "🎉"; title = "Excellent!"; msg = "You know how to counter most fallacies!";
+    } else if (pct >= 60) {
+      emoji = "👍"; title = "Good Job!"; msg = "You're getting better at breaking fallacious arguments.";
+    } else if (pct >= 40) {
+      emoji = "📚"; title = "Keep Learning!"; msg = "Study the response strategies in the wiki to improve.";
+    } else {
+      emoji = "💪"; title = "Don't Give Up!"; msg = "Review the fallacies and their antidotes, then try again.";
+    }
+
+    document.getElementById("acebreaker-results-emoji").textContent = emoji;
+    document.getElementById("acebreaker-results-title").textContent = title;
+    document.getElementById("acebreaker-results-message").textContent = msg;
+
+    // Review
+    var reviewEl = document.getElementById("acebreaker-results-review");
+    if (acebreaker.answers.length > 0) {
+      var reviewHTML = "<h3>Answer Review</h3>";
+      acebreaker.answers.forEach(function (a, i) {
+        reviewHTML += '<div class="review-item">'
+          + '<div class="review-item-header">'
+          + '<span class="review-icon">' + (a.correct ? "✅" : "❌") + '</span>'
+          + '<span class="review-answer">Q' + (i + 1) + ': 🎭 ' + escapeHTML(a.fallacyName) + '</span>'
+          + '</div>';
+        if (!a.correct) {
+          reviewHTML += '<div class="review-correct-answer">Best response: ' + escapeHTML(a.correctText) + '</div>';
+        }
+        reviewHTML += '<div class="review-explanation">' + escapeHTML(a.explanation) + '</div>'
+          + '</div>';
+      });
+      reviewEl.innerHTML = reviewHTML;
+    }
+  }
+
+  document.getElementById("acebreaker-results-retry").addEventListener("click", function () {
+    startAceBreaker(acebreaker.level);
+  });
+  document.getElementById("acebreaker-results-home").addEventListener("click", function () {
     renderQuizSetup();
   });
 
