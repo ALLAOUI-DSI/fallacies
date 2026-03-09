@@ -1,0 +1,346 @@
+{
+  "ad-hominem": {
+    "description": "Au lieu de répondre à l'argument de quelqu'un, vous attaquez son caractère, son parcours ou ses traits personnels.\n\nC'est fallacieux car la vérité d'une affirmation ne dépend pas de qui la formule. Même une personne imparfaite peut avancer un argument valide.",
+    "responseStrategy": "Redirigez la conversation vers l'argument lui-même. Demandez : « Pouvons-nous nous concentrer sur le point réel plutôt que sur les attaques personnelles ? »",
+    "examples": [
+      {
+        "text": "You can't trust John's opinion on climate change — he didn't even finish college.",
+        "explanation": "John's education level doesn't determine whether his specific argument about climate change is true or false."
+      },
+      {
+        "text": "Why should we listen to her dietary advice? She's overweight herself!",
+        "explanation": "A person's own health doesn't invalidate nutritional facts they might present."
+      },
+      {
+        "text": "Of course he supports tax cuts — he's a millionaire. His argument is worthless.",
+        "explanation": "Someone's wealth doesn't automatically make their economic reasoning incorrect."
+      },
+      {
+        "text": "She's too young to have a valid opinion on politics.",
+        "explanation": "Age alone doesn't determine the quality of a political argument."
+      },
+      {
+        "text": "His research on poverty can't be taken seriously — he grew up wealthy and never struggled a day in his life.",
+        "explanation": "The researcher's background doesn't determine whether his findings about poverty are accurate or not."
+      }
+    ],
+    "quizScenarios": [
+      {
+        "text": "\"Dr. Smith's research on vaccines is unreliable because she was once fined for a parking violation.\"\n\n\"If she breaks one law, we should ignore everything she publishes.\"",
+        "explanation": "This attacks Dr. Smith's character (a minor legal issue) instead of addressing her actual research findings."
+      },
+      {
+        "text": "\"You think we should protect the environment? That's rich coming from someone who drives an SUV.\"",
+        "explanation": "The speaker's personal choices don't invalidate the environmental argument being made."
+      },
+      {
+        "text": "\"My opponent says we need better schools, but he was a C student himself. How can we take him seriously?\"",
+        "explanation": "Past academic performance doesn't make an argument about education policy wrong."
+      },
+      {
+        "text": "\"Don't listen to her argument about education reform. She sends her kids to private school, so what does she know about public education?\"",
+        "explanation": "Where her children attend school doesn't invalidate her argument about education reform policy."
+      }
+    ]
+  },
+  "straw-man": {
+    "description": "Vous déformez, exagérez ou simplifiez la position de quelqu'un, puis vous argumentez contre cette version déformée. On l'appelle « homme de paille » car vous combattez une version fausse et plus faible du vrai argument.",
+    "responseStrategy": "Reformulez clairement votre position initiale et dites : « Ce n'est pas ce que j'ai dit. Mon argument réel est... » puis répétez votre vrai point.",
+    "examples": [
+      {
+        "text": "Person A: 'We should have stricter gun regulations.' Person B: 'Why do you want to ban all guns and leave people defenseless?'",
+        "explanation": "Person A said 'stricter regulations,' not 'ban all guns.' Person B distorted the argument."
+      },
+      {
+        "text": "Person A: 'I think kids should spend less time on social media.' Person B: 'So you want to cut kids off from all technology and go back to the Stone Age?'",
+        "explanation": "Reducing social media time is very different from eliminating all technology."
+      },
+      {
+        "text": "Person A: 'We should consider a vegetarian option in the cafeteria.' Person B: 'Why are you trying to force everyone to stop eating meat?'",
+        "explanation": "Offering an option is not the same as forcing a dietary change on everyone."
+      },
+      {
+        "text": "Person A: 'We should teach financial literacy in high school.' Person B: 'So you want to turn schools into Wall Street training grounds and forget about real education?'",
+        "explanation": "Teaching basic financial literacy is far from turning schools into 'Wall Street training grounds.' The argument is distorted."
+      }
+    ],
+    "quizScenarios": [
+      {
+        "text": "\"Senator Jones says we should invest more in diplomacy. Clearly, she wants to gut our military and leave the country undefended.\"",
+        "explanation": "Investing in diplomacy doesn't mean eliminating the military. The argument is distorted into an extreme position."
+      },
+      {
+        "text": "\"My professor suggested we read more diverse authors. So basically he thinks all classic literature is worthless garbage.\"",
+        "explanation": "Suggesting more diversity doesn't mean rejecting classics. This exaggerates the original suggestion."
+      },
+      {
+        "text": "\"You want to raise the minimum wage? So you want to destroy small businesses and crash the economy!\"",
+        "explanation": "Supporting a minimum wage increase is twisted into wanting economic destruction."
+      },
+      {
+        "text": "\"The mayor wants to add a few speed bumps to residential streets. Apparently she won't rest until driving is completely impossible in this city!\"",
+        "explanation": "Adding speed bumps to residential streets is exaggerated into making driving impossible citywide."
+      }
+    ]
+  },
+  "appeal-to-authority": {
+    "description": "Bien que les opinions d'experts comptent, ce sophisme survient quand on cite une autorité non qualifiée dans le domaine concerné, ou quand on traite la parole d'une autorité comme preuve absolue. L'endorsement d'un traitement médical par une célébrité n'est pas la même chose qu'une étude médicale prouvant son efficacité.",
+    "responseStrategy": "Demandez si l'autorité citée est réellement experte dans le domaine concerné, et si d'autres experts qualifiés sont d'accord. Exigez les preuves derrière l'affirmation de l'autorité, pas seulement son nom.",
+    "examples": [
+      {
+        "text": "This diet pill must work — a famous actor endorses it!",
+        "explanation": "Being a famous actor doesn't make someone a nutrition or medical expert."
+      },
+      {
+        "text": "A Nobel Prize-winning physicist says this economic policy is best, so it must be true.",
+        "explanation": "Expertise in physics doesn't transfer to expertise in economics."
+      },
+      {
+        "text": "My doctor says we should invest in real estate, so it must be a good financial decision.",
+        "explanation": "Medical expertise doesn't qualify someone as a financial advisor."
+      }
+    ],
+    "quizScenarios": [
+      {
+        "text": "\"This cryptocurrency is a great investment — Elon Musk tweeted about it!\"",
+        "explanation": "A tech CEO's tweet doesn't constitute reliable financial analysis, regardless of their business success."
+      },
+      {
+        "text": "\"Professor Williams, who teaches English literature, says that nuclear power is completely safe. So we shouldn't worry about it at all.\"",
+        "explanation": "An English professor's opinion on nuclear safety carries no more weight than any non-expert's view."
+      },
+      {
+        "text": "\"My dentist says this political candidate is the best choice. I trust my dentist, so I'll vote for them.\"",
+        "explanation": "Dental expertise doesn't translate to political expertise."
+      }
+    ]
+  },
+  "false-dilemma": {
+    "description": "Présenter seulement deux options alors que d'autres alternatives existent. Cela simplifie faussement la situation et force un choix binaire artificiel.",
+    "responseStrategy": "Soulignez les options manquantes : « Ce ne sont pas les deux seuls choix. Qu'en est-il de... » et proposez au moins une alternative qui a été omise.",
+    "examples": [
+      {
+        "text": "You're either with us or against us.",
+        "explanation": "There are many positions between full support and opposition — neutrality, partial agreement, etc."
+      },
+      {
+        "text": "Either we ban all social media or we accept that kids will be cyberbullied. There's no other option.",
+        "explanation": "Many solutions exist between a total ban and no action: education, moderation tools, age restrictions, etc."
+      },
+      {
+        "text": "You either support unlimited free speech or you're in favor of censorship.",
+        "explanation": "There are nuanced positions, like supporting free speech with reasonable limits."
+      },
+      {
+        "text": "In this election, you can either vote for our candidate or you're voting for the country's destruction. There is no middle ground.",
+        "explanation": "Voters have many candidates and positions to consider — framing it as one candidate vs. national destruction ignores all other options."
+      }
+    ],
+    "quizScenarios": [
+      {
+        "text": "\"We either cut all funding for the arts or we go bankrupt as a city. Those are our only two choices.\"",
+        "explanation": "There are many budget options between eliminating arts funding entirely and going bankrupt."
+      },
+      {
+        "text": "\"You can either work 80 hours a week or be a failure. There's no in-between.\"",
+        "explanation": "Success is not binary, and there are many work-life balance configurations that lead to fulfillment."
+      },
+      {
+        "text": "\"Either you believe everything the government says, or you're a conspiracy theorist.\"",
+        "explanation": "There's a wide range between blind trust and conspiracy theories — healthy skepticism exists."
+      },
+      {
+        "text": "\"We can either keep the current tax system exactly as it is, or we can adopt a completely flat tax rate. Those are our only options.\"",
+        "explanation": "There are many possible tax reform options beyond keeping the status quo or implementing a flat tax."
+      }
+    ]
+  },
+  "slippery-slope": {
+    "description": "Affirmer qu'un événement mènera inévitablement à des conséquences de plus en plus extrêmes, sans preuve que cette chaîne d'événements se produira réellement.",
+    "responseStrategy": "Demandez des preuves reliant chaque étape de la chaîne. Dites : « Quelle preuve y a-t-il que A mènera réellement à B, puis B à C ? »",
+    "examples": [
+      {
+        "text": "If we allow students to redo one test, soon they'll want to redo every assignment, and eventually nobody will study at all.",
+        "explanation": "One accommodation doesn't automatically lead to the collapse of all academic standards."
+      },
+      {
+        "text": "If we legalize marijuana, next people will want to legalize all drugs, and society will collapse.",
+        "explanation": "Each policy change is an independent decision — legalizing one substance doesn't require legalizing all."
+      },
+      {
+        "text": "If you skip one day of exercise, you'll lose your motivation, stop working out entirely, and become unhealthy.",
+        "explanation": "Missing one workout doesn't inevitably lead to abandoning fitness altogether."
+      },
+      {
+        "text": "If we let students use calculators on tests, they'll never learn basic arithmetic, then they won't understand algebra, and eventually our entire workforce will be mathematically illiterate.",
+        "explanation": "Each step in this chain of consequences is presented as inevitable, but none actually follows necessarily from the previous one."
+      }
+    ],
+    "quizScenarios": [
+      {
+        "text": "\"If we let employees work from home on Fridays, soon they'll want every day remote, then they'll stop showing up to meetings, and eventually the company will fall apart.\"",
+        "explanation": "Each step in this chain is assumed without evidence. Friday remote work doesn't inevitably lead to company collapse."
+      },
+      {
+        "text": "\"If we allow phones in classrooms for educational purposes, students will start gaming, then they'll stop paying attention entirely, and test scores will plummet to zero.\"",
+        "explanation": "Allowing limited phone use doesn't automatically trigger an unstoppable chain of negative academic outcomes."
+      },
+      {
+        "text": "\"If we start offering free lunch to all students, next they'll want free books, then free uniforms, then free transportation, and before you know it, taxpayers will be paying for students' college tuition and housing.\"",
+        "explanation": "Each step is presented as an inevitable consequence of the previous one, but none of these extensions actually follow necessarily."
+      }
+    ]
+  },
+  "red-herring": {
+    "description": "Introduire un sujet sans rapport pour détourner l'attention du problème original. L'orateur change de sujet au lieu de traiter l'argument en question.",
+    "responseStrategy": "Nommez la diversion et recentrez : « C'est un sujet distinct. Restons sur le sujet — nous discutions de... » et reformulez le point initial.",
+    "examples": [
+      {
+        "text": "Why worry about pollution from our factory? Look at all the jobs we've created!",
+        "explanation": "Job creation, while important, doesn't address the pollution concern."
+      },
+      {
+        "text": "You say I was speeding, but what about all the other drivers who speed? Why single me out?",
+        "explanation": "Others' speeding doesn't change whether you were speeding."
+      },
+      {
+        "text": "We shouldn't discuss the CEO's salary increase when there are children starving in the world.",
+        "explanation": "World hunger, while serious, is unrelated to the discussion about CEO compensation."
+      },
+      {
+        "text": "When asked about missing project deadlines, he responded: 'But look at how great our customer satisfaction scores have been this quarter!'",
+        "explanation": "Customer satisfaction scores are irrelevant to the question about why project deadlines were missed."
+      }
+    ],
+    "quizScenarios": [
+      {
+        "text": "\"You're asking about our data privacy practices? Let me tell you about our amazing new product features and how they help customers!\"",
+        "explanation": "Product features are irrelevant to data privacy concerns. The topic is deliberately changed."
+      },
+      {
+        "text": "\"Critics say our education budget is too low. But let's talk about how our sports teams are performing better than ever!\"",
+        "explanation": "Sports performance doesn't address the adequacy of education funding."
+      },
+      {
+        "text": "\"You want to discuss my missed deadlines? Well, I think we should focus on how Lisa is always late to meetings.\"",
+        "explanation": "Lisa's punctuality is irrelevant to the discussion about your missed deadlines."
+      },
+      {
+        "text": "\"Why haven't you submitted your report yet?\" \"Well, did you know that our team actually won the innovation award last month? We should really be celebrating that.\"",
+        "explanation": "Bringing up an innovation award is a diversion from the question about the late report."
+      }
+    ]
+  },
+  "bandwagon": {
+    "description": "Affirmer que quelque chose est vrai ou bon simplement parce que beaucoup de gens le croient ou le font. La popularité ne détermine pas la vérité ou la qualité.",
+    "responseStrategy": "Soulignez que la popularité n'est pas synonyme de vérité. Demandez : « Pouvez-vous me donner une raison au-delà du fait que beaucoup de gens y croient ? »",
+    "examples": [
+      {
+        "text": "Everyone is buying cryptocurrency, so it must be a great investment.",
+        "explanation": "Popularity doesn't determine investment quality. Many popular investments have failed."
+      },
+      {
+        "text": "Millions of people believe in astrology, so there must be something to it.",
+        "explanation": "The number of believers doesn't provide scientific evidence for astrology."
+      },
+      {
+        "text": "This restaurant always has a long line, so the food must be amazing.",
+        "explanation": "Popularity can be due to marketing, location, or trends — not necessarily food quality."
+      },
+      {
+        "text": "Everyone in the office is switching to standing desks. You should too — it's obviously the healthier choice.",
+        "explanation": "The popularity of standing desks among coworkers doesn't establish that they're healthier for everyone."
+      }
+    ],
+    "quizScenarios": [
+      {
+        "text": "\"Nine out of ten of my friends think this movie is the best ever made. You should watch it — it's clearly a masterpiece.\"",
+        "explanation": "Your friends' opinions, even if numerous, don't objectively determine a film's quality."
+      },
+      {
+        "text": "\"Over 50 million people have downloaded this app. It must be safe and trustworthy!\"",
+        "explanation": "Download numbers don't guarantee an app's security or trustworthiness."
+      },
+      {
+        "text": "\"Most people in our office skip the safety protocols, so they're probably unnecessary.\"",
+        "explanation": "Widespread non-compliance doesn't mean safety protocols are unneeded."
+      },
+      {
+        "text": "\"Most restaurants in the city have started using compostable packaging. Any restaurant that doesn't switch is clearly not serious about quality.\"",
+        "explanation": "A trend in packaging choices among restaurants doesn't determine whether a specific restaurant provides quality service."
+      }
+    ]
+  },
+  "appeal-to-emotion": {
+    "description": "Utiliser la manipulation émotionnelle au lieu du raisonnement logique pour convaincre. Susciter la pitié, la culpabilité ou l'enthousiasme ne rend pas un argument valide.",
+    "responseStrategy": "Reconnaissez l'émotion, puis recentrez : « Je comprends que cela semble important, mais que montrent réellement les preuves ? » Séparez les sentiments des faits.",
+    "examples": [
+      {
+        "text": "Think of the children! We can't allow this policy to pass!",
+        "explanation": "Invoking concern for children without explaining how the policy actually harms them is emotional manipulation."
+      },
+      {
+        "text": "If you don't donate, this puppy will suffer. Don't you care about animals?",
+        "explanation": "Using guilt and emotional imagery doesn't address whether the charity is effective or legitimate."
+      },
+      {
+        "text": "How can you support immigration reform when families are being separated? Have you no heart?",
+        "explanation": "The emotional appeal doesn't engage with the specifics of the reform being proposed."
+      },
+      {
+        "text": "We need to pass this trade agreement. Think about the children of factory workers — their innocent faces, wondering if Mommy or Daddy will have a job tomorrow.",
+        "explanation": "Emotional imagery of children's worry doesn't address the actual merits or drawbacks of the trade agreement."
+      }
+    ],
+    "quizScenarios": [
+      {
+        "text": "\"Vote for this bill or you clearly don't care about our brave veterans who sacrificed everything for our freedom.\"",
+        "explanation": "Using respect for veterans as emotional leverage doesn't address whether the specific bill is well-designed."
+      },
+      {
+        "text": "\"You would understand my business proposal if you could see my children's faces when I told them Daddy's company might fail.\"",
+        "explanation": "The emotional story about children doesn't make the business proposal sound or viable."
+      },
+      {
+        "text": "\"How can you support building a parking garage here? Imagine the beautiful old oak tree that stands there, the one where generations of couples have carved their initials. You'd destroy all those memories for concrete.\"",
+        "explanation": "Nostalgic attachment to the oak tree, while understandable, doesn't address whether the parking garage serves the community's needs."
+      }
+    ]
+  },
+  "appeal-to-fear": {
+    "description": "Utiliser la peur ou les menaces pour persuader plutôt que des preuves. Effrayer les gens pour qu'ils soient d'accord n'est pas un argument logique.",
+    "responseStrategy": "Reconnaissez la préoccupation calmement, puis demandez : « Quelle est la probabilité réelle que cela se produise ? Pouvons-nous examiner les données plutôt que les scénarios catastrophes ? »",
+    "examples": [
+      {
+        "text": "If you don't buy this security system, your family could be in danger tonight!",
+        "explanation": "Using fear of home invasion to pressure a purchase isn't a logical argument for the product's value."
+      },
+      {
+        "text": "If you don't support this law, terrorists will attack us!",
+        "explanation": "Fear of terrorism doesn't demonstrate that this specific law is effective or necessary."
+      },
+      {
+        "text": "If you question the company's direction, you might find yourself out of a job.",
+        "explanation": "This is a veiled threat, not a logical response to constructive criticism."
+      },
+      {
+        "text": "If we don't increase military spending immediately, our enemies will see us as weak and launch an attack within the year.",
+        "explanation": "Using fear of an imminent foreign attack to pressure a budget decision rather than presenting strategic analysis."
+      }
+    ],
+    "quizScenarios": [
+      {
+        "text": "\"If we don't pass this surveillance bill immediately, we are guaranteed to suffer a catastrophic attack within the year.\"",
+        "explanation": "This uses fear of an attack to rush a decision without presenting evidence that the bill would prevent such an event."
+      },
+      {
+        "text": "\"Buy our insurance plan now, or you could lose everything you own in a disaster tomorrow!\"",
+        "explanation": "While insurance is important, using scare tactics about imminent disaster replaces rational evaluation of the policy."
+      },
+      {
+        "text": "\"If we allow any form of gene editing research, we'll end up creating designer babies and eventually a class of genetically engineered super-soldiers. Is that the future you want for humanity?\"",
+        "explanation": "The argument uses a frightening sci-fi scenario rather than addressing the actual scope and regulations of the proposed research."
+      }
+    ]
+  }
+}
