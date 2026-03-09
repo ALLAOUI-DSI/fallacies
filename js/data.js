@@ -23,12 +23,14 @@ window.FALLACIES_DATA = [
       { text: "You can't trust John's opinion on climate change — he didn't even finish college.", explanation: "John's education level doesn't determine whether his specific argument about climate change is true or false." },
       { text: "Why should we listen to her dietary advice? She's overweight herself!", explanation: "A person's own health doesn't invalidate nutritional facts they might present." },
       { text: "Of course he supports tax cuts — he's a millionaire. His argument is worthless.", explanation: "Someone's wealth doesn't automatically make their economic reasoning incorrect." },
-      { text: "She's too young to have a valid opinion on politics.", explanation: "Age alone doesn't determine the quality of a political argument." }
+      { text: "She's too young to have a valid opinion on politics.", explanation: "Age alone doesn't determine the quality of a political argument." },
+      { text: "His research on poverty can't be taken seriously — he grew up wealthy and never struggled a day in his life.", explanation: "The researcher's background doesn't determine whether his findings about poverty are accurate or not." }
     ],
     quizScenarios: [
       { text: "\"Dr. Smith's research on vaccines is unreliable because she was once fined for a parking violation.\"\n\n\"If she breaks one law, we should ignore everything she publishes.\"", explanation: "This attacks Dr. Smith's character (a minor legal issue) instead of addressing her actual research findings." },
       { text: "\"You think we should protect the environment? That's rich coming from someone who drives an SUV.\"", explanation: "The speaker's personal choices don't invalidate the environmental argument being made." },
-      { text: "\"My opponent says we need better schools, but he was a C student himself. How can we take him seriously?\"", explanation: "Past academic performance doesn't make an argument about education policy wrong." }
+      { text: "\"My opponent says we need better schools, but he was a C student himself. How can we take him seriously?\"", explanation: "Past academic performance doesn't make an argument about education policy wrong." },
+      { text: "\"Don't listen to her argument about education reform. She sends her kids to private school, so what does she know about public education?\"", explanation: "Where her children attend school doesn't invalidate her argument about education reform policy." }
     ]
   },
   {
@@ -41,12 +43,14 @@ window.FALLACIES_DATA = [
     examples: [
       { text: "Person A: 'We should have stricter gun regulations.' Person B: 'Why do you want to ban all guns and leave people defenseless?'", explanation: "Person A said 'stricter regulations,' not 'ban all guns.' Person B distorted the argument." },
       { text: "Person A: 'I think kids should spend less time on social media.' Person B: 'So you want to cut kids off from all technology and go back to the Stone Age?'", explanation: "Reducing social media time is very different from eliminating all technology." },
-      { text: "Person A: 'We should consider a vegetarian option in the cafeteria.' Person B: 'Why are you trying to force everyone to stop eating meat?'", explanation: "Offering an option is not the same as forcing a dietary change on everyone." }
+      { text: "Person A: 'We should consider a vegetarian option in the cafeteria.' Person B: 'Why are you trying to force everyone to stop eating meat?'", explanation: "Offering an option is not the same as forcing a dietary change on everyone." },
+      { text: "Person A: 'We should teach financial literacy in high school.' Person B: 'So you want to turn schools into Wall Street training grounds and forget about real education?'", explanation: "Teaching basic financial literacy is far from turning schools into 'Wall Street training grounds.' The argument is distorted." }
     ],
     quizScenarios: [
       { text: "\"Senator Jones says we should invest more in diplomacy. Clearly, she wants to gut our military and leave the country undefended.\"", explanation: "Investing in diplomacy doesn't mean eliminating the military. The argument is distorted into an extreme position." },
       { text: "\"My professor suggested we read more diverse authors. So basically he thinks all classic literature is worthless garbage.\"", explanation: "Suggesting more diversity doesn't mean rejecting classics. This exaggerates the original suggestion." },
-      { text: "\"You want to raise the minimum wage? So you want to destroy small businesses and crash the economy!\"", explanation: "Supporting a minimum wage increase is twisted into wanting economic destruction." }
+      { text: "\"You want to raise the minimum wage? So you want to destroy small businesses and crash the economy!\"", explanation: "Supporting a minimum wage increase is twisted into wanting economic destruction." },
+      { text: "\"The mayor wants to add a few speed bumps to residential streets. Apparently she won't rest until driving is completely impossible in this city!\"", explanation: "Adding speed bumps to residential streets is exaggerated into making driving impossible citywide." }
     ]
   },
   {
@@ -77,12 +81,14 @@ window.FALLACIES_DATA = [
     examples: [
       { text: "You're either with us or against us.", explanation: "There are many positions between full support and opposition — neutrality, partial agreement, etc." },
       { text: "Either we ban all social media or we accept that kids will be cyberbullied. There's no other option.", explanation: "Many solutions exist between a total ban and no action: education, moderation tools, age restrictions, etc." },
-      { text: "You either support unlimited free speech or you're in favor of censorship.", explanation: "There are nuanced positions, like supporting free speech with reasonable limits." }
+      { text: "You either support unlimited free speech or you're in favor of censorship.", explanation: "There are nuanced positions, like supporting free speech with reasonable limits." },
+      { text: "In this election, you can either vote for our candidate or you're voting for the country's destruction. There is no middle ground.", explanation: "Voters have many candidates and positions to consider — framing it as one candidate vs. national destruction ignores all other options." }
     ],
     quizScenarios: [
       { text: "\"We either cut all funding for the arts or we go bankrupt as a city. Those are our only two choices.\"", explanation: "There are many budget options between eliminating arts funding entirely and going bankrupt." },
       { text: "\"You can either work 80 hours a week or be a failure. There's no in-between.\"", explanation: "Success is not binary, and there are many work-life balance configurations that lead to fulfillment." },
-      { text: "\"Either you believe everything the government says, or you're a conspiracy theorist.\"", explanation: "There's a wide range between blind trust and conspiracy theories — healthy skepticism exists." }
+      { text: "\"Either you believe everything the government says, or you're a conspiracy theorist.\"", explanation: "There's a wide range between blind trust and conspiracy theories — healthy skepticism exists." },
+      { text: "\"We can either keep the current tax system exactly as it is, or we can adopt a completely flat tax rate. Those are our only options.\"", explanation: "There are many possible tax reform options beyond keeping the status quo or implementing a flat tax." }
     ]
   },
   {
@@ -95,11 +101,13 @@ window.FALLACIES_DATA = [
     examples: [
       { text: "If we allow students to redo one test, soon they'll want to redo every assignment, and eventually nobody will study at all.", explanation: "One accommodation doesn't automatically lead to the collapse of all academic standards." },
       { text: "If we legalize marijuana, next people will want to legalize all drugs, and society will collapse.", explanation: "Each policy change is an independent decision — legalizing one substance doesn't require legalizing all." },
-      { text: "If you skip one day of exercise, you'll lose your motivation, stop working out entirely, and become unhealthy.", explanation: "Missing one workout doesn't inevitably lead to abandoning fitness altogether." }
+      { text: "If you skip one day of exercise, you'll lose your motivation, stop working out entirely, and become unhealthy.", explanation: "Missing one workout doesn't inevitably lead to abandoning fitness altogether." },
+      { text: "If we let students use calculators on tests, they'll never learn basic arithmetic, then they won't understand algebra, and eventually our entire workforce will be mathematically illiterate.", explanation: "Each step in this chain of consequences is presented as inevitable, but none actually follows necessarily from the previous one." }
     ],
     quizScenarios: [
       { text: "\"If we let employees work from home on Fridays, soon they'll want every day remote, then they'll stop showing up to meetings, and eventually the company will fall apart.\"", explanation: "Each step in this chain is assumed without evidence. Friday remote work doesn't inevitably lead to company collapse." },
-      { text: "\"If we allow phones in classrooms for educational purposes, students will start gaming, then they'll stop paying attention entirely, and test scores will plummet to zero.\"", explanation: "Allowing limited phone use doesn't automatically trigger an unstoppable chain of negative academic outcomes." }
+      { text: "\"If we allow phones in classrooms for educational purposes, students will start gaming, then they'll stop paying attention entirely, and test scores will plummet to zero.\"", explanation: "Allowing limited phone use doesn't automatically trigger an unstoppable chain of negative academic outcomes." },
+      { text: "\"If we start offering free lunch to all students, next they'll want free books, then free uniforms, then free transportation, and before you know it, taxpayers will be paying for students' college tuition and housing.\"", explanation: "Each step is presented as an inevitable consequence of the previous one, but none of these extensions actually follow necessarily." }
     ]
   },
   {
@@ -112,12 +120,14 @@ window.FALLACIES_DATA = [
     examples: [
       { text: "Why worry about pollution from our factory? Look at all the jobs we've created!", explanation: "Job creation, while important, doesn't address the pollution concern." },
       { text: "You say I was speeding, but what about all the other drivers who speed? Why single me out?", explanation: "Others' speeding doesn't change whether you were speeding." },
-      { text: "We shouldn't discuss the CEO's salary increase when there are children starving in the world.", explanation: "World hunger, while serious, is unrelated to the discussion about CEO compensation." }
+      { text: "We shouldn't discuss the CEO's salary increase when there are children starving in the world.", explanation: "World hunger, while serious, is unrelated to the discussion about CEO compensation." },
+      { text: "When asked about missing project deadlines, he responded: 'But look at how great our customer satisfaction scores have been this quarter!'", explanation: "Customer satisfaction scores are irrelevant to the question about why project deadlines were missed." }
     ],
     quizScenarios: [
       { text: "\"You're asking about our data privacy practices? Let me tell you about our amazing new product features and how they help customers!\"", explanation: "Product features are irrelevant to data privacy concerns. The topic is deliberately changed." },
       { text: "\"Critics say our education budget is too low. But let's talk about how our sports teams are performing better than ever!\"", explanation: "Sports performance doesn't address the adequacy of education funding." },
-      { text: "\"You want to discuss my missed deadlines? Well, I think we should focus on how Lisa is always late to meetings.\"", explanation: "Lisa's punctuality is irrelevant to the discussion about your missed deadlines." }
+      { text: "\"You want to discuss my missed deadlines? Well, I think we should focus on how Lisa is always late to meetings.\"", explanation: "Lisa's punctuality is irrelevant to the discussion about your missed deadlines." },
+      { text: "\"Why haven't you submitted your report yet?\" \"Well, did you know that our team actually won the innovation award last month? We should really be celebrating that.\"", explanation: "Bringing up an innovation award is a diversion from the question about the late report." }
     ]
   },
   {
@@ -130,12 +140,14 @@ window.FALLACIES_DATA = [
     examples: [
       { text: "Everyone is buying cryptocurrency, so it must be a great investment.", explanation: "Popularity doesn't determine investment quality. Many popular investments have failed." },
       { text: "Millions of people believe in astrology, so there must be something to it.", explanation: "The number of believers doesn't provide scientific evidence for astrology." },
-      { text: "This restaurant always has a long line, so the food must be amazing.", explanation: "Popularity can be due to marketing, location, or trends — not necessarily food quality." }
+      { text: "This restaurant always has a long line, so the food must be amazing.", explanation: "Popularity can be due to marketing, location, or trends — not necessarily food quality." },
+      { text: "Everyone in the office is switching to standing desks. You should too — it's obviously the healthier choice.", explanation: "The popularity of standing desks among coworkers doesn't establish that they're healthier for everyone." }
     ],
     quizScenarios: [
       { text: "\"Nine out of ten of my friends think this movie is the best ever made. You should watch it — it's clearly a masterpiece.\"", explanation: "Your friends' opinions, even if numerous, don't objectively determine a film's quality." },
       { text: "\"Over 50 million people have downloaded this app. It must be safe and trustworthy!\"", explanation: "Download numbers don't guarantee an app's security or trustworthiness." },
-      { text: "\"Most people in our office skip the safety protocols, so they're probably unnecessary.\"", explanation: "Widespread non-compliance doesn't mean safety protocols are unneeded." }
+      { text: "\"Most people in our office skip the safety protocols, so they're probably unnecessary.\"", explanation: "Widespread non-compliance doesn't mean safety protocols are unneeded." },
+      { text: "\"Most restaurants in the city have started using compostable packaging. Any restaurant that doesn't switch is clearly not serious about quality.\"", explanation: "A trend in packaging choices among restaurants doesn't determine whether a specific restaurant provides quality service." }
     ]
   },
   {
@@ -148,11 +160,13 @@ window.FALLACIES_DATA = [
     examples: [
       { text: "Think of the children! We can't allow this policy to pass!", explanation: "Invoking concern for children without explaining how the policy actually harms them is emotional manipulation." },
       { text: "If you don't donate, this puppy will suffer. Don't you care about animals?", explanation: "Using guilt and emotional imagery doesn't address whether the charity is effective or legitimate." },
-      { text: "How can you support immigration reform when families are being separated? Have you no heart?", explanation: "The emotional appeal doesn't engage with the specifics of the reform being proposed." }
+      { text: "How can you support immigration reform when families are being separated? Have you no heart?", explanation: "The emotional appeal doesn't engage with the specifics of the reform being proposed." },
+      { text: "We need to pass this trade agreement. Think about the children of factory workers — their innocent faces, wondering if Mommy or Daddy will have a job tomorrow.", explanation: "Emotional imagery of children's worry doesn't address the actual merits or drawbacks of the trade agreement." }
     ],
     quizScenarios: [
       { text: "\"Vote for this bill or you clearly don't care about our brave veterans who sacrificed everything for our freedom.\"", explanation: "Using respect for veterans as emotional leverage doesn't address whether the specific bill is well-designed." },
-      { text: "\"You would understand my business proposal if you could see my children's faces when I told them Daddy's company might fail.\"", explanation: "The emotional story about children doesn't make the business proposal sound or viable." }
+      { text: "\"You would understand my business proposal if you could see my children's faces when I told them Daddy's company might fail.\"", explanation: "The emotional story about children doesn't make the business proposal sound or viable." },
+      { text: "\"How can you support building a parking garage here? Imagine the beautiful old oak tree that stands there, the one where generations of couples have carved their initials. You'd destroy all those memories for concrete.\"", explanation: "Nostalgic attachment to the oak tree, while understandable, doesn't address whether the parking garage serves the community's needs." }
     ]
   },
   {
@@ -165,11 +179,13 @@ window.FALLACIES_DATA = [
     examples: [
       { text: "If you don't buy this security system, your family could be in danger tonight!", explanation: "Using fear of home invasion to pressure a purchase isn't a logical argument for the product's value." },
       { text: "If you don't support this law, terrorists will attack us!", explanation: "Fear of terrorism doesn't demonstrate that this specific law is effective or necessary." },
-      { text: "If you question the company's direction, you might find yourself out of a job.", explanation: "This is a veiled threat, not a logical response to constructive criticism." }
+      { text: "If you question the company's direction, you might find yourself out of a job.", explanation: "This is a veiled threat, not a logical response to constructive criticism." },
+      { text: "If we don't increase military spending immediately, our enemies will see us as weak and launch an attack within the year.", explanation: "Using fear of an imminent foreign attack to pressure a budget decision rather than presenting strategic analysis." }
     ],
     quizScenarios: [
       { text: "\"If we don't pass this surveillance bill immediately, we are guaranteed to suffer a catastrophic attack within the year.\"", explanation: "This uses fear of an attack to rush a decision without presenting evidence that the bill would prevent such an event." },
-      { text: "\"Buy our insurance plan now, or you could lose everything you own in a disaster tomorrow!\"", explanation: "While insurance is important, using scare tactics about imminent disaster replaces rational evaluation of the policy." }
+      { text: "\"Buy our insurance plan now, or you could lose everything you own in a disaster tomorrow!\"", explanation: "While insurance is important, using scare tactics about imminent disaster replaces rational evaluation of the policy." },
+      { text: "\"If we allow any form of gene editing research, we'll end up creating designer babies and eventually a class of genetically engineered super-soldiers. Is that the future you want for humanity?\"", explanation: "The argument uses a frightening sci-fi scenario rather than addressing the actual scope and regulations of the proposed research." }
     ]
   },
 
@@ -880,5 +896,204 @@ window.EXTRACTOR_PASSAGES = [
     fallacyId: "moving-goalposts",
     highlight: "Every time I meet their requirements, they add new ones.",
     explanation: "This is a Moving the Goalposts fallacy. The hiring process keeps adding new requirements after each previous requirement is met. The candidate successfully passes each test — coding, portfolio, references, cultural fit — but the criteria keep shifting. This makes it impossible to ever fully qualify, because the definition of success keeps changing. The original standards were either insufficient (poor planning) or the goalposts are being moved to avoid making a decision."
+  }
+];
+
+window.VERSUS_SCENARIOS = [
+  // ============ LEVEL 1 ============
+  {
+    level: 1,
+    text: "During a town hall meeting about proposed zoning changes, a resident stands up and says: \"Why should we listen to Mr. Thompson's proposal for mixed-use development? He's been divorced twice, he got a DUI ten years ago, and I heard he doesn't even mow his own lawn. Clearly his ideas about our neighborhood are worthless.\"",
+    correctId: "ad-hominem",
+    wrongId: "straw-man",
+    explanation: "This is Ad Hominem, not Straw Man. The speaker attacks Mr. Thompson's personal character — his divorces, DUI, and lawn care habits — rather than addressing his actual zoning proposal. A Straw Man would distort or exaggerate what Mr. Thompson's proposal actually says. Here, the proposal itself is never even discussed; only the person is attacked.",
+    distinction: "Ad Hominem attacks the person making the argument. Straw Man distorts the argument itself into a weaker version."
+  },
+  {
+    level: 1,
+    text: "A colleague proposes adding a 15-minute stretching break to the workday. Another colleague responds: \"Oh, so you think we should just turn the office into a yoga studio? Maybe we should all wear leotards and bring meditation crystals too. Some of us actually have work to do and can't spend the whole day doing downward dog.\"",
+    correctId: "straw-man",
+    wrongId: "ad-hominem",
+    explanation: "This is a Straw Man, not Ad Hominem. The response exaggerates a simple 15-minute stretching break into turning the office into a yoga studio with leotards and crystals. The original argument is distorted into an absurd extreme. While slightly dismissive, the attack is aimed at a caricature of the proposal, not at the colleague's personal character.",
+    distinction: "Straw Man distorts the argument into an easier-to-attack version. Ad Hominem attacks the person's character or traits instead."
+  },
+  {
+    level: 1,
+    text: "A parent at a school board meeting raises concerns about the math curriculum being outdated. The superintendent responds: \"I appreciate your concern, but let me tell you about the incredible results our arts program achieved this year. Our students won three regional competitions, and our drama department just received state funding. We really should be celebrating these accomplishments.\"",
+    correctId: "red-herring",
+    wrongId: "straw-man",
+    explanation: "This is a Red Herring, not a Straw Man. The superintendent doesn't distort the parent's argument about the math curriculum — instead, they completely change the subject to the arts program's achievements. The math curriculum concern is simply ignored, not misrepresented. A Straw Man would involve twisting what the parent said about the math curriculum.",
+    distinction: "Red Herring changes the subject entirely to something irrelevant. Straw Man distorts the original argument but stays on the same topic."
+  },
+  {
+    level: 1,
+    text: "A politician argues against a new environmental regulation: \"If we pass this clean air act, factories will have to close, then thousands of workers will lose their jobs, then those communities will collapse, property values will plummet, and eventually entire regions of the country will become ghost towns. We can't let that happen.\"",
+    correctId: "slippery-slope",
+    wrongId: "false-dilemma",
+    explanation: "This is a Slippery Slope, not a False Dilemma. The politician chains together a series of increasingly dire consequences — factory closures leading to job losses leading to community collapse leading to ghost towns — each presented as inevitable. A False Dilemma would present only two options (e.g., 'either we reject this act or communities collapse'). Here, the focus is on the chain of escalating consequences.",
+    distinction: "Slippery Slope chains together unlikely consequences as if each inevitably leads to the next. False Dilemma presents only two options when more exist."
+  },
+  {
+    level: 1,
+    text: "A manager tries to convince her team to adopt a new project management tool: \"Over 500,000 companies worldwide use this software. Fortune 500 companies are switching to it in droves. It's the fastest-growing tool in the industry. If so many organizations trust it, it must be the right choice for us too.\"",
+    correctId: "bandwagon",
+    wrongId: "appeal-to-authority",
+    explanation: "This is a Bandwagon fallacy, not an Appeal to Authority. The argument relies on the sheer number of companies using the tool — its popularity — rather than citing a specific expert or authority figure who endorses it. Saying '500,000 companies use it' appeals to the crowd, not to any particular authority's expertise or credentials.",
+    distinction: "Bandwagon argues something is good because many people do it. Appeal to Authority argues something is good because a specific expert or authority endorses it."
+  },
+  {
+    level: 1,
+    text: "During a debate about whether to cut funding for the city orchestra, a council member says: \"Picture the elderly musicians who have devoted their entire lives to this orchestra. Imagine them packing up their instruments for the last time, tears streaming down their faces, knowing their life's passion has been taken away. How could anyone vote for that?\"",
+    correctId: "appeal-to-emotion",
+    wrongId: "appeal-to-fear",
+    explanation: "This is an Appeal to Emotion, not an Appeal to Fear. The speaker evokes sadness and sympathy — picturing tearful elderly musicians losing their passion — to persuade the audience. An Appeal to Fear would use threats or frightening consequences (e.g., 'crime will increase without the orchestra'). Here, the emotional manipulation works through compassion and guilt, not fear or threat.",
+    distinction: "Appeal to Emotion uses feelings like sadness, sympathy, or guilt to persuade. Appeal to Fear specifically uses threats or frightening scenarios."
+  },
+  // ============ LEVEL 2 ============
+  {
+    level: 2,
+    text: "A senator argues against a campaign finance bill: \"My opponent says we need stricter donation limits, but let's not forget that she herself accepted a $50,000 donation from a tech lobbyist last year. She's a hypocrite — her argument for reform is meaningless when she does the exact same thing she's criticizing.\"",
+    correctId: "tu-quoque",
+    wrongId: "ad-hominem",
+    explanation: "This is Tu Quoque ('you do it too'), not a general Ad Hominem. The senator specifically points out that his opponent engages in the same behavior she's trying to regulate — accepting large donations while advocating for donation limits. While all tu quoque is a form of ad hominem, the key feature here is the hypocrisy charge. A general ad hominem would attack unrelated personal characteristics.",
+    distinction: "Tu Quoque specifically accuses someone of hypocrisy ('you do it too'). Ad Hominem attacks the person's character in general without focusing on hypocrisy."
+  },
+  {
+    level: 2,
+    text: "A marketing executive presents a strategy: \"My neighbor switched to organic social media marketing and her small bakery's sales tripled in two months. My college roommate did the same for his consulting firm and got amazing results too. Based on these cases, organic social media marketing clearly works better than paid advertising for all businesses.\"",
+    correctId: "hasty-generalization",
+    wrongId: "anecdotal-evidence",
+    explanation: "This is a Hasty Generalization, not merely Anecdotal Evidence. The key element is the sweeping conclusion — that organic social media marketing 'clearly works better for all businesses' — drawn from just two cases. While personal stories are used, the fallacy is specifically in generalizing from a tiny sample to all businesses. Anecdotal Evidence would simply use a personal story as proof without necessarily making such a broad universal claim.",
+    distinction: "Hasty Generalization draws a broad conclusion from too few cases. Anecdotal Evidence uses personal stories as proof in place of stronger evidence."
+  },
+  {
+    level: 2,
+    text: "A sports commentator analyzes a team's season: \"Ever since the team started playing their new fight song before games in March, they've won 15 out of 18 games. Before that, they were 8-12. The fight song clearly energizes the players and has turned their season around. The music is the reason for their success.\"",
+    correctId: "post-hoc",
+    wrongId: "slippery-slope",
+    explanation: "This is Post Hoc (after this, therefore because of this), not a Slippery Slope. The commentator observes that improved performance followed the introduction of a fight song and concludes the song caused the improvement. This confuses correlation with causation. A Slippery Slope would chain together future consequences (e.g., 'if we stop the song, morale drops, then attendance drops, then the team folds').",
+    distinction: "Post Hoc claims that because B followed A, A must have caused B. Slippery Slope claims that A will inevitably lead to B, then C, then D in the future."
+  },
+  {
+    level: 2,
+    text: "In a philosophy class discussion, a student argues: \"Freedom of speech is important because people should be free to express themselves. And people should be free to express themselves because freedom of speech is a fundamental right. It's important because it's fundamental, and it's fundamental because it's important.\"",
+    correctId: "circular-reasoning",
+    wrongId: "appeal-to-authority",
+    explanation: "This is Circular Reasoning, not an Appeal to Authority. The student's argument goes in a circle — freedom of speech is important because people should be free to speak, and people should be free to speak because freedom of speech is important. The conclusion is used as its own premise. No authority figure or expert is cited to support the claim; the argument simply restates itself.",
+    distinction: "Circular Reasoning uses its own conclusion as a premise, going in a logical circle. Appeal to Authority cites a person or institution as evidence for a claim."
+  },
+  {
+    level: 2,
+    text: "In a debate about healthcare, someone argues: \"No true advocate for public health would oppose mandatory vaccinations. What about Dr. Rivera, who supports public health but thinks some vaccines should remain optional? Well, she's not a real public health advocate then — a genuine one would never say that.\"",
+    correctId: "no-true-scotsman",
+    wrongId: "hasty-generalization",
+    explanation: "This is No True Scotsman, not a Hasty Generalization. When confronted with Dr. Rivera as a counterexample, the speaker redefines 'true public health advocate' to exclude anyone who disagrees, rather than accepting the counterexample. A Hasty Generalization would draw a broad conclusion from too few examples. Here the fallacy is in protecting a claim by changing the definition of the group.",
+    distinction: "No True Scotsman redefines a group to exclude counterexamples. Hasty Generalization draws broad conclusions from an insufficient number of cases."
+  },
+  {
+    level: 2,
+    text: "A journalist asks a politician: \"When did you stop misusing campaign funds?\" The politician objects, but the journalist presses: \"It's a simple question — just tell the public when you stopped. Your refusal to give a date only makes you look more guilty.\"",
+    correctId: "loaded-question",
+    wrongId: "false-dilemma",
+    explanation: "This is a Loaded Question, not a False Dilemma. The question 'When did you stop misusing campaign funds?' presupposes that the politician was misusing funds — the assumption is embedded in the question itself. Any direct answer would accept this unproven premise. A False Dilemma would present only two options. Here the trap is the hidden assumption baked into the question, not a limitation of choices.",
+    distinction: "A Loaded Question embeds an unproven assumption that any answer would accept. A False Dilemma presents only two options when more exist."
+  },
+  // ============ LEVEL 3 ============
+  {
+    level: 3,
+    text: "A pharmaceutical company publishes a report showing their new drug is effective, citing 15 studies. However, a review reveals that 40 studies were actually conducted — the company only published the 15 with positive results and buried the 25 that showed no benefit or harmful side effects. \"Our research clearly demonstrates the drug's effectiveness,\" the company states.",
+    correctId: "cherry-picking",
+    wrongId: "texas-sharpshooter",
+    explanation: "This is Cherry Picking, not a Texas Sharpshooter. The company deliberately selected only the favorable studies (15 out of 40) and suppressed the unfavorable ones. They chose the data that supported their conclusion. A Texas Sharpshooter would find a pattern in random data after the fact — like noticing a cluster in results and then claiming it was the hypothesis all along. Here, the data selection was intentional, not post-hoc pattern finding.",
+    distinction: "Cherry Picking deliberately selects only favorable data. Texas Sharpshooter finds a pattern in random data after the fact and pretends it was the target all along."
+  },
+  {
+    level: 3,
+    text: "A critic dismisses a new theory on urban development: \"That theory was developed at a university funded by real estate developers. Any idea coming from an institution with those financial ties is automatically suspect and can't be trusted, regardless of the research methods or data involved.\"",
+    correctId: "genetic-fallacy",
+    wrongId: "ad-hominem",
+    explanation: "This is a Genetic Fallacy, not an Ad Hominem. The critic judges the theory based on its institutional origin — the funding source of the university — rather than evaluating the theory's actual content, methods, or data. An Ad Hominem would attack a specific person's character. Here, no individual researcher is attacked; instead, the idea itself is dismissed solely because of where it originated.",
+    distinction: "Genetic Fallacy judges an idea by its origin or source. Ad Hominem attacks the person making the argument rather than the argument."
+  },
+  {
+    level: 3,
+    text: "A wellness influencer promotes a product: \"Our all-natural herbal supplement is better than synthetic vitamins because it comes from nature. Plants have been around for millions of years — nature knows best. Anything made in a laboratory is inherently inferior to what the earth provides naturally.\"",
+    correctId: "appeal-to-nature",
+    wrongId: "genetic-fallacy",
+    explanation: "This is an Appeal to Nature, not a Genetic Fallacy. The argument specifically claims that being 'natural' makes something inherently better — nature is good, synthetic is bad. While both fallacies involve judging by origin, Appeal to Nature specifically equates naturalness with superiority. A Genetic Fallacy more broadly judges any idea by its source (which could be a person, institution, or historical context), not specifically by whether it's natural.",
+    distinction: "Appeal to Nature assumes natural things are inherently good and artificial things are bad. Genetic Fallacy judges any argument or idea by its source or origin more broadly."
+  },
+  {
+    level: 3,
+    text: "Two city planners disagree about a new bridge. One says it should be built on the north side of the river for $50 million, with better traffic flow. The other insists it should be on the south side for $30 million, closer to residential areas. A mediator says: \"Let's compromise and build it in the middle of the river. That's the fair solution since both sides have valid points.\"",
+    correctId: "middle-ground",
+    wrongId: "false-dilemma",
+    explanation: "This is a Middle Ground (argument to moderation) fallacy, not a False Dilemma. The mediator assumes the correct answer must be a compromise between two positions — building the bridge in the middle of the river — when that compromise is actually absurd and impractical. A False Dilemma would present only two choices and exclude other options. Here, the error is assuming the middle position is automatically correct.",
+    distinction: "Middle Ground assumes the compromise between two positions is always the correct answer. False Dilemma presents only two options and excludes other possibilities."
+  },
+  {
+    level: 3,
+    text: "In an online debate about alternative medicine, someone claims: \"Acupuncture has never been proven to not work. Since science hasn't disproven it, the burden is on skeptics to show it doesn't work. Until you can prove it's ineffective, we should accept that it's a valid treatment.\"",
+    correctId: "burden-of-proof",
+    wrongId: "appeal-to-ignorance",
+    explanation: "This is a Burden of Proof fallacy, not an Appeal to Ignorance. The key element is the explicit shifting of who must provide evidence — the speaker demands that skeptics disprove acupuncture rather than providing positive evidence for its effectiveness. An Appeal to Ignorance would simply say 'it hasn't been disproven, therefore it's true.' Here, the emphasis is on shifting the obligation to the other party.",
+    distinction: "Burden of Proof shifts the obligation to prove or disprove to the wrong party. Appeal to Ignorance claims something is true simply because it hasn't been proven false."
+  },
+  {
+    level: 3,
+    text: "A lawyer argues in court: \"My client has a right to a fair trial. And 'fair' means that the jury should consider all the circumstances. By 'fair,' I also mean that the punishment should fit the crime. And a 'fair' outcome means my client goes free, because fairness demands justice, and true justice means acquittal in this case.\" The word 'fair' shifts meaning in each sentence.",
+    correctId: "equivocation",
+    wrongId: "straw-man",
+    explanation: "This is Equivocation, not a Straw Man. The lawyer uses the word 'fair' with a different meaning each time — fair trial, fair consideration, fair punishment, fair outcome — gradually shifting the definition to reach a desired conclusion. A Straw Man would distort an opponent's argument. Here, no one's argument is being misrepresented; instead, a single word is being used ambiguously to create a misleading chain of reasoning.",
+    distinction: "Equivocation exploits ambiguity by shifting the meaning of a word or phrase within an argument. Straw Man misrepresents someone else's argument to make it easier to attack."
+  },
+  // ============ LEVEL 4 ============
+  {
+    level: 4,
+    text: "A hiring manager interviews a candidate who meets every qualification listed in the job posting. The manager says: \"Yes, you have the required five years of experience, the certifications we asked for, and strong references. But we've decided that candidates also need experience with our specific proprietary software — which we didn't mention before. Oh, and we now require someone with international experience as well.\" Each time the candidate meets the criteria, new ones are introduced.",
+    correctId: "moving-goalposts",
+    wrongId: "no-true-scotsman",
+    explanation: "This is Moving the Goalposts, not No True Scotsman. The hiring manager keeps adding new requirements after the candidate meets the existing ones — the criteria for success keep shifting. No True Scotsman would involve redefining what counts as a 'qualified candidate' to exclude this person from the category. Here, the category isn't being redefined; the acceptance criteria are being changed.",
+    distinction: "Moving the Goalposts changes the criteria for success after they've been met. No True Scotsman redefines a group or category to exclude counterexamples."
+  },
+  {
+    level: 4,
+    text: "An activist makes a bold claim in an interview: \"We need to completely abolish the prison system.\" When challenged, they respond: \"All I'm saying is that we should reform how we approach criminal justice and consider alternatives to incarceration for non-violent offenders.\" When the interviewer agrees with that milder position, the activist returns to the original statement: \"Exactly — that's why we need to abolish prisons entirely.\"",
+    correctId: "motte-and-bailey",
+    wrongId: "straw-man",
+    explanation: "This is Motte and Bailey, not a Straw Man. The activist switches between a bold, controversial claim (abolish prisons — the 'bailey') and a more reasonable one (reform criminal justice — the 'motte') depending on whether they're being challenged. A Straw Man would involve distorting someone else's argument. Here, the speaker is strategically retreating to and advancing from their own positions.",
+    distinction: "Motte and Bailey switches between a bold claim and a defensible one to avoid criticism. Straw Man distorts an opponent's argument into a weaker version to attack it."
+  },
+  {
+    level: 4,
+    text: "In an online forum, a user politely asks a climate scientist for evidence: \"Could you share the specific studies you're referencing? I'd also love to see the raw data if possible. And could you explain the methodology? Also, what about this other variable — can you address that too? And this one? I'm just trying to understand, I'm genuinely curious!\" Each answer is met with five more polite but exhausting questions, never engaging with the responses provided.",
+    correctId: "sealioning",
+    wrongId: "burden-of-proof",
+    explanation: "This is Sealioning, not a Burden of Proof fallacy. The user appears to ask polite, genuine questions but never engages with the answers — instead, each response triggers even more questions. The goal is to exhaust the other person under the guise of civil inquiry. A Burden of Proof fallacy would simply demand the other side prove their claim while offering nothing. Here, the tactic is the endless, performatively polite questioning itself.",
+    distinction: "Sealioning uses persistent, superficially polite questioning to exhaust and frustrate. Burden of Proof shifts the obligation of evidence to the wrong party."
+  },
+  {
+    level: 4,
+    text: "During a debate on energy policy, a speaker rapidly states: \"Solar panels contain toxic chemicals, wind turbines kill millions of birds, nuclear power caused Chernobyl, hydroelectric dams destroy ecosystems, geothermal energy causes earthquakes, battery storage creates mining problems, and the electrical grid can't handle renewables anyway. Plus, the cost is astronomical, energy independence is a myth, and green jobs are just subsidized positions that will disappear.\" The opponent has two minutes to respond to all ten points.",
+    correctId: "gish-gallop",
+    wrongId: "red-herring",
+    explanation: "This is a Gish Gallop, not a Red Herring. The speaker overwhelms the opponent with a rapid succession of many arguments — some flawed, some misleading — making it impossible to adequately respond to all of them in the time available. A Red Herring would introduce one irrelevant topic to divert attention. Here, the arguments are arguably relevant to energy policy; the fallacy is in the sheer volume designed to overwhelm.",
+    distinction: "Gish Gallop overwhelms with a flood of many arguments that can't all be addressed. Red Herring diverts attention with a single irrelevant point."
+  },
+  {
+    level: 4,
+    text: "A city council member opposes a proposal to reduce traffic accidents by 40% through new intersection designs: \"This plan won't eliminate all traffic accidents. People will still run red lights, drive distracted, and speed in other areas. Unless we can guarantee zero accidents citywide, this expensive redesign isn't worth pursuing. Why spend millions on something that won't completely solve the problem?\"",
+    correctId: "nirvana-fallacy",
+    wrongId: "false-dilemma",
+    explanation: "This is the Nirvana Fallacy, not a False Dilemma. The council member rejects a realistic improvement (40% reduction) because it doesn't achieve a perfect solution (zero accidents). The standard being applied is unattainable perfection. A False Dilemma would present only two options. Here, the speaker isn't limiting choices — they're rejecting an imperfect but valuable solution by comparing it to an impossible ideal.",
+    distinction: "The Nirvana Fallacy rejects good solutions because they aren't perfect. False Dilemma presents only two options when more possibilities exist."
+  },
+  {
+    level: 4,
+    text: "During a workplace sensitivity training discussion, an employee says: \"I don't think I've ever been unconsciously biased in my hiring decisions.\" The trainer responds: \"Your denial of having unconscious bias is itself proof that you have deep-seated bias. The more strongly you deny it, the more it confirms how deeply embedded your bias is. If you were truly unbiased, you would readily acknowledge your bias.\"",
+    correctId: "kafkatrap",
+    wrongId: "circular-reasoning",
+    explanation: "This is a Kafkatrap, not Circular Reasoning. The trainer creates an unfalsifiable trap: denying bias is treated as proof of bias, making it impossible for the employee to defend themselves. Any denial strengthens the accusation. While similar to circular reasoning in its self-reinforcing nature, the key feature is that the accusation specifically uses the denial as evidence — a hallmark of the Kafkatrap. Circular Reasoning would simply use its conclusion as a premise without involving the accused's denial.",
+    distinction: "A Kafkatrap treats denial of an accusation as proof the accusation is true. Circular Reasoning uses its own conclusion as its premise in a logical loop."
   }
 ];
