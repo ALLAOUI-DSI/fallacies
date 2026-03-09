@@ -715,6 +715,21 @@ body {
   line-height: 1.5;
 }
 
+.response-strategy-card {
+  background: var(--bg-input);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  margin-bottom: 10px;
+  border-left: 3px solid var(--success);
+}
+
+.response-strategy-card p {
+  font-size: 0.9rem;
+  color: var(--text);
+  line-height: 1.6;
+  margin: 0;
+}
+
 .modal-mark-read {
   margin-top: 20px;
   width: 100%;

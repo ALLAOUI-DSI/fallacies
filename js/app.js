@@ -305,8 +305,18 @@
       + '<h2 class="modal-title">' + escapeHTML(getFallacyName(f)) + '</h2>'
       + '<p class="modal-category">' + t("wiki.modal.category") + ' ' + escapeHTML(translateCategory(f.category)) + '</p>'
       + '<p class="modal-definition">' + escapeHTML(getFallacyDefinition(f)) + '</p>'
-      + '<div class="modal-description">' + renderParagraphsHTML(getFallacyDescription(f), "modal-description-paragraph") + '</div>'
-      + '<h3 class="modal-section-title">' + t("wiki.modal.examples") + '</h3>';
+      + '<div class="modal-description">' + renderParagraphsHTML(getFallacyDescription(f), "modal-description-paragraph") + '</div>';
+
+    if (f.responseStrategy) {
+      html += '<div class="modal-response-strategy">'
+        + '<h3 class="modal-section-title">🛡️ Response Strategy</h3>'
+        + '<div class="response-strategy-card">'
+        + '<p>' + escapeHTML(f.responseStrategy) + '</p>'
+        + '</div>'
+        + '</div>';
+    }
+
+    html += '<h3 class="modal-section-title">' + t("wiki.modal.examples") + '</h3>';
 
     getFallacyExamples(f).forEach(function (ex) {
       html += '<div class="example-card">'
