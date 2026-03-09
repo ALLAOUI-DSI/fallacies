@@ -4,6 +4,14 @@
 (function () {
   "use strict";
 
+  // ---- i18n helpers ----
+  var t = window.I18N.t;
+  var getLevelInfo = window.I18N.getLevelInfo;
+  var getCategories = window.I18N.getCategories;
+  var translateCategory = window.I18N.translateCategory;
+  var getFallacyName = window.I18N.getFallacyName;
+  var getFallacyDefinition = window.I18N.getFallacyDefinition;
+
   // ---- State ----
   const STORAGE_KEY = "fallacy-fighter-progress";
   let state = loadState();
@@ -49,7 +57,7 @@
   function updateThemeToggleLabel() {
     var toggleBtn = document.getElementById("theme-toggle");
     if (!toggleBtn) return;
-    toggleBtn.textContent = state.theme === "light" ? "🌙 Dark mode: Off" : "🌙 Dark mode: On";
+    toggleBtn.textContent = state.theme === "light" ? t("dashboard.theme.dark.off") : t("dashboard.theme.dark.on");
   }
 
   applyTheme(state.theme);
@@ -120,22 +128,22 @@
     var percent = totalFallacies > 0 ? Math.round((readCount / totalFallacies) * 100) : 0;
 
     document.getElementById("overall-progress-fill").style.width = percent + "%";
-    document.getElementById("overall-progress-text").textContent = percent + "% Complete";
+    document.getElementById("overall-progress-text").textContent = percent + t("dashboard.complete");
 
     // Stats
     var statsGrid = document.getElementById("stats-grid");
     statsGrid.innerHTML = [
-      statCardHTML(totalFallacies, "Total Fallacies"),
-      statCardHTML(readCount, "Studied"),
-      statCardHTML(state.totalQuizCorrect, "Quiz Correct"),
-      statCardHTML(state.totalQuizAnswered, "Quiz Answered")
+      statCardHTML(totalFallacies, t("dashboard.stat.total")),
+      statCardHTML(readCount, t("dashboard.stat.studied")),
+      statCardHTML(state.totalQuizCorrect, t("dashboard.stat.quizCorrect")),
+      statCardHTML(state.totalQuizAnswered, t("dashboard.stat.quizAnswered"))
     ].join("");
 
     // Levels
     var levelsGrid = document.getElementById("levels-grid");
     var levelHTML = "";
     for (var lvl = 1; lvl <= 4; lvl++) {
-      var info = window.LEVEL_INFO[lvl];
+      var info = getLevelInfo(lvl);
       var fallaciesAtLevel = data.filter(function (f) { return f.level === lvl; });
       var readAtLevel = fallaciesAtLevel.filter(function (f) {
         return state.readFallacies.indexOf(f.id) !== -1;
@@ -154,7 +162,7 @@
         + '<span class="level-progress-text">' + lvlPercent + '%</span>'
         + '</div>'
         + '</div>'
-        + '<span class="level-count">' + fallaciesAtLevel.length + ' fallacies</span>'
+        + '<span class="level-count">' + fallaciesAtLevel.length + ' ' + t("dashboard.levels.fallacies") + '</span>'
         + '</div>';
     }
     levelsGrid.innerHTML = levelHTML;
@@ -187,9 +195,9 @@
   function renderWikiFilters() {
     // Level chips
     var levelContainer = document.getElementById("level-filter");
-    var levelHTML = '<button class="chip ' + (currentLevelFilter === "all" ? "active" : "") + '" data-level="all">All</button>';
+    var levelHTML = '<button class="chip ' + (currentLevelFilter === "all" ? "active" : "") + '" data-level="all">' + t("wiki.filter.all") + '</button>';
     for (var lvl = 1; lvl <= 4; lvl++) {
-      var info = window.LEVEL_INFO[lvl];
+      var info = getLevelInfo(lvl);
       levelHTML += '<button class="chip ' + (currentLevelFilter === lvl ? "active" : "") + '" data-level="' + lvl + '">'
         + info.icon + ' ' + info.name + '</button>';
     }
@@ -205,9 +213,9 @@
 
     // Category chips
     var catContainer = document.getElementById("category-filter");
-    var catHTML = '<button class="chip ' + (currentCategoryFilter === "all" ? "active" : "") + '" data-category="all">All</button>';
+    var catHTML = '<button class="chip ' + (currentCategoryFilter === "all" ? "active" : "") + '" data-category="all">' + t("wiki.filter.all") + '</button>';
     window.CATEGORIES.forEach(function (cat) {
-      catHTML += '<button class="chip ' + (currentCategoryFilter === cat ? "active" : "") + '" data-category="' + cat + '">' + cat + '</button>';
+      catHTML += '<button class="chip ' + (currentCategoryFilter === cat ? "active" : "") + '" data-category="' + cat + '">' + translateCategory(cat) + '</button>';
     });
     catContainer.innerHTML = catHTML;
 
@@ -221,6 +229,7 @@
     // Search
     var searchInput = document.getElementById("wiki-search");
     searchInput.value = currentSearch;
+    searchInput.placeholder = t("wiki.search.placeholder");
     searchInput.oninput = function () {
       currentSearch = searchInput.value;
       renderFallacyList();
@@ -242,7 +251,7 @@
       if (currentLevelFilter !== "all" && f.level !== currentLevelFilter) return false;
       if (currentCategoryFilter !== "all" && f.category !== currentCategoryFilter) return false;
       if (query) {
-        var searchable = (f.name + " " + f.definition + " " + f.category).toLowerCase();
+        var searchable = (getFallacyName(f) + " " + f.name + " " + getFallacyDefinition(f) + " " + f.definition + " " + translateCategory(f.category) + " " + f.category).toLowerCase();
         if (searchable.indexOf(query) === -1) return false;
       }
       return true;
@@ -251,23 +260,23 @@
     var listEl = document.getElementById("fallacy-list");
 
     if (filtered.length === 0) {
-      listEl.innerHTML = '<div class="no-results"><div class="no-results-icon">🔍</div><p>No fallacies match your filters.</p></div>';
+      listEl.innerHTML = '<div class="no-results"><div class="no-results-icon">🔍</div><p>' + t("wiki.noResults") + '</p></div>';
       return;
     }
 
     listEl.innerHTML = filtered.map(function (f) {
-      var info = window.LEVEL_INFO[f.level];
+      var info = getLevelInfo(f.level);
       var isRead = state.readFallacies.indexOf(f.id) !== -1;
       return '<div class="fallacy-card" data-id="' + f.id + '">'
         + '<div class="fallacy-level-badge">' + info.icon + '</div>'
         + '<div class="fallacy-card-body">'
         + '<div class="fallacy-card-header">'
-        + '<span class="fallacy-card-name">' + escapeHTML(f.name) + '</span>'
-        + '<span class="fallacy-card-category">' + escapeHTML(f.category) + '</span>'
+        + '<span class="fallacy-card-name">' + escapeHTML(getFallacyName(f)) + '</span>'
+        + '<span class="fallacy-card-category">' + escapeHTML(translateCategory(f.category)) + '</span>'
         + '</div>'
-        + '<div class="fallacy-card-def">' + escapeHTML(f.definition) + '</div>'
+        + '<div class="fallacy-card-def">' + escapeHTML(getFallacyDefinition(f)) + '</div>'
         + '</div>'
-        + '<div class="fallacy-read-marker ' + (isRead ? "read" : "") + '" title="' + (isRead ? "Studied" : "Not yet studied") + '"></div>'
+        + '<div class="fallacy-read-marker ' + (isRead ? "read" : "") + '" title="' + (isRead ? t("wiki.modal.studied.title") : t("wiki.modal.notStudied.title")) + '"></div>'
         + '</div>';
     }).join("");
 
@@ -282,17 +291,17 @@
     var f = window.FALLACIES_DATA.find(function (x) { return x.id === id; });
     if (!f) return;
 
-    var info = window.LEVEL_INFO[f.level];
+    var info = getLevelInfo(f.level);
     var isRead = state.readFallacies.indexOf(f.id) !== -1;
 
     var html = '<div class="modal-level-badge" style="background:' + info.color + '22;color:' + info.color + '">'
       + info.icon + ' ' + info.name
       + '</div>'
-      + '<h2 class="modal-title">' + escapeHTML(f.name) + '</h2>'
-      + '<p class="modal-category">Category: ' + escapeHTML(f.category) + '</p>'
-      + '<p class="modal-definition">' + escapeHTML(f.definition) + '</p>'
+      + '<h2 class="modal-title">' + escapeHTML(getFallacyName(f)) + '</h2>'
+      + '<p class="modal-category">' + t("wiki.modal.category") + ' ' + escapeHTML(translateCategory(f.category)) + '</p>'
+      + '<p class="modal-definition">' + escapeHTML(getFallacyDefinition(f)) + '</p>'
       + '<div class="modal-description">' + renderParagraphsHTML(f.description, "modal-description-paragraph") + '</div>'
-      + '<h3 class="modal-section-title">Examples</h3>';
+      + '<h3 class="modal-section-title">' + t("wiki.modal.examples") + '</h3>';
 
     f.examples.forEach(function (ex) {
       html += '<div class="example-card">'
@@ -301,7 +310,7 @@
         + '</div>';
     });
 
-    html += '<h3 class="modal-section-title">Quiz Scenarios</h3>';
+    html += '<h3 class="modal-section-title">' + t("wiki.modal.quizScenarios") + '</h3>';
     f.quizScenarios.forEach(function (scenario) {
       html += '<div class="example-card">'
         + '<div class="example-text">"' + escapeHTML(scenario.text) + '"</div>'
@@ -310,7 +319,7 @@
     });
 
     html += '<button class="btn ' + (isRead ? "btn-outline" : "btn-primary") + ' modal-mark-read" id="mark-read-btn">'
-      + (isRead ? "✅ Studied" : "Mark as Studied")
+      + (isRead ? t("wiki.modal.studied") : t("wiki.modal.markStudied"))
       + '</button>';
 
     document.getElementById("modal-content").innerHTML = html;
@@ -342,12 +351,12 @@
     var listEl = document.getElementById("fallacy-picker-list");
     var sorted = window.FALLACIES_DATA.slice().sort(function (a, b) {
       if (a.level !== b.level) return a.level - b.level;
-      return a.name.localeCompare(b.name);
+      return getFallacyName(a).localeCompare(getFallacyName(b));
     });
     listEl.innerHTML = sorted.map(function (f) {
-      var info = window.LEVEL_INFO[f.level];
+      var info = getLevelInfo(f.level);
       return '<button class="fallacy-picker-item" data-id="' + f.id + '">'
-        + info.icon + ' L' + f.level + " • " + escapeHTML(f.name)
+        + info.icon + ' L' + f.level + " • " + escapeHTML(getFallacyName(f))
         + '</button>';
     }).join("");
 
@@ -424,16 +433,16 @@
     var container = document.getElementById("quiz-levels");
     var html = "";
     for (var lvl = 1; lvl <= 4; lvl++) {
-      var info = window.LEVEL_INFO[lvl];
+      var info = getLevelInfo(lvl);
       var best = state.quizScores[lvl] ? state.quizScores[lvl].best : null;
       html += '<div class="quiz-level-card" data-level="' + lvl + '">'
         + '<div class="quiz-level-icon">' + info.icon + '</div>'
         + '<div class="quiz-level-info">'
-        + '<h3 style="color:' + info.color + '">Level ' + lvl + ': ' + info.name + '</h3>'
+        + '<h3 style="color:' + info.color + '">' + t("quiz.level") + ' ' + lvl + ': ' + info.name + '</h3>'
         + '<p>' + info.description + '</p>'
         + '</div>'
         + '<div class="quiz-level-best">'
-        + (best !== null ? '<strong>' + best + '%</strong>Best' : '<span style="color:var(--text-dim)">Not tried</span>')
+        + (best !== null ? '<strong>' + best + '%</strong>' + t("quiz.best") : '<span style="color:var(--text-dim)">' + t("quiz.notTried") + '</span>')
         + '</div>'
         + '</div>';
     }
@@ -489,10 +498,10 @@
           text: s.text,
           explanation: s.explanation,
           fallacyId: f.id,
-          fallacyName: f.name,
+          fallacyName: getFallacyName(f),
           level: f.level,
-          levelName: window.LEVEL_INFO[f.level].name,
-          levelIcon: window.LEVEL_INFO[f.level].icon
+          levelName: getLevelInfo(f.level).name,
+          levelIcon: getLevelInfo(f.level).icon
         });
       });
     });
@@ -527,7 +536,7 @@
       var wrongs = pool.filter(function (f) { return f.id !== q.fallacyId; });
       shuffleArray(wrongs);
       var options = wrongs.slice(0, 3).map(function (f) {
-        return { id: f.id, name: f.name };
+        return { id: f.id, name: getFallacyName(f) };
       });
       // Add correct answer
       options.push({ id: q.fallacyId, name: q.fallacyName });
@@ -607,10 +616,10 @@
     feedbackEl.classList.remove("hidden", "correct", "wrong");
     feedbackEl.classList.add(isCorrect ? "correct" : "wrong");
     feedbackEl.innerHTML = '<div class="quiz-feedback-title">'
-      + (isCorrect ? "✅ Correct!" : "❌ Incorrect — The answer is: " + escapeHTML(q.correctName))
+      + (isCorrect ? t("quiz.results.correct") : t("quiz.results.incorrect") + " " + escapeHTML(q.correctName))
       + '</div>'
       + '<div>' + escapeHTML(q.explanation) + '</div>'
-      + '<div class="quiz-feedback-meta"><strong>Level:</strong> '
+      + '<div class="quiz-feedback-meta"><strong>' + t("feedback.level") + '</strong> '
       + escapeHTML(q.levelIcon) + ' '
       + escapeHTML(q.levelName) + " (L" + q.level + ")"
       + "</div>";
@@ -664,15 +673,15 @@
 
     var emoji, title, msg;
     if (pct === 100) {
-      emoji = "🏆"; title = "Perfect Score!"; msg = "You're a fallacy-fighting master!";
+      emoji = "🏆"; title = t("results.perfect.title"); msg = t("results.perfect.msg");
     } else if (pct >= 80) {
-      emoji = "🎉"; title = "Excellent!"; msg = "You have a strong grasp of logical fallacies.";
+      emoji = "🎉"; title = t("results.excellent.title"); msg = t("results.excellent.msg");
     } else if (pct >= 60) {
-      emoji = "👍"; title = "Good Job!"; msg = "You're making great progress. Keep studying!";
+      emoji = "👍"; title = t("results.good.title"); msg = t("results.good.msg");
     } else if (pct >= 40) {
-      emoji = "📚"; title = "Keep Learning!"; msg = "Review the wiki and try again to improve your score.";
+      emoji = "📚"; title = t("results.keep.title"); msg = t("results.keep.msg");
     } else {
-      emoji = "💪"; title = "Don't Give Up!"; msg = "Study the fallacies in the wiki and come back stronger.";
+      emoji = "💪"; title = t("results.dontGiveUp.title"); msg = t("results.dontGiveUp.msg");
     }
 
     document.getElementById("results-emoji").textContent = emoji;
@@ -682,17 +691,17 @@
     // Review
     var reviewEl = document.getElementById("results-review");
     if (quiz.answers.length > 0) {
-      var reviewHTML = "<h3>Review Your Answers</h3>";
+      var reviewHTML = "<h3>" + t("quiz.results.review") + "</h3>";
       quiz.answers.forEach(function (a, i) {
         reviewHTML += '<div class="review-item">'
           + '<div class="review-item-header">'
           + '<span class="review-icon">' + (a.correct ? "✅" : "❌") + '</span>'
-          + '<span class="review-answer">Q' + (i + 1) + ': You answered: ' + escapeHTML(a.chosenName) + '</span>'
+          + '<span class="review-answer">Q' + (i + 1) + ': ' + t("quiz.results.youAnswered") + ' ' + escapeHTML(a.chosenName) + '</span>'
           + '</div>';
         if (!a.correct) {
-          reviewHTML += '<div class="review-correct-answer">Correct answer: ' + escapeHTML(a.correctName) + '</div>';
+          reviewHTML += '<div class="review-correct-answer">' + t("quiz.results.correctAnswer") + ' ' + escapeHTML(a.correctName) + '</div>';
         }
-        reviewHTML += '<div class="review-correct-answer">Level: '
+        reviewHTML += '<div class="review-correct-answer">' + t("feedback.level") + ' '
           + escapeHTML(a.levelIcon) + " "
           + escapeHTML(a.levelName) + " (L" + a.level + ")</div>";
         reviewHTML += '<div class="review-explanation">' + escapeHTML(a.explanation) + '</div>'
@@ -728,18 +737,18 @@
     var container = document.getElementById("extractor-levels");
     var html = "";
     for (var lvl = 1; lvl <= 4; lvl++) {
-      var info = window.LEVEL_INFO[lvl];
+      var info = getLevelInfo(lvl);
       var scoreKey = getExtractorScoreKey(lvl);
       var best = state.quizScores[scoreKey] ? state.quizScores[scoreKey].best : null;
       var passageCount = window.EXTRACTOR_PASSAGES.filter(function (p) { return p.level === lvl; }).length;
       html += '<div class="quiz-level-card" data-level="' + lvl + '">'
         + '<div class="quiz-level-icon">' + info.icon + '</div>'
         + '<div class="quiz-level-info">'
-        + '<h3 style="color:' + info.color + '">Level ' + lvl + ': ' + info.name + '</h3>'
-        + '<p>' + passageCount + ' passages</p>'
+        + '<h3 style="color:' + info.color + '">' + t("quiz.level") + ' ' + lvl + ': ' + info.name + '</h3>'
+        + '<p>' + passageCount + ' ' + t("quiz.passages") + '</p>'
         + '</div>'
         + '<div class="quiz-level-best">'
-        + (best !== null ? '<strong>' + best + '%</strong>Best' : '<span style="color:var(--text-dim)">Not tried</span>')
+        + (best !== null ? '<strong>' + best + '%</strong>' + t("quiz.best") : '<span style="color:var(--text-dim)">' + t("quiz.notTried") + '</span>')
         + '</div>'
         + '</div>';
     }
@@ -769,7 +778,7 @@
     extractor.passages = shuffleArray(pool.slice()).slice(0, EXTRACTOR_QUIZ_LENGTH);
 
     if (extractor.passages.length === 0) {
-      alert("No passages available for this level. Please try another level or Mixed Mode.");
+      alert(t("extractor.noPassages"));
       return;
     }
 
@@ -791,7 +800,7 @@
     document.getElementById("extractor-passage").innerHTML = renderParagraphsHTML(p.text, "scenario-paragraph");
 
     document.getElementById("extractor-select-btn").classList.remove("hidden");
-    document.getElementById("extractor-select-btn").textContent = "Select a Fallacy…";
+    document.getElementById("extractor-select-btn").textContent = t("extractor.selectBtn");
     document.getElementById("extractor-feedback").classList.add("hidden");
     document.getElementById("extractor-feedback").classList.remove("correct", "wrong");
     document.getElementById("extractor-next").classList.add("hidden");
@@ -805,12 +814,12 @@
     var listEl = document.getElementById("extractor-picker-list");
     var sorted = window.FALLACIES_DATA.slice().sort(function (a, b) {
       if (a.level !== b.level) return a.level - b.level;
-      return a.name.localeCompare(b.name);
+      return getFallacyName(a).localeCompare(getFallacyName(b));
     });
     listEl.innerHTML = sorted.map(function (f) {
-      var info = window.LEVEL_INFO[f.level];
+      var info = getLevelInfo(f.level);
       return '<button class="fallacy-picker-item" data-id="' + f.id + '">'
-        + info.icon + ' L' + f.level + " • " + escapeHTML(f.name)
+        + info.icon + ' L' + f.level + " • " + escapeHTML(getFallacyName(f))
         + '</button>';
     }).join("");
 
@@ -844,9 +853,9 @@
     extractor.answers.push({
       text: p.text,
       correctId: p.fallacyId,
-      correctName: correctFallacy ? correctFallacy.name : p.fallacyId,
+      correctName: correctFallacy ? getFallacyName(correctFallacy) : p.fallacyId,
       chosenId: chosenId,
-      chosenName: chosenFallacy ? chosenFallacy.name : chosenId,
+      chosenName: chosenFallacy ? getFallacyName(chosenFallacy) : chosenId,
       explanation: p.explanation,
       highlight: p.highlight,
       level: p.level,
@@ -863,10 +872,10 @@
 
     var feedbackHTML = '<div class="extractor-feedback-title">';
     if (isCorrect) {
-      feedbackHTML += '✅ Correct! This is ' + escapeHTML(correctFallacy ? correctFallacy.name : p.fallacyId);
+      feedbackHTML += t("extractor.feedback.correct") + ' ' + escapeHTML(correctFallacy ? getFallacyName(correctFallacy) : p.fallacyId);
     } else {
-      feedbackHTML += '❌ Incorrect — You chose: ' + escapeHTML(chosenFallacy ? chosenFallacy.name : chosenId);
-      feedbackHTML += '<br>The correct answer is: <strong>' + escapeHTML(correctFallacy ? correctFallacy.name : p.fallacyId) + '</strong>';
+      feedbackHTML += t("extractor.feedback.incorrect") + ' ' + escapeHTML(chosenFallacy ? getFallacyName(chosenFallacy) : chosenId);
+      feedbackHTML += '<br>' + t("extractor.feedback.correctIs") + ' <strong>' + escapeHTML(correctFallacy ? getFallacyName(correctFallacy) : p.fallacyId) + '</strong>';
     }
     feedbackHTML += '</div>';
 
@@ -876,8 +885,8 @@
 
     feedbackHTML += '<div class="extractor-feedback-explanation">' + escapeHTML(p.explanation) + '</div>';
 
-    var levelInfo = window.LEVEL_INFO[p.level];
-    feedbackHTML += '<div class="extractor-feedback-meta">Level: '
+    var levelInfo = getLevelInfo(p.level);
+    feedbackHTML += '<div class="extractor-feedback-meta">' + t("feedback.level") + ' '
       + escapeHTML(levelInfo.icon) + ' ' + escapeHTML(levelInfo.name)
       + ' (L' + p.level + ')</div>';
 
@@ -932,15 +941,15 @@
 
     var emoji, title, msg;
     if (pct === 100) {
-      emoji = "🏆"; title = "Perfect Extraction!"; msg = "You identified every fallacy flawlessly!";
+      emoji = "🏆"; title = t("extractor.results.perfect.title"); msg = t("extractor.results.perfect.msg");
     } else if (pct >= 80) {
-      emoji = "🎉"; title = "Excellent!"; msg = "You have a sharp eye for hidden fallacies.";
+      emoji = "🎉"; title = t("results.excellent.title"); msg = t("extractor.results.excellent.msg");
     } else if (pct >= 60) {
-      emoji = "👍"; title = "Good Job!"; msg = "You're getting better at spotting fallacies in context.";
+      emoji = "👍"; title = t("results.good.title"); msg = t("extractor.results.good.msg");
     } else if (pct >= 40) {
-      emoji = "📚"; title = "Keep Practicing!"; msg = "Review the wiki to improve your fallacy detection skills.";
+      emoji = "📚"; title = t("results.keep.title"); msg = t("extractor.results.keep.msg");
     } else {
-      emoji = "💪"; title = "Don't Give Up!"; msg = "Study the fallacies in the wiki and try the extractor again.";
+      emoji = "💪"; title = t("results.dontGiveUp.title"); msg = t("extractor.results.dontGiveUp.msg");
     }
 
     document.getElementById("extractor-results-emoji").textContent = emoji;
@@ -950,15 +959,15 @@
     // Review
     var reviewEl = document.getElementById("extractor-results-review");
     if (extractor.answers.length > 0) {
-      var reviewHTML = "<h3>Review Your Answers</h3>";
+      var reviewHTML = "<h3>" + t("quiz.results.review") + "</h3>";
       extractor.answers.forEach(function (a, i) {
         reviewHTML += '<div class="review-item">'
           + '<div class="review-item-header">'
           + '<span class="review-icon">' + (a.correct ? "✅" : "❌") + '</span>'
-          + '<span class="review-answer">Q' + (i + 1) + ': You chose: ' + escapeHTML(a.chosenName) + '</span>'
+          + '<span class="review-answer">Q' + (i + 1) + ': ' + t("extractor.results.youChose") + ' ' + escapeHTML(a.chosenName) + '</span>'
           + '</div>';
         if (!a.correct) {
-          reviewHTML += '<div class="review-correct-answer">Correct answer: ' + escapeHTML(a.correctName) + '</div>';
+          reviewHTML += '<div class="review-correct-answer">' + t("quiz.results.correctAnswer") + ' ' + escapeHTML(a.correctName) + '</div>';
         }
         if (a.highlight) {
           reviewHTML += '<div class="review-explanation" style="font-style:italic;margin-bottom:4px">"' + escapeHTML(a.highlight) + '"</div>';
@@ -996,18 +1005,18 @@
     var container = document.getElementById("versus-levels");
     var html = "";
     for (var lvl = 1; lvl <= 4; lvl++) {
-      var info = window.LEVEL_INFO[lvl];
+      var info = getLevelInfo(lvl);
       var scoreKey = getVersusScoreKey(lvl);
       var best = state.quizScores[scoreKey] ? state.quizScores[scoreKey].best : null;
       var scenarioCount = window.VERSUS_SCENARIOS.filter(function (s) { return s.level === lvl; }).length;
       html += '<div class="quiz-level-card" data-level="' + lvl + '">'
         + '<div class="quiz-level-icon">' + info.icon + '</div>'
         + '<div class="quiz-level-info">'
-        + '<h3 style="color:' + info.color + '">Level ' + lvl + ': ' + info.name + '</h3>'
-        + '<p>' + scenarioCount + ' versus scenarios</p>'
+        + '<h3 style="color:' + info.color + '">' + t("quiz.level") + ' ' + lvl + ': ' + info.name + '</h3>'
+        + '<p>' + scenarioCount + ' ' + t("quiz.versusScenarios") + '</p>'
         + '</div>'
         + '<div class="quiz-level-best">'
-        + (best !== null ? '<strong>' + best + '%</strong>Best' : '<span style="color:var(--text-dim)">Not tried</span>')
+        + (best !== null ? '<strong>' + best + '%</strong>' + t("quiz.best") : '<span style="color:var(--text-dim)">' + t("quiz.notTried") + '</span>')
         + '</div>'
         + '</div>';
     }
@@ -1037,7 +1046,7 @@
     versus.questions = shuffleArray(pool.slice()).slice(0, VERSUS_QUIZ_LENGTH);
 
     if (versus.questions.length === 0) {
-      alert("No versus scenarios available for this level. Please try another level or Mixed Mode.");
+      alert(t("versus.noScenarios"));
       return;
     }
 
@@ -1060,15 +1069,15 @@
 
     // Show the distinction hint
     document.getElementById("versus-distinction").innerHTML =
-      '<div class="versus-distinction-text">💡 <strong>Key difference:</strong> ' + escapeHTML(q.distinction) + '</div>';
+      '<div class="versus-distinction-text">💡 <strong>' + t("versus.keyDifference") + '</strong> ' + escapeHTML(q.distinction) + '</div>';
 
     // Show two options (correct and wrong, shuffled)
     var correctFallacy = window.FALLACIES_DATA.find(function (f) { return f.id === q.correctId; });
     var wrongFallacy = window.FALLACIES_DATA.find(function (f) { return f.id === q.wrongId; });
 
     var options = [
-      { id: q.correctId, name: correctFallacy ? correctFallacy.name : q.correctId, definition: correctFallacy ? correctFallacy.definition : "" },
-      { id: q.wrongId, name: wrongFallacy ? wrongFallacy.name : q.wrongId, definition: wrongFallacy ? wrongFallacy.definition : "" }
+      { id: q.correctId, name: correctFallacy ? getFallacyName(correctFallacy) : q.correctId, definition: correctFallacy ? getFallacyDefinition(correctFallacy) : "" },
+      { id: q.wrongId, name: wrongFallacy ? getFallacyName(wrongFallacy) : q.wrongId, definition: wrongFallacy ? getFallacyDefinition(wrongFallacy) : "" }
     ];
     shuffleArray(options);
 
@@ -1102,9 +1111,9 @@
     versus.answers.push({
       text: q.text,
       correctId: q.correctId,
-      correctName: correctFallacy ? correctFallacy.name : q.correctId,
+      correctName: correctFallacy ? getFallacyName(correctFallacy) : q.correctId,
       chosenId: chosenId,
-      chosenName: chosenFallacy ? chosenFallacy.name : chosenId,
+      chosenName: chosenFallacy ? getFallacyName(chosenFallacy) : chosenId,
       explanation: q.explanation,
       distinction: q.distinction,
       level: q.level,
@@ -1124,12 +1133,12 @@
     feedbackEl.classList.remove("hidden", "correct", "wrong");
     feedbackEl.classList.add(isCorrect ? "correct" : "wrong");
     feedbackEl.innerHTML = '<div class="quiz-feedback-title">'
-      + (isCorrect ? "✅ Correct!" : "❌ Incorrect — The answer is: " + escapeHTML(correctFallacy ? correctFallacy.name : q.correctId))
+      + (isCorrect ? t("quiz.results.correct") : t("quiz.results.incorrect") + " " + escapeHTML(correctFallacy ? getFallacyName(correctFallacy) : q.correctId))
       + '</div>'
       + '<div>' + escapeHTML(q.explanation) + '</div>'
-      + '<div class="quiz-feedback-meta"><strong>Level:</strong> '
-      + escapeHTML(window.LEVEL_INFO[q.level].icon) + ' '
-      + escapeHTML(window.LEVEL_INFO[q.level].name) + " (L" + q.level + ")"
+      + '<div class="quiz-feedback-meta"><strong>' + t("feedback.level") + '</strong> '
+      + escapeHTML(getLevelInfo(q.level).icon) + ' '
+      + escapeHTML(getLevelInfo(q.level).name) + " (L" + q.level + ")"
       + "</div>";
 
     document.getElementById("versus-next").classList.remove("hidden");
@@ -1181,15 +1190,15 @@
 
     var emoji, title, msg;
     if (pct === 100) {
-      emoji = "🏆"; title = "Perfect Distinction!"; msg = "You can tell apart even the trickiest fallacy pairs!";
+      emoji = "🏆"; title = t("versus.results.perfect.title"); msg = t("versus.results.perfect.msg");
     } else if (pct >= 80) {
-      emoji = "🎉"; title = "Excellent!"; msg = "You have a sharp eye for subtle differences between fallacies.";
+      emoji = "🎉"; title = t("results.excellent.title"); msg = t("versus.results.excellent.msg");
     } else if (pct >= 60) {
-      emoji = "👍"; title = "Good Job!"; msg = "You're getting better at distinguishing similar fallacies.";
+      emoji = "👍"; title = t("results.good.title"); msg = t("versus.results.good.msg");
     } else if (pct >= 40) {
-      emoji = "📚"; title = "Keep Practicing!"; msg = "Review the wiki to learn the key differences between similar fallacies.";
+      emoji = "📚"; title = t("results.keep.title"); msg = t("versus.results.keep.msg");
     } else {
-      emoji = "💪"; title = "Don't Give Up!"; msg = "Study the distinctions between similar fallacies and try again.";
+      emoji = "💪"; title = t("results.dontGiveUp.title"); msg = t("versus.results.dontGiveUp.msg");
     }
 
     document.getElementById("versus-results-emoji").textContent = emoji;
@@ -1199,15 +1208,15 @@
     // Review
     var reviewEl = document.getElementById("versus-results-review");
     if (versus.answers.length > 0) {
-      var reviewHTML = "<h3>Review Your Answers</h3>";
+      var reviewHTML = "<h3>" + t("quiz.results.review") + "</h3>";
       versus.answers.forEach(function (a, i) {
         reviewHTML += '<div class="review-item">'
           + '<div class="review-item-header">'
           + '<span class="review-icon">' + (a.correct ? "✅" : "❌") + '</span>'
-          + '<span class="review-answer">Q' + (i + 1) + ': You chose: ' + escapeHTML(a.chosenName) + '</span>'
+          + '<span class="review-answer">Q' + (i + 1) + ': ' + t("extractor.results.youChose") + ' ' + escapeHTML(a.chosenName) + '</span>'
           + '</div>';
         if (!a.correct) {
-          reviewHTML += '<div class="review-correct-answer">Correct answer: ' + escapeHTML(a.correctName) + '</div>';
+          reviewHTML += '<div class="review-correct-answer">' + t("quiz.results.correctAnswer") + ' ' + escapeHTML(a.correctName) + '</div>';
         }
         reviewHTML += '<div class="review-explanation">' + escapeHTML(a.explanation) + '</div>'
           + '</div>';
@@ -1259,6 +1268,40 @@
       closeFallacyPicker();
       closeExtractorPicker();
     }
+  });
+
+  // ---- Language Switcher ----
+  window.I18N.initLang();
+  window.I18N.translateStaticElements();
+
+  // Set active lang button on load
+  var currentLangOnLoad = window.I18N.getLang();
+  document.querySelectorAll("#lang-switcher .lang-btn").forEach(function (btn) {
+    btn.classList.toggle("active", btn.dataset.lang === currentLangOnLoad);
+    btn.addEventListener("click", function () {
+      var lang = btn.dataset.lang;
+      window.I18N.setLang(lang);
+      // Update i18n helper references
+      t = window.I18N.t;
+      getLevelInfo = window.I18N.getLevelInfo;
+      getCategories = window.I18N.getCategories;
+      translateCategory = window.I18N.translateCategory;
+      getFallacyName = window.I18N.getFallacyName;
+      getFallacyDefinition = window.I18N.getFallacyDefinition;
+
+      // Update lang button active states
+      document.querySelectorAll("#lang-switcher .lang-btn").forEach(function (b) {
+        b.classList.toggle("active", b.dataset.lang === lang);
+      });
+
+      // Re-translate static HTML
+      window.I18N.translateStaticElements();
+
+      // Re-render current view
+      renderDashboard();
+      renderWiki();
+      renderQuizSetup();
+    });
   });
 
   // ---- Init ----

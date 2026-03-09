@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,21 +14,26 @@
     <nav class="nav" id="nav">
       <div class="nav-brand" id="nav-home">
         <span class="nav-logo">🧠</span>
-        <span class="nav-title">Fallacy Fighter</span>
+        <span class="nav-title" data-i18n="nav.title">Fallacy Fighter</span>
       </div>
       <div class="nav-links">
         <button class="nav-link active" data-view="dashboard" id="nav-dashboard">
           <span class="nav-icon">📊</span>
-          <span>Dashboard</span>
+          <span data-i18n="nav.dashboard">Dashboard</span>
         </button>
         <button class="nav-link" data-view="wiki" id="nav-wiki">
           <span class="nav-icon">📖</span>
-          <span>Wiki</span>
+          <span data-i18n="nav.wiki">Wiki</span>
         </button>
         <button class="nav-link" data-view="quiz" id="nav-quiz">
           <span class="nav-icon">🎯</span>
-          <span>Quiz</span>
+          <span data-i18n="nav.quiz">Quiz</span>
         </button>
+        <div class="lang-switcher" id="lang-switcher">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="fr">FR</button>
+          <button class="lang-btn" data-lang="ar">AR</button>
+        </div>
       </div>
     </nav>
 
@@ -36,16 +41,16 @@
     <main class="view active" id="view-dashboard">
       <div class="container">
         <header class="hero">
-          <h1>Master Logical Fallacies</h1>
-          <p class="hero-sub">Learn to spot flawed reasoning and think more clearly. Progress from beginner to expert with our interactive lessons and quizzes.</p>
+          <h1 data-i18n="dashboard.hero.title">Master Logical Fallacies</h1>
+          <p class="hero-sub" data-i18n="dashboard.hero.sub">Learn to spot flawed reasoning and think more clearly. Progress from beginner to expert with our interactive lessons and quizzes.</p>
         </header>
 
         <!-- Progress Overview -->
         <section class="progress-section">
-          <h2 class="section-title">Your Progress</h2>
+          <h2 class="section-title" data-i18n="dashboard.progress.title">Your Progress</h2>
           <div class="dashboard-controls">
             <button class="btn btn-small btn-outline" id="theme-toggle">🌙 Dark mode</button>
-            <button class="btn btn-small btn-outline" id="reset-score">Reset Quiz Score</button>
+            <button class="btn btn-small btn-outline" id="reset-score" data-i18n="dashboard.resetScore">Reset Quiz Score</button>
           </div>
           <div class="progress-bar-container">
             <div class="progress-bar" id="overall-progress-bar">
@@ -60,7 +65,7 @@
 
         <!-- Level Cards -->
         <section class="levels-section">
-          <h2 class="section-title">Learning Path</h2>
+          <h2 class="section-title" data-i18n="dashboard.levels.title">Learning Path</h2>
           <div class="levels-grid" id="levels-grid">
             <!-- Filled by JS -->
           </div>
@@ -70,15 +75,15 @@
         <section class="actions-section">
           <div class="action-card" id="action-wiki">
             <div class="action-icon">📖</div>
-            <h3>Study Fallacies</h3>
-            <p>Browse the wiki to learn definitions, examples, and tips for spotting each fallacy.</p>
-            <button class="btn btn-primary">Open Wiki</button>
+            <h3 data-i18n="dashboard.action.study.title">Study Fallacies</h3>
+            <p data-i18n="dashboard.action.study.desc">Browse the wiki to learn definitions, examples, and tips for spotting each fallacy.</p>
+            <button class="btn btn-primary" data-i18n="dashboard.action.study.btn">Open Wiki</button>
           </div>
           <div class="action-card" id="action-quiz">
             <div class="action-icon">🎯</div>
-            <h3>Take a Quiz</h3>
-            <p>Test your skills by identifying fallacies in real-world scenarios.</p>
-            <button class="btn btn-accent">Start Quiz</button>
+            <h3 data-i18n="dashboard.action.quiz.title">Take a Quiz</h3>
+            <p data-i18n="dashboard.action.quiz.desc">Test your skills by identifying fallacies in real-world scenarios.</p>
+            <button class="btn btn-accent" data-i18n="dashboard.action.quiz.btn">Start Quiz</button>
           </div>
         </section>
       </div>
@@ -88,27 +93,27 @@
     <main class="view" id="view-wiki">
       <div class="container">
         <header class="view-header">
-          <h1>📖 Fallacy Wiki</h1>
-          <p>Browse, learn, and master logical fallacies at your own pace.</p>
+          <h1 data-i18n="wiki.title">📖 Fallacy Wiki</h1>
+          <p data-i18n="wiki.subtitle">Browse, learn, and master logical fallacies at your own pace.</p>
         </header>
 
         <!-- Filters -->
         <div class="filters" id="wiki-filters">
           <div class="filter-group">
-            <label class="filter-label">Level</label>
+            <label class="filter-label" data-i18n="wiki.filter.level">Level</label>
             <div class="filter-chips" id="level-filter">
-              <button class="chip active" data-level="all">All</button>
+              <button class="chip active" data-level="all" data-i18n="wiki.filter.all">All</button>
             </div>
           </div>
           <div class="filter-group">
-            <label class="filter-label">Category</label>
+            <label class="filter-label" data-i18n="wiki.filter.category">Category</label>
             <div class="filter-chips" id="category-filter">
-              <button class="chip active" data-category="all">All</button>
+              <button class="chip active" data-category="all" data-i18n="wiki.filter.all">All</button>
             </div>
           </div>
           <div class="filter-group">
-            <label class="filter-label">Search</label>
-            <input type="text" class="search-input" id="wiki-search" placeholder="Search fallacies...">
+            <label class="filter-label" data-i18n="wiki.filter.search">Search</label>
+            <input type="text" class="search-input" id="wiki-search" data-i18n="wiki.search.placeholder" placeholder="Search fallacies...">
           </div>
         </div>
 
@@ -135,15 +140,15 @@
         <!-- Quiz Setup -->
         <div id="quiz-setup">
           <header class="view-header">
-            <h1>🎯 Fallacy Quiz</h1>
-            <p>Identify the logical fallacy in each scenario. Choose your difficulty level to begin.</p>
+            <h1 data-i18n="quiz.title">🎯 Fallacy Quiz</h1>
+            <p data-i18n="quiz.subtitle">Identify the logical fallacy in each scenario. Choose your difficulty level to begin.</p>
           </header>
 
           <!-- Mode Tabs -->
           <div class="quiz-mode-tabs">
-            <button class="quiz-mode-tab active" data-mode="classic" id="tab-classic">🎯 Classic Quiz</button>
-            <button class="quiz-mode-tab" data-mode="extractor" id="tab-extractor">🔍 Extractor Mode</button>
-            <button class="quiz-mode-tab" data-mode="versus" id="tab-versus">⚔️ Versus Mode</button>
+            <button class="quiz-mode-tab active" data-mode="classic" id="tab-classic" data-i18n="quiz.tab.classic">🎯 Classic Quiz</button>
+            <button class="quiz-mode-tab" data-mode="extractor" id="tab-extractor" data-i18n="quiz.tab.extractor">🔍 Extractor Mode</button>
+            <button class="quiz-mode-tab" data-mode="versus" id="tab-versus" data-i18n="quiz.tab.versus">⚔️ Versus Mode</button>
           </div>
 
           <!-- Classic Quiz Setup -->
@@ -152,7 +157,7 @@
               <!-- Filled by JS -->
             </div>
             <div class="quiz-option-mixed">
-              <button class="btn btn-large btn-accent" id="quiz-mixed">
+              <button class="btn btn-large btn-accent" id="quiz-mixed" data-i18n="quiz.mixed">
                 🎲 Mixed Mode — All Levels
               </button>
             </div>
@@ -162,14 +167,14 @@
           <div id="extractor-setup" class="hidden">
             <div class="extractor-intro">
               <div class="extractor-intro-icon">🔍</div>
-              <h3>Fallacy Extractor</h3>
-              <p>Read multi-paragraph passages and identify the hidden logical fallacy. Select your answer from the full list of fallacies — no multiple choice hints!</p>
+              <h3 data-i18n="extractor.intro.title">Fallacy Extractor</h3>
+              <p data-i18n="extractor.intro.desc">Read multi-paragraph passages and identify the hidden logical fallacy. Select your answer from the full list of fallacies — no multiple choice hints!</p>
             </div>
             <div class="quiz-levels" id="extractor-levels">
               <!-- Filled by JS -->
             </div>
             <div class="quiz-option-mixed">
-              <button class="btn btn-large btn-accent" id="extractor-mixed">
+              <button class="btn btn-large btn-accent" id="extractor-mixed" data-i18n="quiz.mixed">
                 🎲 Mixed Mode — All Levels
               </button>
             </div>
@@ -179,14 +184,14 @@
           <div id="versus-setup" class="hidden">
             <div class="extractor-intro">
               <div class="extractor-intro-icon">⚔️</div>
-              <h3>Fallacy Versus</h3>
-              <p>Two similar fallacies face off! Read the scenario and pick the correct one. Sharpen your ability to distinguish fallacies that are easy to confuse.</p>
+              <h3 data-i18n="versus.intro.title">Fallacy Versus</h3>
+              <p data-i18n="versus.intro.desc">Two similar fallacies face off! Read the scenario and pick the correct one. Sharpen your ability to distinguish fallacies that are easy to confuse.</p>
             </div>
             <div class="quiz-levels" id="versus-levels">
               <!-- Filled by JS -->
             </div>
             <div class="quiz-option-mixed">
-              <button class="btn btn-large btn-accent" id="versus-mixed">
+              <button class="btn btn-large btn-accent" id="versus-mixed" data-i18n="quiz.mixed">
                 🎲 Mixed Mode — All Levels
               </button>
             </div>
@@ -200,9 +205,9 @@
               <span id="quiz-question-num">1</span> / <span id="quiz-total">10</span>
             </div>
             <div class="quiz-score">
-              Score: <span id="quiz-score">0</span>
+              <span data-i18n="quiz.score">Score:</span> <span id="quiz-score">0</span>
             </div>
-            <button class="btn btn-small btn-outline" id="quiz-quit">Quit</button>
+            <button class="btn btn-small btn-outline" id="quiz-quit" data-i18n="quiz.quit">Quit</button>
           </div>
           <div class="quiz-progress-bar">
             <div class="quiz-progress-fill" id="quiz-progress-fill"></div>
@@ -211,15 +216,15 @@
             <div class="quiz-scenario" id="quiz-scenario">
               <!-- Filled by JS -->
             </div>
-            <p class="quiz-prompt">Which fallacy is this?</p>
-            <button class="btn btn-small btn-outline quiz-fallacy-picker-btn" id="quiz-fallacy-picker-btn">Browse all fallacies</button>
+            <p class="quiz-prompt" data-i18n="quiz.prompt">Which fallacy is this?</p>
+            <button class="btn btn-small btn-outline quiz-fallacy-picker-btn" id="quiz-fallacy-picker-btn" data-i18n="quiz.browseAll">Browse all fallacies</button>
             <div class="quiz-options" id="quiz-options">
               <!-- Filled by JS -->
             </div>
             <div class="quiz-feedback hidden" id="quiz-feedback">
               <!-- Filled by JS -->
             </div>
-            <button class="btn btn-primary hidden" id="quiz-next">Next Question →</button>
+            <button class="btn btn-primary hidden" id="quiz-next" data-i18n="quiz.next">Next Question →</button>
           </div>
         </div>
 
@@ -227,8 +232,8 @@
         <div id="quiz-results" class="hidden">
           <div class="results-card">
             <div class="results-emoji" id="results-emoji">🎉</div>
-            <h2 id="results-title">Quiz Complete!</h2>
-            <p class="results-score">You scored <strong id="results-score-num">0</strong> out of <strong id="results-total-num">10</strong></p>
+            <h2 id="results-title" data-i18n="quiz.results.title">Quiz Complete!</h2>
+            <p class="results-score"><span data-i18n="quiz.results.youScored">You scored</span> <strong id="results-score-num">0</strong> <span data-i18n="quiz.results.outOf">out of</span> <strong id="results-total-num">10</strong></p>
             <div class="results-bar-container">
               <div class="results-bar">
                 <div class="results-bar-fill" id="results-bar-fill"></div>
@@ -236,8 +241,8 @@
             </div>
             <p class="results-message" id="results-message"></p>
             <div class="results-actions">
-              <button class="btn btn-primary" id="results-retry">Try Again</button>
-              <button class="btn btn-outline" id="results-home">Back to Setup</button>
+              <button class="btn btn-primary" id="results-retry" data-i18n="quiz.results.retry">Try Again</button>
+              <button class="btn btn-outline" id="results-home" data-i18n="quiz.results.home">Back to Setup</button>
             </div>
             <div class="results-review" id="results-review">
               <!-- Filled by JS -->
@@ -252,23 +257,23 @@
               <span id="extractor-question-num">1</span> / <span id="extractor-total">5</span>
             </div>
             <div class="quiz-score">
-              Score: <span id="extractor-score">0</span>
+              <span data-i18n="quiz.score">Score:</span> <span id="extractor-score">0</span>
             </div>
-            <button class="btn btn-small btn-outline" id="extractor-quit">Quit</button>
+            <button class="btn btn-small btn-outline" id="extractor-quit" data-i18n="quiz.quit">Quit</button>
           </div>
           <div class="quiz-progress-bar">
             <div class="quiz-progress-fill" id="extractor-progress-fill"></div>
           </div>
           <div class="quiz-card">
-            <p class="extractor-label">🔍 Read the passage and identify the fallacy</p>
+            <p class="extractor-label" data-i18n="extractor.label">🔍 Read the passage and identify the fallacy</p>
             <div class="quiz-scenario extractor-passage" id="extractor-passage">
               <!-- Filled by JS -->
             </div>
-            <button class="btn btn-primary extractor-select-btn" id="extractor-select-btn">Select a Fallacy…</button>
+            <button class="btn btn-primary extractor-select-btn" id="extractor-select-btn" data-i18n="extractor.selectBtn">Select a Fallacy…</button>
             <div class="extractor-feedback hidden" id="extractor-feedback">
               <!-- Filled by JS -->
             </div>
-            <button class="btn btn-primary hidden" id="extractor-next">Next Passage →</button>
+            <button class="btn btn-primary hidden" id="extractor-next" data-i18n="extractor.next">Next Passage →</button>
           </div>
         </div>
 
@@ -276,8 +281,8 @@
         <div id="extractor-results" class="hidden">
           <div class="results-card">
             <div class="results-emoji" id="extractor-results-emoji">🎉</div>
-            <h2 id="extractor-results-title">Extractor Complete!</h2>
-            <p class="results-score">You scored <strong id="extractor-results-score-num">0</strong> out of <strong id="extractor-results-total-num">5</strong></p>
+            <h2 id="extractor-results-title" data-i18n="extractor.results.title">Extractor Complete!</h2>
+            <p class="results-score"><span data-i18n="quiz.results.youScored">You scored</span> <strong id="extractor-results-score-num">0</strong> <span data-i18n="quiz.results.outOf">out of</span> <strong id="extractor-results-total-num">5</strong></p>
             <div class="results-bar-container">
               <div class="results-bar">
                 <div class="results-bar-fill" id="extractor-results-bar-fill"></div>
@@ -285,8 +290,8 @@
             </div>
             <p class="results-message" id="extractor-results-message"></p>
             <div class="results-actions">
-              <button class="btn btn-primary" id="extractor-results-retry">Try Again</button>
-              <button class="btn btn-outline" id="extractor-results-home">Back to Setup</button>
+              <button class="btn btn-primary" id="extractor-results-retry" data-i18n="quiz.results.retry">Try Again</button>
+              <button class="btn btn-outline" id="extractor-results-home" data-i18n="quiz.results.home">Back to Setup</button>
             </div>
             <div class="results-review" id="extractor-results-review">
               <!-- Filled by JS -->
@@ -301,15 +306,15 @@
               <span id="versus-question-num">1</span> / <span id="versus-total">10</span>
             </div>
             <div class="quiz-score">
-              Score: <span id="versus-score">0</span>
+              <span data-i18n="quiz.score">Score:</span> <span id="versus-score">0</span>
             </div>
-            <button class="btn btn-small btn-outline" id="versus-quit">Quit</button>
+            <button class="btn btn-small btn-outline" id="versus-quit" data-i18n="quiz.quit">Quit</button>
           </div>
           <div class="quiz-progress-bar">
             <div class="quiz-progress-fill" id="versus-progress-fill"></div>
           </div>
           <div class="quiz-card">
-            <p class="extractor-label">⚔️ Which fallacy is this?</p>
+            <p class="extractor-label" data-i18n="versus.label">⚔️ Which fallacy is this?</p>
             <div class="quiz-scenario" id="versus-scenario">
               <!-- Filled by JS -->
             </div>
@@ -322,7 +327,7 @@
             <div class="quiz-feedback hidden" id="versus-feedback">
               <!-- Filled by JS -->
             </div>
-            <button class="btn btn-primary hidden" id="versus-next">Next Question →</button>
+            <button class="btn btn-primary hidden" id="versus-next" data-i18n="versus.next">Next Question →</button>
           </div>
         </div>
 
@@ -330,8 +335,8 @@
         <div id="versus-results" class="hidden">
           <div class="results-card">
             <div class="results-emoji" id="versus-results-emoji">🎉</div>
-            <h2 id="versus-results-title">Versus Complete!</h2>
-            <p class="results-score">You scored <strong id="versus-results-score-num">0</strong> out of <strong id="versus-results-total-num">10</strong></p>
+            <h2 id="versus-results-title" data-i18n="versus.results.title">Versus Complete!</h2>
+            <p class="results-score"><span data-i18n="quiz.results.youScored">You scored</span> <strong id="versus-results-score-num">0</strong> <span data-i18n="quiz.results.outOf">out of</span> <strong id="versus-results-total-num">10</strong></p>
             <div class="results-bar-container">
               <div class="results-bar">
                 <div class="results-bar-fill" id="versus-results-bar-fill"></div>
@@ -339,8 +344,8 @@
             </div>
             <p class="results-message" id="versus-results-message"></p>
             <div class="results-actions">
-              <button class="btn btn-primary" id="versus-results-retry">Try Again</button>
-              <button class="btn btn-outline" id="versus-results-home">Back to Setup</button>
+              <button class="btn btn-primary" id="versus-results-retry" data-i18n="quiz.results.retry">Try Again</button>
+              <button class="btn btn-outline" id="versus-results-home" data-i18n="quiz.results.home">Back to Setup</button>
             </div>
             <div class="results-review" id="versus-results-review">
               <!-- Filled by JS -->
@@ -355,8 +360,8 @@
     <div class="modal">
       <button class="modal-close" id="fallacy-picker-close">&times;</button>
       <div class="modal-content">
-        <h2 class="modal-title">All fallacies</h2>
-        <p class="modal-description">Select one to quickly review its definition, examples, and level before answering.</p>
+        <h2 class="modal-title" data-i18n="wiki.picker.title">All fallacies</h2>
+        <p class="modal-description" data-i18n="wiki.picker.desc">Select one to quickly review its definition, examples, and level before answering.</p>
         <div class="fallacy-picker-list" id="fallacy-picker-list"></div>
       </div>
     </div>
@@ -366,14 +371,15 @@
     <div class="modal">
       <button class="modal-close" id="extractor-picker-close">&times;</button>
       <div class="modal-content">
-        <h2 class="modal-title">🔍 Select the Fallacy</h2>
-        <p class="modal-description">Choose the fallacy you think is present in the passage.</p>
+        <h2 class="modal-title" data-i18n="extractor.pickerTitle">🔍 Select the Fallacy</h2>
+        <p class="modal-description" data-i18n="extractor.pickerDesc">Choose the fallacy you think is present in the passage.</p>
         <div class="fallacy-picker-list" id="extractor-picker-list"></div>
       </div>
     </div>
   </div>
 
   <script src="js/data.js"></script>
+  <script src="js/i18n.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>
