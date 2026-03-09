@@ -11,6 +11,11 @@
   var translateCategory = window.I18N.translateCategory;
   var getFallacyName = window.I18N.getFallacyName;
   var getFallacyDefinition = window.I18N.getFallacyDefinition;
+  var getFallacyDescription = window.I18N.getFallacyDescription;
+  var getFallacyExamples = window.I18N.getFallacyExamples;
+  var getFallacyQuizScenarios = window.I18N.getFallacyQuizScenarios;
+  var getExtractorPassageTranslation = window.I18N.getExtractorPassageTranslation;
+  var getVersusScenarioTranslation = window.I18N.getVersusScenarioTranslation;
 
   // ---- State ----
   const STORAGE_KEY = "fallacy-fighter-progress";
@@ -300,10 +305,10 @@
       + '<h2 class="modal-title">' + escapeHTML(getFallacyName(f)) + '</h2>'
       + '<p class="modal-category">' + t("wiki.modal.category") + ' ' + escapeHTML(translateCategory(f.category)) + '</p>'
       + '<p class="modal-definition">' + escapeHTML(getFallacyDefinition(f)) + '</p>'
-      + '<div class="modal-description">' + renderParagraphsHTML(f.description, "modal-description-paragraph") + '</div>'
+      + '<div class="modal-description">' + renderParagraphsHTML(getFallacyDescription(f), "modal-description-paragraph") + '</div>'
       + '<h3 class="modal-section-title">' + t("wiki.modal.examples") + '</h3>';
 
-    f.examples.forEach(function (ex) {
+    getFallacyExamples(f).forEach(function (ex) {
       html += '<div class="example-card">'
         + '<div class="example-text">"' + escapeHTML(ex.text) + '"</div>'
         + '<div class="example-explanation">→ ' + escapeHTML(ex.explanation) + '</div>'
@@ -311,7 +316,7 @@
     });
 
     html += '<h3 class="modal-section-title">' + t("wiki.modal.quizScenarios") + '</h3>';
-    f.quizScenarios.forEach(function (scenario) {
+    getFallacyQuizScenarios(f).forEach(function (scenario) {
       html += '<div class="example-card">'
         + '<div class="example-text">"' + escapeHTML(scenario.text) + '"</div>'
         + '<div class="example-explanation">→ ' + escapeHTML(scenario.explanation) + '</div>'

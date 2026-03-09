@@ -819,6 +819,66 @@
     return (defs && defs[fallacy.id]) || fallacy.definition;
   }
 
+  // ---- Helper to get language data object ----
+  function getLangData() {
+    if (currentLang === "ar") return window.DATA_AR;
+    if (currentLang === "fr") return window.DATA_FR;
+    return null;
+  }
+
+  // ---- Get Translated Fallacy Description ----
+  function getFallacyDescription(fallacy) {
+    if (currentLang === "en") return fallacy.description;
+    var langData = getLangData();
+    if (langData && langData.fallacies && langData.fallacies[fallacy.id] && langData.fallacies[fallacy.id].description) {
+      return langData.fallacies[fallacy.id].description;
+    }
+    return fallacy.description;
+  }
+
+  // ---- Get Translated Fallacy Examples ----
+  function getFallacyExamples(fallacy) {
+    if (currentLang === "en") return fallacy.examples;
+    var langData = getLangData();
+    if (langData && langData.fallacies && langData.fallacies[fallacy.id] && langData.fallacies[fallacy.id].examples) {
+      return langData.fallacies[fallacy.id].examples;
+    }
+    return fallacy.examples;
+  }
+
+  // ---- Get Translated Fallacy Quiz Scenarios ----
+  function getFallacyQuizScenarios(fallacy) {
+    if (currentLang === "en") return fallacy.quizScenarios;
+    var langData = getLangData();
+    if (langData && langData.fallacies && langData.fallacies[fallacy.id] && langData.fallacies[fallacy.id].quizScenarios) {
+      return langData.fallacies[fallacy.id].quizScenarios;
+    }
+    return fallacy.quizScenarios;
+  }
+
+  // ---- Get Translated Extractor Passage ----
+  function getExtractorPassageTranslation(passage) {
+    if (currentLang === "en") return passage;
+    var langData = getLangData();
+    if (langData && langData.extractorPassages && langData.extractorPassages[passage.fallacyId]) {
+      var tr = langData.extractorPassages[passage.fallacyId];
+      return { level: passage.level, fallacyId: passage.fallacyId, text: tr.text || passage.text, highlight: tr.highlight || passage.highlight, explanation: tr.explanation || passage.explanation };
+    }
+    return passage;
+  }
+
+  // ---- Get Translated Versus Scenario ----
+  function getVersusScenarioTranslation(scenario) {
+    if (currentLang === "en") return scenario;
+    var langData = getLangData();
+    var key = scenario.correctId + "-vs-" + scenario.wrongId;
+    if (langData && langData.versusScenarios && langData.versusScenarios[key]) {
+      var tr = langData.versusScenarios[key];
+      return { level: scenario.level, correctId: scenario.correctId, wrongId: scenario.wrongId, text: tr.text || scenario.text, explanation: tr.explanation || scenario.explanation, distinction: tr.distinction || scenario.distinction };
+    }
+    return scenario;
+  }
+
   // ---- Translate static HTML elements ----
   function translateStaticElements() {
     var elements = document.querySelectorAll("[data-i18n]");
@@ -846,6 +906,11 @@
     translateCategory: translateCategory,
     getFallacyName: getFallacyName,
     getFallacyDefinition: getFallacyDefinition,
+    getFallacyDescription: getFallacyDescription,
+    getFallacyExamples: getFallacyExamples,
+    getFallacyQuizScenarios: getFallacyQuizScenarios,
+    getExtractorPassageTranslation: getExtractorPassageTranslation,
+    getVersusScenarioTranslation: getVersusScenarioTranslation,
     translateStaticElements: translateStaticElements
   };
 })();
