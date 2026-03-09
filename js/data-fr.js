@@ -5,6 +5,7 @@ window.DATA_FR = {
   fallacies: {
     "ad-hominem": {
       description: "Au lieu de répondre à l'argument de quelqu'un, vous attaquez son caractère, son parcours ou ses traits personnels.\n\nC'est fallacieux car la vérité d'une affirmation ne dépend pas de qui la formule. Même une personne imparfaite peut avancer un argument valide.",
+      responseStrategy: "Redirigez la conversation vers l\'argument lui-même. Demandez : « Pouvons-nous nous concentrer sur le point réel plutôt que sur les attaques personnelles ? »",
       examples: [
         { text: "You can't trust John's opinion on climate change — he didn't even finish college.", explanation: "John's education level doesn't determine whether his specific argument about climate change is true or false." },
         { text: "Why should we listen to her dietary advice? She's overweight herself!", explanation: "A person's own health doesn't invalidate nutritional facts they might present." },
@@ -21,6 +22,7 @@ window.DATA_FR = {
     },
     "straw-man": {
       description: "Vous déformez, exagérez ou simplifiez la position de quelqu'un, puis vous argumentez contre cette version déformée. On l'appelle « homme de paille » car vous combattez une version fausse et plus faible du vrai argument.",
+      responseStrategy: "Reformulez clairement votre position initiale et dites : « Ce n\'est pas ce que j\'ai dit. Mon argument réel est... » puis répétez votre vrai point.",
       examples: [
         { text: "Person A: 'We should have stricter gun regulations.' Person B: 'Why do you want to ban all guns and leave people defenseless?'", explanation: "Person A said 'stricter regulations,' not 'ban all guns.' Person B distorted the argument." },
         { text: "Person A: 'I think kids should spend less time on social media.' Person B: 'So you want to cut kids off from all technology and go back to the Stone Age?'", explanation: "Reducing social media time is very different from eliminating all technology." },
@@ -36,6 +38,7 @@ window.DATA_FR = {
     },
     "appeal-to-authority": {
       description: "Bien que les opinions d'experts comptent, ce sophisme survient quand on cite une autorité non qualifiée dans le domaine concerné, ou quand on traite la parole d'une autorité comme preuve absolue. L'endorsement d'un traitement médical par une célébrité n'est pas la même chose qu'une étude médicale prouvant son efficacité.",
+      responseStrategy: "Demandez si l\'autorité citée est réellement experte dans le domaine concerné, et si d\'autres experts qualifiés sont d\'accord. Exigez les preuves derrière l\'affirmation de l\'autorité, pas seulement son nom.",
       examples: [
         { text: "This diet pill must work — a famous actor endorses it!", explanation: "Being a famous actor doesn't make someone a nutrition or medical expert." },
         { text: "A Nobel Prize-winning physicist says this economic policy is best, so it must be true.", explanation: "Expertise in physics doesn't transfer to expertise in economics." },
@@ -49,6 +52,7 @@ window.DATA_FR = {
     },
     "false-dilemma": {
       description: "Présenter seulement deux options alors que d'autres alternatives existent. Cela simplifie faussement la situation et force un choix binaire artificiel.",
+      responseStrategy: "Soulignez les options manquantes : « Ce ne sont pas les deux seuls choix. Qu\'en est-il de... » et proposez au moins une alternative qui a été omise.",
       examples: [
         { text: "You're either with us or against us.", explanation: "There are many positions between full support and opposition — neutrality, partial agreement, etc." },
         { text: "Either we ban all social media or we accept that kids will be cyberbullied. There's no other option.", explanation: "Many solutions exist between a total ban and no action: education, moderation tools, age restrictions, etc." },
@@ -64,6 +68,7 @@ window.DATA_FR = {
     },
     "slippery-slope": {
       description: "Affirmer qu'un événement mènera inévitablement à des conséquences de plus en plus extrêmes, sans preuve que cette chaîne d'événements se produira réellement.",
+      responseStrategy: "Demandez des preuves reliant chaque étape de la chaîne. Dites : « Quelle preuve y a-t-il que A mènera réellement à B, puis B à C ? »",
       examples: [
         { text: "If we allow students to redo one test, soon they'll want to redo every assignment, and eventually nobody will study at all.", explanation: "One accommodation doesn't automatically lead to the collapse of all academic standards." },
         { text: "If we legalize marijuana, next people will want to legalize all drugs, and society will collapse.", explanation: "Each policy change is an independent decision — legalizing one substance doesn't require legalizing all." },
@@ -78,6 +83,7 @@ window.DATA_FR = {
     },
     "red-herring": {
       description: "Introduire un sujet sans rapport pour détourner l'attention du problème original. L'orateur change de sujet au lieu de traiter l'argument en question.",
+      responseStrategy: "Nommez la diversion et recentrez : « C\'est un sujet distinct. Restons sur le sujet — nous discutions de... » et reformulez le point initial.",
       examples: [
         { text: "Why worry about pollution from our factory? Look at all the jobs we've created!", explanation: "Job creation, while important, doesn't address the pollution concern." },
         { text: "You say I was speeding, but what about all the other drivers who speed? Why single me out?", explanation: "Others' speeding doesn't change whether you were speeding." },
@@ -93,6 +99,7 @@ window.DATA_FR = {
     },
     "bandwagon": {
       description: "Affirmer que quelque chose est vrai ou bon simplement parce que beaucoup de gens le croient ou le font. La popularité ne détermine pas la vérité ou la qualité.",
+      responseStrategy: "Soulignez que la popularité n\'est pas synonyme de vérité. Demandez : « Pouvez-vous me donner une raison au-delà du fait que beaucoup de gens y croient ? »",
       examples: [
         { text: "Everyone is buying cryptocurrency, so it must be a great investment.", explanation: "Popularity doesn't determine investment quality. Many popular investments have failed." },
         { text: "Millions of people believe in astrology, so there must be something to it.", explanation: "The number of believers doesn't provide scientific evidence for astrology." },
@@ -108,6 +115,7 @@ window.DATA_FR = {
     },
     "appeal-to-emotion": {
       description: "Utiliser la manipulation émotionnelle au lieu du raisonnement logique pour convaincre. Susciter la pitié, la culpabilité ou l'enthousiasme ne rend pas un argument valide.",
+      responseStrategy: "Reconnaissez l\'émotion, puis recentrez : « Je comprends que cela semble important, mais que montrent réellement les preuves ? » Séparez les sentiments des faits.",
       examples: [
         { text: "Think of the children! We can't allow this policy to pass!", explanation: "Invoking concern for children without explaining how the policy actually harms them is emotional manipulation." },
         { text: "If you don't donate, this puppy will suffer. Don't you care about animals?", explanation: "Using guilt and emotional imagery doesn't address whether the charity is effective or legitimate." },
@@ -122,6 +130,7 @@ window.DATA_FR = {
     },
     "appeal-to-fear": {
       description: "Utiliser la peur ou les menaces pour persuader plutôt que des preuves. Effrayer les gens pour qu'ils soient d'accord n'est pas un argument logique.",
+      responseStrategy: "Reconnaissez la préoccupation calmement, puis demandez : « Quelle est la probabilité réelle que cela se produise ? Pouvons-nous examiner les données plutôt que les scénarios catastrophes ? »",
       examples: [
         { text: "If you don't buy this security system, your family could be in danger tonight!", explanation: "Using fear of home invasion to pressure a purchase isn't a logical argument for the product's value." },
         { text: "If you don't support this law, terrorists will attack us!", explanation: "Fear of terrorism doesn't demonstrate that this specific law is effective or necessary." },
@@ -136,6 +145,7 @@ window.DATA_FR = {
     },
     "circular-reasoning": {
       description: "Utiliser la conclusion comme prémisse — l'argument tourne en rond. Vous présupposez ce que vous essayez de prouver.",
+      responseStrategy: "Identifiez la boucle : « Vous utilisez votre conclusion comme point de départ. Pouvez-vous me donner des preuves indépendantes qui ne présupposent pas ce que vous essayez de démontrer ? »",
       examples: [
         { text: "The Bible is true because it's the word of God, and we know it's the word of God because the Bible says so.", explanation: "The Bible's truth is used to prove it's God's word, and God's word is used to prove it's true — a perfect circle." },
         { text: "She's a good leader because she has great leadership qualities.", explanation: "This just restates the claim in different words without providing evidence." },
@@ -150,6 +160,7 @@ window.DATA_FR = {
     },
     "hasty-generalization": {
       description: "Tirer une conclusion générale à partir d'un échantillon petit ou non représentatif. Une seule observation ou quelques cas ne suffisent pas pour soutenir une affirmation large.",
+      responseStrategy: "Interrogez sur la taille et la représentativité de l\'échantillon : « Sur combien de cas cela repose-t-il ? Est-ce suffisant pour tirer une conclusion aussi large ? »",
       examples: [
         { text: "I met two rude people from New York, so all New Yorkers must be rude.", explanation: "Two people out of millions isn't enough to generalize about an entire city's population." },
         { text: "My last two iPhones had problems, so Apple makes terrible products.", explanation: "Two devices don't represent the quality of all Apple products across millions of units." },
@@ -163,6 +174,7 @@ window.DATA_FR = {
     },
     "tu-quoque": {
       description: "Rejeter l'argument de quelqu'un en soulignant qu'il ne pratique pas ce qu'il prêche. Même si la personne est hypocrite, cela n'invalide pas son argument.",
+      responseStrategy: "Reconnaissez l\'incohérence si elle est valide, mais recentrez : « Que je sois cohérent ou non ne change pas la validité de l\'argument. Discutons du point lui-même. »",
       examples: [
         { text: "You say I should eat healthier, but I've seen you eating fast food!", explanation: "The other person's eating habits don't change whether the health advice is valid." },
         { text: "Don't lecture me about being late — you were late just last week!", explanation: "Someone else's tardiness doesn't make your own lateness acceptable." },
@@ -175,6 +187,7 @@ window.DATA_FR = {
     },
     "appeal-to-ignorance": {
       description: "Affirmer que quelque chose est vrai parce qu'il n'a pas été prouvé faux, ou faux parce qu'il n'a pas été prouvé vrai. L'absence de preuve n'est pas la preuve de l'absence.",
+      responseStrategy: "Clarifiez la charge de la preuve : « Ne pas pouvoir réfuter quelque chose ne le rend pas vrai. Quelles preuves positives soutiennent cette affirmation ? »",
       examples: [
         { text: "Nobody has proven that ghosts don't exist, so they must be real.", explanation: "The lack of disproof doesn't serve as proof of existence." },
         { text: "There's no evidence this food additive is harmful, so it must be perfectly safe.", explanation: "Lack of evidence of harm isn't the same as evidence of safety — it might just be understudied." },
@@ -187,6 +200,7 @@ window.DATA_FR = {
     },
     "post-hoc": {
       description: "Supposer que B s'est produit à cause de A simplement parce que A a précédé B. La corrélation temporelle ne signifie pas la causalité.",
+      responseStrategy: "Demandez un mécanisme causal : « Ce n\'est pas parce qu\'une chose a suivi une autre qu\'elle en est la cause. Y a-t-il une raison prouvée pour laquelle ces éléments sont liés ? »",
       examples: [
         { text: "I wore my lucky socks and we won the game, so my socks caused the win.", explanation: "The timing is coincidental — socks have no causal power over athletic performance." },
         { text: "Crime rates dropped after we installed new street lights. The lights must have reduced crime.", explanation: "Many other factors could explain the drop — seasonal changes, increased policing, economic improvements, etc." },
@@ -200,6 +214,7 @@ window.DATA_FR = {
     },
     "loaded-question": {
       description: "Poser une question contenant une hypothèse non prouvée intégrée. La question est conçue de sorte que toute réponse accepte l'hypothèse.",
+      responseStrategy: "Rejetez la prémisse avant de répondre : « Je n\'accepte pas le présupposé intégré dans cette question. Permettez-moi de la reformuler... » puis posez une version équitable.",
       examples: [
         { text: "Why do you hate freedom?", explanation: "This presumes the person hates freedom, which hasn't been established." },
         { text: "When did you stop cheating on your taxes?", explanation: "This assumes the person was cheating on taxes. Both 'I stopped last year' and 'I haven't stopped' confirm cheating." },
@@ -212,6 +227,7 @@ window.DATA_FR = {
     },
     "no-true-scotsman": {
       description: "Redéfinir les critères pour exclure les contre-exemples. Quand un contre-exemple est présenté, la définition est modifiée pour l'exclure.",
+      responseStrategy: "Fixez la définition : « Avant de continuer, mettons-nous d\'accord sur une définition claire. Vous ne pouvez pas la modifier à chaque fois qu\'un contre-exemple apparaît. »",
       examples: [
         { text: "No real programmer uses that language. — But Tim uses it and he's a programmer. — Well, no REAL programmer would use it.", explanation: "The definition of 'real programmer' is being changed to exclude the counterexample." },
         { text: "True artists don't care about money. — But Picasso was very business-savvy. — Well, he wasn't a true artist then.", explanation: "Picasso is a widely recognized artist; redefining 'true artist' to exclude him is arbitrary." },
@@ -224,6 +240,7 @@ window.DATA_FR = {
     },
     "equivocation": {
       description: "Utiliser un mot ayant plusieurs sens comme s'il signifiait la même chose dans tous les usages. Changer le sens en cours d'argument le rend trompeur.",
+      responseStrategy: "Signalez le glissement de sens : « Vous utilisez ce mot dans deux sens différents. Soyons précis — quel sens voulez-vous lui donner ? »",
       examples: [
         { text: "A feather is light. What is light cannot be dark. Therefore, a feather cannot be dark.", explanation: "'Light' shifts from meaning 'not heavy' to meaning 'not dark' — two completely different meanings." },
         { text: "The sign said 'fine for parking here,' so I parked. It must be fine!", explanation: "'Fine' as a penalty vs. 'fine' as acceptable — two different meanings." },
@@ -237,6 +254,7 @@ window.DATA_FR = {
     },
     "composition-division": {
       description: "Supposer que ce qui est vrai des parties est vrai du tout (composition), ou que ce qui est vrai du tout est vrai de chaque partie (division).",
+      responseStrategy: "Distinguez les parties du tout : « Ce qui est vrai des parties individuelles n\'est pas nécessairement vrai du groupe, et vice versa. Pouvez-vous montrer que cela s\'applique aux deux niveaux ? »",
       examples: [
         { text: "Every player on this team is a star, so this must be the best team in the league.", explanation: "Individual talent doesn't guarantee team chemistry, strategy, or overall performance." },
         { text: "Atoms are invisible. Humans are made of atoms. Therefore, humans are invisible.", explanation: "Properties of atoms don't necessarily transfer to the larger structures they compose." },
@@ -250,6 +268,7 @@ window.DATA_FR = {
     },
     "appeal-to-nature": {
       description: "Affirmer que quelque chose est bon parce que naturel ou mauvais parce qu'artificiel. Le fait qu'une chose soit naturelle ne la rend pas automatiquement bonne ou sûre.",
+      responseStrategy: "Donnez des contre-exemples : « Beaucoup de choses naturelles sont nocives et beaucoup de choses artificielles sont bénéfiques. Pouvez-vous expliquer pourquoi être naturel rend cela spécifiquement meilleur ? »",
       examples: [
         { text: "Herbal remedies are better than medicine because they're all natural.", explanation: "Many effective medicines are synthetic, and many natural substances are toxic. 'Natural' doesn't mean 'better.'" },
         { text: "Homosexuality is unnatural, so it's wrong.", explanation: "Same-sex behavior is observed across many species in nature. But regardless, naturalness doesn't determine morality." },
@@ -262,6 +281,7 @@ window.DATA_FR = {
     },
     "genetic-fallacy": {
       description: "Juger quelque chose comme bon ou mauvais en se basant sur son origine, plutôt que d'évaluer sa valeur actuelle.",
+      responseStrategy: "Séparez l\'origine du mérite : « D\'où vient une idée ne détermine pas si elle est correcte. Évaluons l\'argument sur la base de ses propres preuves. »",
       examples: [
         { text: "That idea came from a controversial politician, so it must be bad.", explanation: "The origin of an idea doesn't determine its quality. Even controversial figures can have good ideas." },
         { text: "This tradition has been around for centuries, so it must be valuable.", explanation: "Age of a practice doesn't prove its value — many old traditions have been harmful." },
@@ -274,6 +294,7 @@ window.DATA_FR = {
     },
     "middle-ground": {
       description: "Supposer que la vérité doit être un compromis entre deux positions opposées. Parfois, un côté a entièrement raison.",
+      responseStrategy: "Soulignez que la vérité n\'est pas toujours au milieu : « Le compromis est excellent pour les négociations, mais les faits ne se décident pas en coupant la poire en deux. Que soutiennent les preuves ? »",
       examples: [
         { text: "Some scientists say the Earth is 4.5 billion years old and others say 6,000 years. The truth is probably somewhere in between.", explanation: "The scientific evidence overwhelmingly supports 4.5 billion years — the middle isn't automatically correct." },
         { text: "She says the project will take 2 weeks, he says 2 years. Let's compromise and say 6 months.", explanation: "The correct timeline should be based on analysis, not splitting the difference between estimates." },
@@ -286,6 +307,7 @@ window.DATA_FR = {
     },
     "texas-sharpshooter": {
       description: "Sélectionner les données qui correspondent à un argument tout en ignorant celles qui ne correspondent pas. Comme dessiner la cible autour de l'endroit où les balles ont frappé.",
+      responseStrategy: "Demandez si le modèle a été prédit avant la collecte des données, ou trouvé après coup. Dites : « Sélectionnez-vous uniquement les données qui correspondent à votre conclusion ? »",
       examples: [
         { text: "A psychic predicted 'something bad will happen in a major city' and then points to any negative event as proof.", explanation: "The prediction was so vague that almost any event could confirm it — the target was drawn after the shot." },
         { text: "This neighborhood has a cancer cluster, so the local power plant must be causing it.", explanation: "Random variation can produce clusters. Without controlled study, you can't assume the power plant is the cause." },
@@ -298,6 +320,7 @@ window.DATA_FR = {
     },
     "burden-of-proof": {
       description: "Transférer la charge de la preuve à la mauvaise partie. C'est à celui qui fait l'affirmation de fournir la preuve.",
+      responseStrategy: "Rappelez-leur qui porte la charge de la preuve : « C\'est vous qui avez fait l\'affirmation, c\'est donc à vous de fournir des preuves. Je n\'ai pas besoin de réfuter quelque chose qui n\'a pas été prouvé. »",
       examples: [
         { text: "I believe aliens built the pyramids. Can you prove they didn't?", explanation: "The person claiming alien construction has the burden of providing evidence for their extraordinary claim." },
         { text: "This supplement cures all diseases until someone proves it doesn't.", explanation: "Medical claims require evidence from the claimant, not disproof from skeptics." },
@@ -310,6 +333,7 @@ window.DATA_FR = {
     },
     "anecdotal": {
       description: "Utiliser l'expérience personnelle au lieu de preuves systématiques. Une seule histoire ne prouve pas un modèle général.",
+      responseStrategy: "Reconnaissez l\'histoire, puis élargissez la perspective : « C\'est un cas intéressant, mais que disent les données globales ? Un seul exemple ne représente pas l\'ensemble du tableau. »",
       examples: [
         { text: "My grandfather smoked his whole life and lived to 95, so smoking can't be that bad.", explanation: "One person's experience doesn't change the statistical reality that smoking significantly increases health risks." },
         { text: "I never wear a seatbelt and I've never been hurt, so seatbelts are unnecessary.", explanation: "Personal luck doesn't negate decades of data showing seatbelts save lives." },
@@ -322,6 +346,7 @@ window.DATA_FR = {
     },
     "cherry-picking": {
       description: "Sélectionner uniquement les données qui soutiennent votre position et ignorer celles qui la contredisent. Présenter une image incomplète pour soutenir une conclusion prédéterminée.",
+      responseStrategy: "Demandez une vue d\'ensemble : « Y a-t-il des études ou des données que vous omettez ? J\'aimerais voir toutes les preuves, pas seulement celles qui soutiennent votre position. »",
       examples: [
         { text: "Our company is doing great — look at our sales in December! (Ignores declining sales for the other 11 months)", explanation: "Highlighting one good month while ignoring an overall downward trend is cherry picking." },
         { text: "This city is very safe — here are five neighborhoods with low crime rates. (Ignores high-crime areas)", explanation: "Selecting only safe neighborhoods gives a misleading picture of overall city safety." },
@@ -334,6 +359,7 @@ window.DATA_FR = {
     },
     "motte-and-bailey": {
       description: "Alterner entre une affirmation controversée (la basse-cour) et une affirmation facilement défendable (le donjon) lorsqu'on est contesté.",
+      responseStrategy: "Épinglez-les à leur affirmation initiale : « Votre argument initial était bien plus fort que ce que vous défendez maintenant. Maintenez-vous votre affirmation originale, ou changez-vous de position ? »",
       examples: [
         { text: "Claim: 'All modern art is meaningless garbage.' When challenged: 'I just mean some modern art is hard to understand.' Later returns to: 'Modern art is garbage.'", explanation: "The speaker retreats to a reasonable position when pressed, then returns to the extreme one." },
         { text: "Claim: 'Science can explain everything.' When challenged: 'I just mean science is a useful tool.' Then back to: 'Science explains everything.'", explanation: "The bold claim is swapped for a modest one under scrutiny, then quietly reasserted." },
@@ -346,6 +372,7 @@ window.DATA_FR = {
     },
     "kafkatrap": {
       description: "Utiliser le déni d'une accusation comme preuve que l'accusation est vraie. Toute tentative de se défendre est utilisée contre vous.",
+      responseStrategy: "Nommez le piège explicitement : « Vous avez conçu cela de sorte que toute réponse que je donne est traitée comme une preuve de culpabilité. Ce n\'est pas un cadre équitable pour une discussion. »",
       examples: [
         { text: "If you deny being a bigot, that's exactly what a bigot would say.", explanation: "The accusation is unfalsifiable — denial is treated as confirmation." },
         { text: "The fact that you're getting defensive proves you're guilty.", explanation: "A natural emotional response to a false accusation is used as evidence against you." },
@@ -358,6 +385,7 @@ window.DATA_FR = {
     },
     "sealioning": {
       description: "Demander constamment des preuves tout en paraissant poli et raisonnable. Le but n'est pas d'apprendre mais d'épuiser l'adversaire.",
+      responseStrategy: "Fixez des limites claires : « J\'ai fourni mon raisonnement. Si vous êtes sincèrement intéressé, voici quelques ressources. Je ne suis pas obligé de réexpliquer ma position indéfiniment. »",
       examples: [
         { text: "\"I'm just asking questions! Can you provide a source? And for that source, can you provide a source? And explain that source?\"", explanation: "The endless requests aren't in good faith — they're designed to exhaust and frustrate." },
         { text: "\"I respectfully disagree. Could you explain exactly what you mean? And elaborate on that? And define each term? And provide three examples?\"", explanation: "The questions keep escalating, not because of genuine curiosity, but to wear down the other person." },
@@ -370,6 +398,7 @@ window.DATA_FR = {
     },
     "gish-gallop": {
       description: "Submerger l'adversaire d'un flot d'arguments pour rendre la réponse impossible. La quantité est utilisée à la place de la qualité.",
+      responseStrategy: "Ne poursuivez pas chaque point. Dites : « Vous avez soulevé de nombreuses affirmations en même temps. Ralentissons et abordons-les une par une, en commençant par la plus solide. »",
       examples: [
         { text: "In a debate: 'What about inflation? And immigration? And the deficit? And jobs? And healthcare? And education? And taxes? And crime? And infrastructure?' (all in 30 seconds)", explanation: "Rapid-fire topics prevent any single issue from being properly discussed or rebutted." },
         { text: "An email listing 20 different complaints about a project, each requiring a detailed response, sent right before a deadline.", explanation: "The volume makes it impossible to address everything thoroughly, making the recipient look unprepared." },
@@ -382,6 +411,7 @@ window.DATA_FR = {
     },
     "nirvana-fallacy": {
       description: "Rejeter une bonne solution parce qu'elle n'est pas parfaite. Comparer à un standard impossible au lieu d'évaluer l'amélioration réelle.",
+      responseStrategy: "Recadrez la comparaison : « La question n\'est pas de savoir si cette solution est parfaite, mais si elle est meilleure que l\'alternative. Ne laissez pas le mieux être l\'ennemi du bien. »",
       examples: [
         { text: "Why bother with seatbelt laws? People still die in car accidents even while wearing them.", explanation: "Seatbelts significantly reduce fatalities even though they don't prevent every death." },
         { text: "There's no point in learning Spanish because I'll never speak it as well as a native.", explanation: "Imperfect fluency is still useful — communicating is better than not communicating at all." },
@@ -394,6 +424,7 @@ window.DATA_FR = {
     },
     "reification": {
       description: "Traiter un concept abstrait comme s'il était concret ou physique. Attribuer des qualités physiques à des idées abstraites.",
+      responseStrategy: "Clarifiez l\'abstraction : « C\'est un concept utile, mais ce n\'est pas une entité réelle dotée d\'intentions. Parlons des personnes ou des mécanismes spécifiques réellement impliqués. »",
       examples: [
         { text: "The free market will decide what's best for society.", explanation: "'The free market' isn't a sentient entity that makes decisions — it's an abstraction describing many individual transactions." },
         { text: "Science says we should do X.", explanation: "'Science' doesn't say anything — scientists publish findings based on evidence. Treating 'science' as a unified authority reifies an abstract concept." },
@@ -406,6 +437,7 @@ window.DATA_FR = {
     },
     "moving-goalposts": {
       description: "Changer les critères de preuve ou de succès après qu'ils ont été remplis. Peu importe les preuves présentées, la barre est constamment relevée.",
+      responseStrategy: "Signalez le déplacement : « J\'ai rempli vos critères initiaux. Vous demandez maintenant quelque chose de différent. Pouvons-nous convenir d\'un standard fixe avant de continuer ? »",
       examples: [
         { text: "You wanted a 10% sales increase? Well, now I need to see 20% before I'm convinced.", explanation: "The original target was met, but the criteria were changed to avoid accepting the result." },
         { text: "You proved X works in the lab? Well, show me it works in the real world. It works in the real world? Show me it works for 10 years.", explanation: "Each time evidence is provided, new requirements appear." },
@@ -419,6 +451,7 @@ window.DATA_FR = {
     },
     "false-equivalence": {
       description: "Traiter des choses significativement différentes comme également comparables. Ignorer les différences substantielles pour créer une fausse équivalence.",
+      responseStrategy: "Soulignez le déséquilibre : « Ces deux choses ne sont pas également étayées. L\'une dispose de preuves nettement plus solides que l\'autre. Évaluons-les proportionnellement. »",
       examples: [
         { text: "Teaching both evolution and creationism in science class is fair and balanced.", explanation: "Evolution is supported by overwhelming scientific evidence; creationism is a religious belief. They aren't equivalent in a science context." },
         { text: "Both parties are equally corrupt, so it doesn't matter who you vote for.", explanation: "Even if both have issues, the degree and nature of problems likely differ significantly." },
@@ -431,6 +464,7 @@ window.DATA_FR = {
     },
     "appeal-to-tradition": {
       description: "Affirmer que quelque chose est juste ou meilleur parce que cela a toujours été fait ainsi. L'ancienneté ne rend pas une pratique correcte.",
+      responseStrategy: "Demandez pourquoi la tradition compte ici : « Depuis combien de temps nous faisons quelque chose ne nous dit pas si c\'est la meilleure approche. Quelles preuves montrent que c\'est encore la bonne voie ? »",
       examples: [
         { text: "We've always used this filing system, so there's no reason to switch to a digital one.", explanation: "The age of a system doesn't mean it's still the best option." },
         { text: "Marriage has always been defined this way, so it should stay the same.", explanation: "Historical precedent doesn't constitute a logical argument against change." },
@@ -444,6 +478,7 @@ window.DATA_FR = {
     },
     "whataboutism": {
       description: "Répondre à une critique en pointant un problème différent au lieu de traiter la critique originale. Détourner l'attention au lieu de répondre.",
+      responseStrategy: "Redirigez vers le sujet initial : « C\'est une question distincte que nous pourrons aborder plus tard. Pour l\'instant, traitons le point qui a été réellement soulevé. »",
       examples: [
         { text: "You criticize our pollution? What about China's pollution?", explanation: "China's pollution doesn't excuse or address your own." },
         { text: "Why are you concerned about domestic issues when there are wars happening overseas?", explanation: "The existence of other problems doesn't invalidate the concern being raised." },
@@ -456,6 +491,7 @@ window.DATA_FR = {
     },
     "personal-incredulity": {
       description: "Affirmer que quelque chose est faux parce que vous ne pouvez pas le comprendre ou l'imaginer. Votre incompréhension personnelle ne détermine pas la réalité.",
+      responseStrategy: "Séparez la compréhension de la vérité : « Le fait que quelque chose soit difficile à comprendre ne le rend pas faux. Regardons ce que disent les preuves et les experts, pas seulement nos intuitions. »",
       examples: [
         { text: "I can't understand how evolution could produce something as complex as the human eye, so it must not be true.", explanation: "Personal inability to understand a process doesn't invalidate the scientific evidence supporting it." },
         { text: "The universe can't possibly be expanding — I can't even imagine what it would expand into.", explanation: "Our inability to visualize cosmological concepts doesn't determine their truth." },

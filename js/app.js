@@ -12,6 +12,7 @@
   var getFallacyName = window.I18N.getFallacyName;
   var getFallacyDefinition = window.I18N.getFallacyDefinition;
   var getFallacyDescription = window.I18N.getFallacyDescription;
+  var getFallacyResponseStrategy = window.I18N.getFallacyResponseStrategy;
   var getFallacyExamples = window.I18N.getFallacyExamples;
   var getFallacyQuizScenarios = window.I18N.getFallacyQuizScenarios;
   var getExtractorPassageTranslation = window.I18N.getExtractorPassageTranslation;
@@ -119,8 +120,10 @@
     state.quizScores = {};
     state.totalQuizCorrect = 0;
     state.totalQuizAnswered = 0;
+    state.readFallacies = [];
     saveState();
     renderDashboard();
+    if (views.wiki.classList.contains("active")) renderWiki();
     if (views.quiz.classList.contains("active")) renderQuizSetup();
   });
 
@@ -309,9 +312,9 @@
 
     if (f.responseStrategy) {
       html += '<div class="modal-response-strategy">'
-        + '<h3 class="modal-section-title">🛡️ Response Strategy</h3>'
+        + '<h3 class="modal-section-title">' + t("wiki.modal.responseStrategy") + '</h3>'
         + '<div class="response-strategy-card">'
-        + '<p>' + escapeHTML(f.responseStrategy) + '</p>'
+        + '<p>' + escapeHTML(getFallacyResponseStrategy(f)) + '</p>'
         + '</div>'
         + '</div>';
     }
