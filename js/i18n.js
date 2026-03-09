@@ -21,7 +21,7 @@
       "dashboard.progress.title": "Your Progress",
       "dashboard.theme.dark.on": "🌙 Dark mode: On",
       "dashboard.theme.dark.off": "🌙 Dark mode: Off",
-      "dashboard.resetScore": "Reset Quiz Score",
+      "dashboard.resetProgress": "Reset Progress",
       "dashboard.complete": "% Complete",
       "dashboard.stat.total": "Total Fallacies",
       "dashboard.stat.studied": "Studied",
@@ -47,6 +47,7 @@
       "wiki.noResults": "No fallacies match your filters.",
       "wiki.modal.category": "Category:",
       "wiki.modal.examples": "Examples",
+      "wiki.modal.responseStrategy": "🛡️ Response Strategy",
       "wiki.modal.quizScenarios": "Quiz Scenarios",
       "wiki.modal.markStudied": "Mark as Studied",
       "wiki.modal.studied": "✅ Studied",
@@ -61,6 +62,7 @@
       "quiz.tab.classic": "🎯 Classic Quiz",
       "quiz.tab.extractor": "🔍 Extractor Mode",
       "quiz.tab.versus": "⚔️ Versus Mode",
+      "quiz.tab.acebreaker": "🃏 Ace Breaker",
       "quiz.mixed": "🎲 Mixed Mode — All Levels",
       "quiz.score": "Score:",
       "quiz.quit": "Quit",
@@ -150,7 +152,7 @@
       "dashboard.progress.title": "تقدمك",
       "dashboard.theme.dark.on": "🌙 الوضع الداكن: مفعّل",
       "dashboard.theme.dark.off": "🌙 الوضع الداكن: معطّل",
-      "dashboard.resetScore": "إعادة تعيين النتيجة",
+      "dashboard.resetProgress": "إعادة تعيين التقدم",
       "dashboard.complete": "% مكتمل",
       "dashboard.stat.total": "إجمالي المغالطات",
       "dashboard.stat.studied": "تمت دراستها",
@@ -176,6 +178,7 @@
       "wiki.noResults": "لا توجد مغالطات تطابق معايير البحث.",
       "wiki.modal.category": "التصنيف:",
       "wiki.modal.examples": "أمثلة",
+      "wiki.modal.responseStrategy": "🛡️ استراتيجية الرد",
       "wiki.modal.quizScenarios": "سيناريوهات الاختبار",
       "wiki.modal.markStudied": "وضع علامة كمدروسة",
       "wiki.modal.studied": "✅ تمت الدراسة",
@@ -190,6 +193,7 @@
       "quiz.tab.classic": "🎯 اختبار كلاسيكي",
       "quiz.tab.extractor": "🔍 وضع الاستخراج",
       "quiz.tab.versus": "⚔️ وضع المواجهة",
+      "quiz.tab.acebreaker": "🃏 كسر الحجة",
       "quiz.mixed": "🎲 الوضع المختلط — جميع المستويات",
       "quiz.score": "النتيجة:",
       "quiz.quit": "خروج",
@@ -279,7 +283,7 @@
       "dashboard.progress.title": "Votre Progression",
       "dashboard.theme.dark.on": "🌙 Mode sombre : Activé",
       "dashboard.theme.dark.off": "🌙 Mode sombre : Désactivé",
-      "dashboard.resetScore": "Réinitialiser le score",
+      "dashboard.resetProgress": "Réinitialiser la progression",
       "dashboard.complete": "% Terminé",
       "dashboard.stat.total": "Total des Sophismes",
       "dashboard.stat.studied": "Étudiés",
@@ -305,6 +309,7 @@
       "wiki.noResults": "Aucun sophisme ne correspond à vos filtres.",
       "wiki.modal.category": "Catégorie :",
       "wiki.modal.examples": "Exemples",
+      "wiki.modal.responseStrategy": "🛡️ Stratégie de Réponse",
       "wiki.modal.quizScenarios": "Scénarios de Quiz",
       "wiki.modal.markStudied": "Marquer comme étudié",
       "wiki.modal.studied": "✅ Étudié",
@@ -319,6 +324,7 @@
       "quiz.tab.classic": "🎯 Quiz Classique",
       "quiz.tab.extractor": "🔍 Mode Extraction",
       "quiz.tab.versus": "⚔️ Mode Versus",
+      "quiz.tab.acebreaker": "🃏 Briseur d'As",
       "quiz.mixed": "🎲 Mode Mixte — Tous les Niveaux",
       "quiz.score": "Score :",
       "quiz.quit": "Quitter",
@@ -836,6 +842,16 @@
     return fallacy.description;
   }
 
+  // ---- Get Translated Fallacy Response Strategy ----
+  function getFallacyResponseStrategy(fallacy) {
+    if (currentLang === "en") return fallacy.responseStrategy;
+    var langData = getLangData();
+    if (langData && langData.fallacies && langData.fallacies[fallacy.id] && langData.fallacies[fallacy.id].responseStrategy) {
+      return langData.fallacies[fallacy.id].responseStrategy;
+    }
+    return fallacy.responseStrategy;
+  }
+
   // ---- Get Translated Fallacy Examples ----
   function getFallacyExamples(fallacy) {
     if (currentLang === "en") return fallacy.examples;
@@ -907,6 +923,7 @@
     getFallacyName: getFallacyName,
     getFallacyDefinition: getFallacyDefinition,
     getFallacyDescription: getFallacyDescription,
+    getFallacyResponseStrategy: getFallacyResponseStrategy,
     getFallacyExamples: getFallacyExamples,
     getFallacyQuizScenarios: getFallacyQuizScenarios,
     getExtractorPassageTranslation: getExtractorPassageTranslation,
