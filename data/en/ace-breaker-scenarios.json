@@ -1,0 +1,922 @@
+[
+  {
+    "level": 1,
+    "text": "You failed math in high school, so why should anyone listen to your opinion on the company budget?",
+    "fallacyId": "ad-hominem",
+    "responses": [
+      {
+        "id": "a",
+        "text": "My high school grades from years ago don't change whether these budget numbers add up. Let's look at the actual figures.",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Well, you're not exactly a financial genius yourself, so maybe sit this one out.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "You're right, I probably shouldn't weigh in on this.",
+        "correct": false
+      }
+    ],
+    "explanation": "This is an ad hominem attack — targeting the person instead of their argument. The correct response redirects to the actual substance of the budget discussion rather than engaging with the personal attack."
+  },
+  {
+    "level": 1,
+    "text": "So you're saying we should just let criminals roam free because you support bail reform?",
+    "fallacyId": "straw-man",
+    "responses": [
+      {
+        "id": "a",
+        "text": "At least I care about people's rights, unlike you.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "That's not what I said. I'm suggesting we reform the bail system so it's based on risk assessment, not just wealth.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Fine, forget I said anything about it.",
+        "correct": false
+      }
+    ],
+    "explanation": "This is a straw man fallacy — distorting someone's position into an extreme version that's easier to attack. The correct response restates the actual argument clearly instead of defending the exaggerated version."
+  },
+  {
+    "level": 1,
+    "text": "Dr. Johnson, a world-famous physicist, says this new diet is the best one out there. Are you really going to argue with a genius?",
+    "fallacyId": "appeal-to-authority",
+    "responses": [
+      {
+        "id": "a",
+        "text": "Well, my doctor said something different, and she's probably smarter.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "I guess if a physicist says so, it must be scientifically proven.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Being a great physicist doesn't make someone a nutrition expert. What does the actual dietary research say?",
+        "correct": true
+      }
+    ],
+    "explanation": "This is an appeal to authority — citing an expert outside their field of expertise. The correct response points out the expertise mismatch and asks for relevant evidence instead."
+  },
+  {
+    "level": 1,
+    "text": "You're either with us on this project direction, or you're against the whole team.",
+    "fallacyId": "false-dilemma",
+    "responses": [
+      {
+        "id": "a",
+        "text": "I can have concerns about the approach and still be a supportive team member. Those aren't mutually exclusive.",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Fine, I'm with you. I don't want any problems.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "If that's how you see it, then I guess I'm against you.",
+        "correct": false
+      }
+    ],
+    "explanation": "This is a false dilemma — presenting only two extreme options when other possibilities exist. The correct response identifies the middle ground: you can support the team while still raising concerns."
+  },
+  {
+    "level": 1,
+    "text": "If we let employees work from home one day a week, soon nobody will come to the office at all and the company will fall apart.",
+    "fallacyId": "slippery-slope",
+    "responses": [
+      {
+        "id": "a",
+        "text": "That's ridiculous and you're just afraid of change.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "You're right, we probably shouldn't risk it.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "One day of remote work doesn't automatically lead to everyone abandoning the office. We can set clear policies and adjust as needed.",
+        "correct": true
+      }
+    ],
+    "explanation": "This is a slippery slope fallacy — assuming one small change will inevitably lead to extreme consequences without justification. The correct response challenges the assumed chain of events and suggests practical safeguards."
+  },
+  {
+    "level": 1,
+    "text": "Everyone in the neighborhood is signing this petition. You don't want to be the only holdout, do you?",
+    "fallacyId": "bandwagon",
+    "responses": [
+      {
+        "id": "a",
+        "text": "I don't care what everyone else thinks; I'll never sign anything on principle.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "How many people sign it doesn't determine whether the cause is a good idea. What specifically does the petition propose?",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "I guess if everyone else thinks it's a good idea, I should probably join in.",
+        "correct": false
+      }
+    ],
+    "explanation": "This is a bandwagon fallacy — pressuring someone to agree because many others do. The correct response separates popularity from merit and asks about the actual substance."
+  },
+  {
+    "level": 1,
+    "text": "Think of the children who will suffer if you don't donate to our cause right now. How could you live with yourself?",
+    "fallacyId": "appeal-to-emotion",
+    "responses": [
+      {
+        "id": "a",
+        "text": "That's emotional manipulation and I refuse to engage with it at all.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "You're right, I'd feel terrible if I didn't donate. Where do I sign up?",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "I care about helping children, but I'd like to see how donations are actually used before committing. Can you share your impact report?",
+        "correct": true
+      }
+    ],
+    "explanation": "This is an appeal to emotion — using feelings of guilt to bypass rational evaluation. The correct response acknowledges the concern while asking for factual information to make an informed decision."
+  },
+  {
+    "level": 1,
+    "text": "Why are you worried about our company's hiring practices when there are people starving in the world?",
+    "fallacyId": "red-herring",
+    "responses": [
+      {
+        "id": "a",
+        "text": "World hunger is serious, but it doesn't mean we can't also address our hiring practices. Let's stay focused on what we can improve here.",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "You clearly don't care about fairness in our workplace.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "You're right, our hiring issues are pretty insignificant compared to global hunger.",
+        "correct": false
+      }
+    ],
+    "explanation": "This is a red herring — introducing an unrelated topic to divert attention from the original issue. The correct response acknowledges the other topic but steers the conversation back to the relevant point."
+  },
+  {
+    "level": 1,
+    "text": "You're telling me to eat healthier? I saw you eating fast food just last week!",
+    "fallacyId": "tu-quoque",
+    "responses": [
+      {
+        "id": "a",
+        "text": "At least I don't eat fast food every single day like some people I know.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "You're right, I'm a hypocrite and shouldn't be giving advice.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Whether I always follow my own advice doesn't change the fact that eating healthier is beneficial. The advice stands on its own merits.",
+        "correct": true
+      }
+    ],
+    "explanation": "This is a tu quoque (you too) fallacy — deflecting criticism by pointing out the other person's inconsistency. The correct response separates the validity of the advice from the behavior of the person giving it."
+  },
+  {
+    "level": 1,
+    "text": "Have you finally stopped wasting company money on your unnecessary side projects?",
+    "fallacyId": "loaded-question",
+    "responses": [
+      {
+        "id": "a",
+        "text": "That question assumes my projects are unnecessary, which I don't agree with. Let me show you the ROI data from last quarter.",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "How dare you accuse me of wasting money!",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "I'm working on being more careful with the budget going forward.",
+        "correct": false
+      }
+    ],
+    "explanation": "This is a loaded question — it contains a built-in assumption (that the projects are wasteful) that hasn't been established. The correct response identifies and challenges the hidden premise rather than accepting or reacting emotionally."
+  },
+  {
+    "level": 2,
+    "text": "Nobody has ever proven that this herbal supplement doesn't work, so it must be effective.",
+    "fallacyId": "appeal-to-ignorance",
+    "responses": [
+      {
+        "id": "a",
+        "text": "The lack of evidence against something isn't proof that it works. Has there been any research actually showing it's effective?",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Well, I've never seen it work either, so it probably doesn't.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "I suppose that's a fair point. If it hasn't been disproven, why not try it?",
+        "correct": false
+      }
+    ],
+    "explanation": "This is an appeal to ignorance — claiming something is true because it hasn't been proven false. The correct response highlights that the burden of proof lies with the person making the positive claim."
+  },
+  {
+    "level": 2,
+    "text": "I started wearing my lucky socks and then our team won three games in a row. Those socks are clearly the reason we're winning.",
+    "fallacyId": "post-hoc",
+    "responses": [
+      {
+        "id": "a",
+        "text": "That's just silly superstition and you're being ridiculous.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "The wins happening after you wore the socks doesn't mean the socks caused them. The team might just be playing better for other reasons.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Maybe there is something to it — can I borrow them for my next presentation?",
+        "correct": false
+      }
+    ],
+    "explanation": "This is a post hoc (after this, therefore because of this) fallacy — assuming that because one event followed another, the first caused the second. The correct response separates correlation from causation."
+  },
+  {
+    "level": 2,
+    "text": "I had a terrible experience at that restaurant chain last week. The entire chain must be awful.",
+    "fallacyId": "hasty-generalization",
+    "responses": [
+      {
+        "id": "a",
+        "text": "Actually, I had a great experience there, so you must have just gone on a bad day.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Yeah, chain restaurants are all pretty bad in my experience.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "One bad experience at one location doesn't represent every restaurant in the chain. Have you tried other locations or read broader reviews?",
+        "correct": true
+      }
+    ],
+    "explanation": "This is a hasty generalization — drawing a broad conclusion from insufficient evidence. The correct response points out that a single data point isn't enough to judge an entire chain."
+  },
+  {
+    "level": 2,
+    "text": "This news source is reliable because they always report the truth, and we know they report the truth because they're a reliable source.",
+    "fallacyId": "circular-reasoning",
+    "responses": [
+      {
+        "id": "a",
+        "text": "Every news source has bias, so reliability doesn't really matter anyway.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "You're using the conclusion as the premise — that's circular. What independent evidence shows this source is reliable?",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "That makes sense — if they're known for truth, they must be reliable.",
+        "correct": false
+      }
+    ],
+    "explanation": "This is circular reasoning — the argument's conclusion is used as one of its premises, creating a logical loop. The correct response identifies the circularity and asks for external, independent evidence."
+  },
+  {
+    "level": 2,
+    "text": "If you don't support this new surveillance bill, the next terrorist attack will be on your conscience. Do you really want that responsibility?",
+    "fallacyId": "appeal-to-fear",
+    "responses": [
+      {
+        "id": "a",
+        "text": "You're just trying to scare people into compliance, and that's disgusting.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "I don't want to be responsible for something like that — I'll support the bill.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "We can discuss security measures without fear-based blame. What evidence shows this specific bill would actually prevent attacks?",
+        "correct": true
+      }
+    ],
+    "explanation": "This is an appeal to fear — using a frightening scenario to pressure agreement rather than presenting evidence. The correct response defuses the fear framing and asks for substantive evidence."
+  },
+  {
+    "level": 2,
+    "text": "Any real fan of this band would appreciate their experimental album. If you don't like it, you're not a true fan.",
+    "fallacyId": "no-true-scotsman",
+    "responses": [
+      {
+        "id": "a",
+        "text": "I've been a fan since day one, so don't you dare tell me I'm not a real fan!",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Being a fan doesn't require liking every release. I can appreciate the band's body of work while having opinions about individual albums.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Maybe I should give it another listen. I want to be a real fan.",
+        "correct": false
+      }
+    ],
+    "explanation": "This is a no true Scotsman fallacy — redefining group membership to exclude anyone who disagrees. The correct response rejects the arbitrary redefinition and asserts that fandom doesn't require unconditional agreement."
+  },
+  {
+    "level": 2,
+    "text": "You should only use natural remedies because natural is always better and safer than anything artificial.",
+    "fallacyId": "appeal-to-nature",
+    "responses": [
+      {
+        "id": "a",
+        "text": "Whether something is natural or artificial doesn't automatically make it better or worse. What matters is the actual safety and efficacy data.",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Natural remedies are mostly just placebos with no real science behind them.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "That's true — nature has had millions of years to get it right.",
+        "correct": false
+      }
+    ],
+    "explanation": "This is an appeal to nature — assuming that 'natural' automatically means 'better.' The correct response points out that naturalness alone doesn't determine quality and redirects to actual evidence."
+  },
+  {
+    "level": 2,
+    "text": "That policy idea came from a think tank funded by billionaires, so the idea itself must be bad for ordinary people.",
+    "fallacyId": "genetic-fallacy",
+    "responses": [
+      {
+        "id": "a",
+        "text": "You're right, we shouldn't trust anything from a group like that.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Well, your ideas aren't exactly coming from unbiased sources either.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Where an idea comes from doesn't determine whether it's good or bad. Let's evaluate the policy on its own merits.",
+        "correct": true
+      }
+    ],
+    "explanation": "This is a genetic fallacy — judging an idea solely by its origin rather than its content. The correct response separates the source from the substance and asks for evaluation on the merits."
+  },
+  {
+    "level": 2,
+    "text": "The sign says 'fine for parking here,' so it must be perfectly fine for me to park here!",
+    "fallacyId": "equivocation",
+    "responses": [
+      {
+        "id": "a",
+        "text": "You're playing on two meanings of 'fine.' The sign means a monetary penalty, not that it's acceptable to park there.",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "That's a stretch and you know it — just go find another parking spot.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Ha, I guess you're technically right. Language is funny like that.",
+        "correct": false
+      }
+    ],
+    "explanation": "This is equivocation — exploiting the ambiguity of a word that has multiple meanings. The correct response identifies the two different meanings being conflated and clarifies the intended one."
+  },
+  {
+    "level": 2,
+    "text": "Multiple studies show this medication is perfectly safe — here are three that found zero side effects.",
+    "fallacyId": "cherry-picking",
+    "responses": [
+      {
+        "id": "a",
+        "text": "Big pharma funds all these studies anyway, so none of them can really be trusted.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Three studies with no side effects sounds like solid evidence to me.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Citing only favorable studies ignores the full picture. What does the overall body of research say, including studies that did find side effects?",
+        "correct": true
+      }
+    ],
+    "explanation": "This is cherry-picking — selectively presenting only evidence that supports a conclusion while ignoring contradictory data. The correct response asks for the complete picture rather than a curated selection."
+  },
+  {
+    "level": 3,
+    "text": "One scientist says the Earth is 4.5 billion years old, and another says it's 6,000 years old. The truth is probably somewhere in the middle.",
+    "fallacyId": "middle-ground",
+    "responses": [
+      {
+        "id": "a",
+        "text": "Anyone who thinks the Earth is 6,000 years old is clearly delusional.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Both sides should be heard equally, so a middle ground seems like the fairest approach.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "The truth isn't always in the middle. When one position is backed by overwhelming scientific evidence, a compromise doesn't make the answer more accurate.",
+        "correct": true
+      }
+    ],
+    "explanation": "This is the middle ground fallacy — assuming the truth must lie between two positions. The correct response highlights that when evidence strongly supports one side, splitting the difference produces a less accurate answer."
+  },
+  {
+    "level": 3,
+    "text": "I believe there's a civilization living inside the moon. You can't prove there isn't, so my belief is just as valid as yours.",
+    "fallacyId": "burden-of-proof",
+    "responses": [
+      {
+        "id": "a",
+        "text": "The person making an extraordinary claim has the burden of proving it. I don't need to disprove something with no supporting evidence.",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "That's the most ridiculous thing I've ever heard, and you can't be serious.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "I can't technically disprove it, so I guess I have to admit it's possible.",
+        "correct": false
+      }
+    ],
+    "explanation": "This is a burden of proof fallacy — shifting the responsibility to disprove a claim onto the skeptic rather than providing evidence for the claim. The correct response clarifies who bears the burden."
+  },
+  {
+    "level": 3,
+    "text": "Sure, our factory pollutes the river, but what about all the pollution from factories in other countries? We're nothing compared to them.",
+    "fallacyId": "whataboutism",
+    "responses": [
+      {
+        "id": "a",
+        "text": "You obviously don't care about the environment or the community at all.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "That's a fair point — our pollution really is insignificant in comparison.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Other countries' pollution doesn't excuse ours. We should focus on what we can control and reduce our own environmental impact.",
+        "correct": true
+      }
+    ],
+    "explanation": "This is whataboutism — deflecting criticism by pointing to someone else's wrongdoing. The correct response acknowledges the deflection and refocuses on the issue at hand."
+  },
+  {
+    "level": 3,
+    "text": "We've always done performance reviews once a year. There's no reason to change what's been working for decades.",
+    "fallacyId": "appeal-to-tradition",
+    "responses": [
+      {
+        "id": "a",
+        "text": "Everything old is outdated and needs to be thrown out immediately.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "How long we've done something doesn't mean it's the best approach. Let's evaluate whether annual reviews actually achieve our goals compared to alternatives.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "If it's worked for decades, that track record speaks for itself.",
+        "correct": false
+      }
+    ],
+    "explanation": "This is an appeal to tradition — arguing something should continue simply because it has always been done that way. The correct response separates longevity from effectiveness and asks for an evidence-based evaluation."
+  },
+  {
+    "level": 3,
+    "text": "All I'm saying is that people should be more careful with their money. [Earlier, they argued that poor people are lazy and deserve poverty.] Why would you disagree with basic financial responsibility?",
+    "fallacyId": "motte-and-bailey",
+    "responses": [
+      {
+        "id": "a",
+        "text": "Of course I agree with financial responsibility — I'm not unreasonable.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Your original claim was that poor people are lazy and deserve poverty, which is much stronger than 'be careful with money.' Let's address what you actually said.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Stop twisting the conversation around. You're being manipulative.",
+        "correct": false
+      }
+    ],
+    "explanation": "This is a motte-and-bailey fallacy — retreating from a controversial claim (the bailey) to a more defensible one (the motte) when challenged. The correct response identifies the switch and insists on addressing the original claim."
+  },
+  {
+    "level": 3,
+    "text": "Both the seasonal flu and this new virus can kill people, so we should treat them in exactly the same way.",
+    "fallacyId": "false-equivalence",
+    "responses": [
+      {
+        "id": "a",
+        "text": "You're dangerously downplaying a public health crisis, and that's irresponsible.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Just because two things share one characteristic doesn't make them equivalent. The transmission rates, severity, and available treatments differ significantly.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "That's a reasonable comparison — maybe we really are overreacting.",
+        "correct": false
+      }
+    ],
+    "explanation": "This is a false equivalence — treating two things as identical based on a superficial similarity while ignoring critical differences. The correct response identifies the key differences that make the comparison misleading."
+  },
+  {
+    "level": 3,
+    "text": "Every player on this team is a star. That obviously means this is the best team in the league.",
+    "fallacyId": "composition-division",
+    "responses": [
+      {
+        "id": "a",
+        "text": "If every player is a star, that really does sound like the best team.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Individual talent doesn't guarantee team success. Great teams also need chemistry, coaching, and coordination beyond individual skill.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Name one championship they've actually won — that's what I thought.",
+        "correct": false
+      }
+    ],
+    "explanation": "This is a fallacy of composition — assuming what's true of the parts must be true of the whole. The correct response explains that team success depends on factors beyond individual excellence."
+  },
+  {
+    "level": 3,
+    "text": "Show me evidence this policy works. [After presenting a study:] That study is too small. [After a larger study:] Well, that study wasn't done in our country. [After a local study:] Well, it's too recent to be reliable.",
+    "fallacyId": "moving-goalposts",
+    "responses": [
+      {
+        "id": "a",
+        "text": "I'm done trying to convince someone who will never be satisfied.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Let me try to find an older local study that might meet your criteria.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "I've met each standard you've set, and you keep changing what counts as sufficient. What specific criteria would actually satisfy you?",
+        "correct": true
+      }
+    ],
+    "explanation": "This is moving the goalposts — continuously changing the criteria for proof after each standard is met. The correct response calls out the pattern and demands a fixed, concrete standard."
+  },
+  {
+    "level": 3,
+    "text": "I'm just asking questions! Can you explain what you mean? And provide sources? And define each term? And explain the methodology of each source? I just genuinely want to understand.",
+    "fallacyId": "sealioning",
+    "responses": [
+      {
+        "id": "a",
+        "text": "You're right — let me start from the very beginning and lay it all out for you again.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "I've already explained my position clearly. These endless requests for elaboration seem designed to exhaust the conversation rather than to genuinely understand.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "If you can't understand by now, there's no hope for you.",
+        "correct": false
+      }
+    ],
+    "explanation": "This is sealioning — a form of trolling disguised as polite, persistent requests for evidence or explanation, designed to exhaust the other person. The correct response recognizes the pattern and sets a boundary."
+  },
+  {
+    "level": 3,
+    "text": "I just can't fathom how a single cell could evolve into something as complex as the human brain. That's impossible.",
+    "fallacyId": "personal-incredulity",
+    "responses": [
+      {
+        "id": "a",
+        "text": "It's really not that hard to understand if you'd just pick up a biology textbook.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "The brain is pretty incredible — I can see why you'd have doubts about evolution.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Something being hard to understand personally doesn't mean it's impossible. Evolutionary biology has well-documented explanations for how complexity develops incrementally over billions of years.",
+        "correct": true
+      }
+    ],
+    "explanation": "This is an argument from personal incredulity — assuming something can't be true because you personally find it hard to understand. The correct response separates personal comprehension from scientific reality."
+  },
+  {
+    "level": 4,
+    "text": "If you deny being prejudiced, that's exactly what a prejudiced person would say. Your denial just proves my point.",
+    "fallacyId": "kafkatrap",
+    "responses": [
+      {
+        "id": "a",
+        "text": "I'm not going to dignify that kind of accusation with a response.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "You've set up a situation where any denial is treated as confirmation — that's unfalsifiable. Let's discuss specific behaviors or evidence instead.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Maybe I do have some unconscious biases I should examine more carefully.",
+        "correct": false
+      }
+    ],
+    "explanation": "This is a Kafkatrap — a rhetorical trap where denying an accusation is used as proof of the accusation. The correct response identifies the unfalsifiable structure and redirects to concrete, evaluable evidence."
+  },
+  {
+    "level": 4,
+    "text": "Look at this cluster of cancer cases near the power line! That clearly proves power lines cause cancer.",
+    "fallacyId": "texas-sharpshooter",
+    "responses": [
+      {
+        "id": "a",
+        "text": "I'd rather be safe than sorry — I'm moving away from any power lines.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "That's just a coincidence and you're being paranoid about nothing.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Finding a pattern after the fact doesn't prove causation. You'd need to compare cancer rates near power lines to baseline rates elsewhere using proper methodology.",
+        "correct": true
+      }
+    ],
+    "explanation": "This is the Texas sharpshooter fallacy — drawing a target around data points after they've clustered and claiming the pattern is meaningful. The correct response asks for proper statistical comparison rather than accepting a post-hoc pattern."
+  },
+  {
+    "level": 4,
+    "text": "We don't need regulations — the free market will correct this problem on its own because the market always seeks efficiency.",
+    "fallacyId": "reification",
+    "responses": [
+      {
+        "id": "a",
+        "text": "You capitalists always worship the free market like it's some kind of deity.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "The market doesn't 'seek' anything — it's an abstract concept describing countless individual transactions. We need to discuss specific mechanisms, not treat the market as a sentient agent.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Markets do tend to self-correct over time, so maybe we should let it play out.",
+        "correct": false
+      }
+    ],
+    "explanation": "This is reification — treating an abstract concept as if it were a concrete, intentional agent. The correct response points out that 'the market' doesn't have desires or intentions, and asks for a discussion of actual mechanisms."
+  },
+  {
+    "level": 4,
+    "text": "This policy is terrible because it'll raise taxes, hurt small businesses, it's probably unconstitutional, other countries tried it and failed, it ignores rural areas, it'll increase the deficit, and the research behind it is outdated.",
+    "fallacyId": "gish-gallop",
+    "responses": [
+      {
+        "id": "a",
+        "text": "All of those points have been thoroughly debunked, and you'd know that if you did even basic research.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Wow, that's a lot of problems with it — maybe the policy really is that bad.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "You've thrown out seven claims at once, which makes it impossible to address them all fairly. Let's take them one at a time — which point do you consider your strongest?",
+        "correct": true
+      }
+    ],
+    "explanation": "This is a Gish gallop — overwhelming an opponent with a rapid series of arguments, making it impossible to address all of them. The correct response slows the discussion down and insists on focused, one-at-a-time evaluation."
+  },
+  {
+    "level": 4,
+    "text": "Your recycling program only reduces waste by 30%. Unless it can eliminate all waste entirely, it's completely pointless.",
+    "fallacyId": "nirvana-fallacy",
+    "responses": [
+      {
+        "id": "a",
+        "text": "We're working on making the program even better, so just give us more time.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "A 30% reduction is meaningful progress. Rejecting a good improvement because it isn't a perfect solution means nothing would ever get done.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "At least we're trying to do something, unlike the people who just sit around and complain.",
+        "correct": false
+      }
+    ],
+    "explanation": "This is the nirvana fallacy — rejecting a realistic solution because it doesn't achieve an impossible ideal. The correct response defends the value of meaningful improvement without demanding perfection."
+  },
+  {
+    "level": 4,
+    "text": "My grandfather smoked every day of his life and still lived to 95. Clearly, smoking can't be that dangerous.",
+    "fallacyId": "anecdotal",
+    "responses": [
+      {
+        "id": "a",
+        "text": "Well, my uncle smoked and died at 50, so clearly it is dangerous.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Some people are just genetically lucky, but most people won't be.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "One person's experience doesn't override decades of medical research on millions of people. Individual cases don't disprove well-established statistical trends.",
+        "correct": true
+      }
+    ],
+    "explanation": "This is the anecdotal fallacy — using a personal story to dismiss large-scale scientific evidence. The correct response highlights the difference between individual anecdotes and rigorous population-level research."
+  },
+  {
+    "level": 4,
+    "text": "So because you want police reform, you basically want total lawlessness where criminals run the streets and nobody is safe?",
+    "fallacyId": "straw-man",
+    "responses": [
+      {
+        "id": "a",
+        "text": "That's an absurd exaggeration and you're clearly arguing in bad faith.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "No, of course I don't want that! I completely support the police.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "I said reform, not abolish. Wanting better training and accountability measures is entirely compatible with maintaining public safety.",
+        "correct": true
+      }
+    ],
+    "explanation": "This is a straw man fallacy — distorting a position into an extreme caricature to make it easier to attack. The correct response calmly restates the actual position without either getting defensive or overcorrecting."
+  },
+  {
+    "level": 4,
+    "text": "My therapist says couples who argue about money are doomed to divorce, so we should simply never discuss our finances.",
+    "fallacyId": "appeal-to-authority",
+    "responses": [
+      {
+        "id": "a",
+        "text": "Your therapist doesn't know anything about our specific relationship.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "If a professional says so, maybe we really should just avoid the whole topic.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Even if your therapist said that, avoiding finances entirely isn't the answer. Healthy couples communicate about money — perhaps they meant unproductive fighting, not all discussion.",
+        "correct": true
+      }
+    ],
+    "explanation": "This is a misuse of appeal to authority — taking an expert's general observation and applying it as an absolute rule to avoid a necessary conversation. The correct response distinguishes between the likely nuanced advice and the extreme interpretation."
+  },
+  {
+    "level": 4,
+    "text": "If we allow employees to customize their work hours, next they'll want to pick their own projects, then set their own salaries, and eventually there'll be zero management structure.",
+    "fallacyId": "slippery-slope",
+    "responses": [
+      {
+        "id": "a",
+        "text": "That's a dramatic overreaction, and you're clearly just afraid of losing control.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Flexible hours don't logically lead to organizational anarchy. Each of those decisions has its own considerations and can be evaluated independently.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Maybe you're right — if we give an inch, they'll take a mile.",
+        "correct": false
+      }
+    ],
+    "explanation": "This is a slippery slope fallacy — assuming one reasonable change will inevitably cascade into extreme consequences. The correct response breaks the assumed chain by pointing out that each step requires its own independent justification."
+  },
+  {
+    "level": 4,
+    "text": "Either we cut the entire arts program to properly fund STEM education, or our students will fall hopelessly behind in technology. There simply isn't another option.",
+    "fallacyId": "false-dilemma",
+    "responses": [
+      {
+        "id": "a",
+        "text": "STEM is obviously more important for the future, so it should absolutely get priority.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "You're only saying that because you don't value creativity or the arts.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Those aren't the only two options. We could adjust the funding balance, pursue additional grants, or integrate arts with STEM through interdisciplinary programs.",
+        "correct": true
+      }
+    ],
+    "explanation": "This is a false dilemma — presenting a complex situation as having only two possible outcomes when many alternatives exist. The correct response identifies additional options that weren't presented."
+  }
+]

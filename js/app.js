@@ -1545,40 +1545,42 @@
     }
   });
 
-  // ---- Language Switcher ----
-  window.I18N.initLang();
-  window.I18N.translateStaticElements();
-
-  // Set active lang button on load
-  var currentLangOnLoad = window.I18N.getLang();
-  document.querySelectorAll("#lang-switcher .lang-btn").forEach(function (btn) {
-    btn.classList.toggle("active", btn.dataset.lang === currentLangOnLoad);
-    btn.addEventListener("click", function () {
-      var lang = btn.dataset.lang;
-      window.I18N.setLang(lang);
-      // Update i18n helper references
-      t = window.I18N.t;
-      getLevelInfo = window.I18N.getLevelInfo;
-      getCategories = window.I18N.getCategories;
-      translateCategory = window.I18N.translateCategory;
-      getFallacyName = window.I18N.getFallacyName;
-      getFallacyDefinition = window.I18N.getFallacyDefinition;
-
-      // Update lang button active states
-      document.querySelectorAll("#lang-switcher .lang-btn").forEach(function (b) {
-        b.classList.toggle("active", b.dataset.lang === lang);
-      });
-
-      // Re-translate static HTML
-      window.I18N.translateStaticElements();
-
-      // Re-render current view
-      renderDashboard();
-      renderWiki();
-      renderQuizSetup();
-    });
-  });
-
   // ---- Init ----
-  renderDashboard();
+  window.DataLoader.loadAll().then(function () {
+    // ---- Language Switcher ----
+    window.I18N.initLang();
+    window.I18N.translateStaticElements();
+
+    // Set active lang button on load
+    var currentLangOnLoad = window.I18N.getLang();
+    document.querySelectorAll("#lang-switcher .lang-btn").forEach(function (btn) {
+      btn.classList.toggle("active", btn.dataset.lang === currentLangOnLoad);
+      btn.addEventListener("click", function () {
+        var lang = btn.dataset.lang;
+        window.I18N.setLang(lang);
+        // Update i18n helper references
+        t = window.I18N.t;
+        getLevelInfo = window.I18N.getLevelInfo;
+        getCategories = window.I18N.getCategories;
+        translateCategory = window.I18N.translateCategory;
+        getFallacyName = window.I18N.getFallacyName;
+        getFallacyDefinition = window.I18N.getFallacyDefinition;
+
+        // Update lang button active states
+        document.querySelectorAll("#lang-switcher .lang-btn").forEach(function (b) {
+          b.classList.toggle("active", b.dataset.lang === lang);
+        });
+
+        // Re-translate static HTML
+        window.I18N.translateStaticElements();
+
+        // Re-render current view
+        renderDashboard();
+        renderWiki();
+        renderQuizSetup();
+      });
+    });
+
+    renderDashboard();
+  });
 })();

@@ -1,0 +1,274 @@
+{
+  "circular-reasoning": {
+    "description": "Utiliser la conclusion comme prémisse — l'argument tourne en rond. Vous présupposez ce que vous essayez de prouver.",
+    "responseStrategy": "Identifiez la boucle : « Vous utilisez votre conclusion comme point de départ. Pouvez-vous me donner des preuves indépendantes qui ne présupposent pas ce que vous essayez de démontrer ? »",
+    "examples": [
+      {
+        "text": "The Bible is true because it's the word of God, and we know it's the word of God because the Bible says so.",
+        "explanation": "The Bible's truth is used to prove it's God's word, and God's word is used to prove it's true — a perfect circle."
+      },
+      {
+        "text": "She's a good leader because she has great leadership qualities.",
+        "explanation": "This just restates the claim in different words without providing evidence."
+      },
+      {
+        "text": "Organic food is healthier because it's better for you.",
+        "explanation": "'Healthier' and 'better for you' mean the same thing — no actual evidence is given."
+      },
+      {
+        "text": "He's clearly the most qualified candidate because no one is more qualified than he is.",
+        "explanation": "This restates 'most qualified' in different words without giving independent evidence."
+      }
+    ],
+    "quizScenarios": [
+      {
+        "text": "\"Freedom of speech is important because people should be able to say what they want.\"",
+        "explanation": "'People should be able to say what they want' is just a restatement of 'freedom of speech is important' — no independent reason is given."
+      },
+      {
+        "text": "\"This company is successful because it does things that make it successful.\"",
+        "explanation": "The conclusion (company is successful) is restated as the premise, providing no real explanation."
+      },
+      {
+        "text": "\"We know the witness is trustworthy because he gave a credible testimony, and we know the testimony is credible because the witness is trustworthy.\"",
+        "explanation": "Trustworthiness is used to prove credibility and credibility to prove trustworthiness — circular logic."
+      }
+    ]
+  },
+  "hasty-generalization": {
+    "description": "Tirer une conclusion générale à partir d'un échantillon petit ou non représentatif. Une seule observation ou quelques cas ne suffisent pas pour soutenir une affirmation large.",
+    "responseStrategy": "Interrogez sur la taille et la représentativité de l'échantillon : « Sur combien de cas cela repose-t-il ? Est-ce suffisant pour tirer une conclusion aussi large ? »",
+    "examples": [
+      {
+        "text": "I met two rude people from New York, so all New Yorkers must be rude.",
+        "explanation": "Two people out of millions isn't enough to generalize about an entire city's population."
+      },
+      {
+        "text": "My last two iPhones had problems, so Apple makes terrible products.",
+        "explanation": "Two devices don't represent the quality of all Apple products across millions of units."
+      },
+      {
+        "text": "I tried sushi once and didn't like it, so all Japanese food is bad.",
+        "explanation": "One dish doesn't represent an entire cuisine with thousands of different dishes."
+      }
+    ],
+    "quizScenarios": [
+      {
+        "text": "\"I asked three coworkers and they all prefer working from home. Clearly, every employee in the company wants to go fully remote.\"",
+        "explanation": "Three coworkers out of an entire company is far too small a sample to draw a company-wide conclusion."
+      },
+      {
+        "text": "\"Both times I visited Paris, it rained. Paris must have terrible weather all the time.\"",
+        "explanation": "Two visits don't represent the full range of Paris's weather patterns across all seasons."
+      },
+      {
+        "text": "\"My neighbor's electric car broke down, so electric vehicles are unreliable.\"",
+        "explanation": "One car's experience doesn't represent the reliability of all electric vehicles."
+      }
+    ]
+  },
+  "tu-quoque": {
+    "description": "Rejeter l'argument de quelqu'un en soulignant qu'il ne pratique pas ce qu'il prêche. Même si la personne est hypocrite, cela n'invalide pas son argument.",
+    "responseStrategy": "Reconnaissez l'incohérence si elle est valide, mais recentrez : « Que je sois cohérent ou non ne change pas la validité de l'argument. Discutons du point lui-même. »",
+    "examples": [
+      {
+        "text": "You say I should eat healthier, but I've seen you eating fast food!",
+        "explanation": "The other person's eating habits don't change whether the health advice is valid."
+      },
+      {
+        "text": "Don't lecture me about being late — you were late just last week!",
+        "explanation": "Someone else's tardiness doesn't make your own lateness acceptable."
+      },
+      {
+        "text": "The government says we should reduce carbon emissions, but government buildings waste energy all the time.",
+        "explanation": "Government hypocrisy doesn't invalidate the science behind reducing emissions."
+      }
+    ],
+    "quizScenarios": [
+      {
+        "text": "\"My parent told me I should read more books. But they watch TV every evening! Why should I listen?\"",
+        "explanation": "Your parent's TV habits don't change whether reading more would benefit you. The advice stands on its own merits."
+      },
+      {
+        "text": "\"The company CEO says employees should be more environmentally conscious, but she flies in a private jet. Her point is clearly invalid.\"",
+        "explanation": "The CEO's personal carbon footprint doesn't determine whether environmental consciousness is important."
+      }
+    ]
+  },
+  "appeal-to-ignorance": {
+    "description": "Affirmer que quelque chose est vrai parce qu'il n'a pas été prouvé faux, ou faux parce qu'il n'a pas été prouvé vrai. L'absence de preuve n'est pas la preuve de l'absence.",
+    "responseStrategy": "Clarifiez la charge de la preuve : « Ne pas pouvoir réfuter quelque chose ne le rend pas vrai. Quelles preuves positives soutiennent cette affirmation ? »",
+    "examples": [
+      {
+        "text": "Nobody has proven that ghosts don't exist, so they must be real.",
+        "explanation": "The lack of disproof doesn't serve as proof of existence."
+      },
+      {
+        "text": "There's no evidence this food additive is harmful, so it must be perfectly safe.",
+        "explanation": "Lack of evidence of harm isn't the same as evidence of safety — it might just be understudied."
+      },
+      {
+        "text": "No one has proven that this ancient remedy doesn't work, so it must be effective.",
+        "explanation": "The absence of disproving studies doesn't prove a remedy works."
+      }
+    ],
+    "quizScenarios": [
+      {
+        "text": "\"Scientists haven't proven that this chemical causes cancer, so it's completely safe to use in our products.\"",
+        "explanation": "Not yet having evidence of harm is different from having evidence of safety. The chemical may simply be understudied."
+      },
+      {
+        "text": "\"You can't prove that my business plan won't succeed, so it's definitely going to work!\"",
+        "explanation": "The inability to disprove future success doesn't constitute evidence that the plan is viable."
+      }
+    ]
+  },
+  "post-hoc": {
+    "description": "Supposer que B s'est produit à cause de A simplement parce que A a précédé B. La corrélation temporelle ne signifie pas la causalité.",
+    "responseStrategy": "Demandez un mécanisme causal : « Ce n'est pas parce qu'une chose a suivi une autre qu'elle en est la cause. Y a-t-il une raison prouvée pour laquelle ces éléments sont liés ? »",
+    "examples": [
+      {
+        "text": "I wore my lucky socks and we won the game, so my socks caused the win.",
+        "explanation": "The timing is coincidental — socks have no causal power over athletic performance."
+      },
+      {
+        "text": "Crime rates dropped after we installed new street lights. The lights must have reduced crime.",
+        "explanation": "Many other factors could explain the drop — seasonal changes, increased policing, economic improvements, etc."
+      },
+      {
+        "text": "I started taking vitamin C and my cold went away in a week. Vitamin C cured my cold!",
+        "explanation": "Colds typically last about a week regardless — the timing of recovery doesn't prove the vitamin was the cause."
+      }
+    ],
+    "quizScenarios": [
+      {
+        "text": "\"Since we changed our company logo last quarter, our sales have increased 20%. The new logo is clearly driving more sales.\"",
+        "explanation": "Sales increase could be due to many factors: seasonal trends, marketing campaigns, economic conditions. The logo change simply preceded it."
+      },
+      {
+        "text": "\"Every time I wash my car, it rains the next day. Washing my car must cause rain.\"",
+        "explanation": "Car washing and weather are unrelated events. The temporal sequence is coincidental, not causal."
+      },
+      {
+        "text": "\"I got a promotion right after I started meditating. Meditation must be the key to career success.\"",
+        "explanation": "The promotion may have been due to work performance, timing, or other factors unrelated to meditation."
+      }
+    ]
+  },
+  "loaded-question": {
+    "description": "Poser une question contenant une hypothèse non prouvée intégrée. La question est conçue de sorte que toute réponse accepte l'hypothèse.",
+    "responseStrategy": "Rejetez la prémisse avant de répondre : « Je n'accepte pas le présupposé intégré dans cette question. Permettez-moi de la reformuler... » puis posez une version équitable.",
+    "examples": [
+      {
+        "text": "Why do you hate freedom?",
+        "explanation": "This presumes the person hates freedom, which hasn't been established."
+      },
+      {
+        "text": "When did you stop cheating on your taxes?",
+        "explanation": "This assumes the person was cheating on taxes. Both 'I stopped last year' and 'I haven't stopped' confirm cheating."
+      },
+      {
+        "text": "Why is your company's product so inferior to ours?",
+        "explanation": "This assumes inferiority as a fact rather than arguing for it."
+      }
+    ],
+    "quizScenarios": [
+      {
+        "text": "\"Why does your party want to destroy the economy?\"",
+        "explanation": "This question assumes the party wants to destroy the economy — a claim that hasn't been established. Any direct answer accepts the false premise."
+      },
+      {
+        "text": "\"Don't you think it's time you admitted your plan is a failure?\"",
+        "explanation": "This assumes the plan has failed, forcing the respondent to argue against the embedded assumption instead of the actual question."
+      }
+    ]
+  },
+  "no-true-scotsman": {
+    "description": "Redéfinir les critères pour exclure les contre-exemples. Quand un contre-exemple est présenté, la définition est modifiée pour l'exclure.",
+    "responseStrategy": "Fixez la définition : « Avant de continuer, mettons-nous d'accord sur une définition claire. Vous ne pouvez pas la modifier à chaque fois qu'un contre-exemple apparaît. »",
+    "examples": [
+      {
+        "text": "No real programmer uses that language. — But Tim uses it and he's a programmer. — Well, no REAL programmer would use it.",
+        "explanation": "The definition of 'real programmer' is being changed to exclude the counterexample."
+      },
+      {
+        "text": "True artists don't care about money. — But Picasso was very business-savvy. — Well, he wasn't a true artist then.",
+        "explanation": "Picasso is a widely recognized artist; redefining 'true artist' to exclude him is arbitrary."
+      },
+      {
+        "text": "No good parent would let their child eat candy. — My parents did, and they're great parents. — Then they weren't truly good parents.",
+        "explanation": "The definition of 'good parent' is shifted to maintain the original claim."
+      }
+    ],
+    "quizScenarios": [
+      {
+        "text": "\"Real entrepreneurs never fail.\" \"But Steve Jobs was fired from Apple.\" \"Well, at that point he wasn't acting as a real entrepreneur.\"",
+        "explanation": "The definition of 'real entrepreneur' is modified to exclude a clear counterexample, protecting the original claim from being disproven."
+      },
+      {
+        "text": "\"No dedicated employee would ever take a mental health day.\" \"Sarah is very dedicated and she took one last month.\" \"Then she's not truly dedicated.\"",
+        "explanation": "The criteria for 'dedicated employee' are changed ad hoc to exclude the counterexample."
+      }
+    ]
+  },
+  "equivocation": {
+    "description": "Utiliser un mot ayant plusieurs sens comme s'il signifiait la même chose dans tous les usages. Changer le sens en cours d'argument le rend trompeur.",
+    "responseStrategy": "Signalez le glissement de sens : « Vous utilisez ce mot dans deux sens différents. Soyons précis — quel sens voulez-vous lui donner ? »",
+    "examples": [
+      {
+        "text": "A feather is light. What is light cannot be dark. Therefore, a feather cannot be dark.",
+        "explanation": "'Light' shifts from meaning 'not heavy' to meaning 'not dark' — two completely different meanings."
+      },
+      {
+        "text": "The sign said 'fine for parking here,' so I parked. It must be fine!",
+        "explanation": "'Fine' as a penalty vs. 'fine' as acceptable — two different meanings."
+      },
+      {
+        "text": "Evolution is just a theory, so it's basically a guess.",
+        "explanation": "In science, 'theory' means a well-tested explanation. In everyday language, it means a guess. These are very different."
+      },
+      {
+        "text": "Nothing is better than eternal happiness. A ham sandwich is better than nothing. Therefore, a ham sandwich is better than eternal happiness.",
+        "explanation": "'Nothing' shifts from meaning 'no thing' to 'the absence of anything,' creating a nonsensical logical chain."
+      }
+    ],
+    "quizScenarios": [
+      {
+        "text": "\"The law says you have the right to bear arms. Bears have arms. Therefore, you have the right to bear bears.\"",
+        "explanation": "This plays on 'arms' meaning weapons vs. body parts and 'bear' as carry vs. the animal."
+      },
+      {
+        "text": "\"All banks are beside rivers. I have money in a bank. Therefore, my money is beside a river.\"",
+        "explanation": "'Bank' shifts from a riverbank to a financial institution, making the argument nonsensical."
+      }
+    ]
+  },
+  "whataboutism": {
+    "description": "Répondre à une critique en pointant un problème différent au lieu de traiter la critique originale. Détourner l'attention au lieu de répondre.",
+    "responseStrategy": "Redirigez vers le sujet initial : « C'est une question distincte que nous pourrons aborder plus tard. Pour l'instant, traitons le point qui a été réellement soulevé. »",
+    "examples": [
+      {
+        "text": "You criticize our pollution? What about China's pollution?",
+        "explanation": "China's pollution doesn't excuse or address your own."
+      },
+      {
+        "text": "Why are you concerned about domestic issues when there are wars happening overseas?",
+        "explanation": "The existence of other problems doesn't invalidate the concern being raised."
+      },
+      {
+        "text": "You say our product has bugs? Well, our competitor's product crashes completely!",
+        "explanation": "Competitor problems don't fix your bugs."
+      }
+    ],
+    "quizScenarios": [
+      {
+        "text": "\"You say our company should pay fair wages? Well, what about the tech giants who avoid taxes? Why aren't you going after them?\"",
+        "explanation": "Other companies' tax practices don't address the wage fairness concern being raised."
+      },
+      {
+        "text": "\"You're criticizing my driving? What about that time YOU forgot to signal a turn?\"",
+        "explanation": "Someone else's past mistake doesn't address the current criticism of your driving."
+      }
+    ]
+  }
+}

@@ -1,0 +1,237 @@
+[
+  {
+    "id": "motte-and-bailey",
+    "name": "Motte and Bailey",
+    "category": "Ambiguity",
+    "level": 4,
+    "definition": "Switching between a controversial claim (bailey) and a more defensible one (motte) when challenged.",
+    "description": "Named after a medieval castle design: the bailey is the desirable but hard-to-defend area; the motte is the easily defended tower. Someone makes a bold, controversial claim (bailey), but when challenged, retreats to a much weaker, more reasonable claim (motte). Once the challenge passes, they go back to the bold claim.",
+    "responseStrategy": "Pin them to their original claim: 'Your initial argument was much stronger than what you're defending now. Do you stand by your original claim, or are you changing your position?'",
+    "examples": [
+      {
+        "text": "Claim: 'All modern art is meaningless garbage.' When challenged: 'I just mean some modern art is hard to understand.' Later returns to: 'Modern art is garbage.'",
+        "explanation": "The speaker retreats to a reasonable position when pressed, then returns to the extreme one."
+      },
+      {
+        "text": "Claim: 'Science can explain everything.' When challenged: 'I just mean science is a useful tool.' Then back to: 'Science explains everything.'",
+        "explanation": "The bold claim is swapped for a modest one under scrutiny, then quietly reasserted."
+      },
+      {
+        "text": "Claim: 'All processed food is poison.' When challenged: 'I just mean we should eat more whole foods.' Later: 'Processed food is poison.'",
+        "explanation": "The defensible position (eat more whole foods) protects the indefensible one (processed food is poison)."
+      }
+    ],
+    "quizScenarios": [
+      {
+        "text": "\"Social media is destroying society!\" When asked for evidence: \"I just think people should be more mindful of screen time.\" Next day: \"Social media is destroying society!\"",
+        "explanation": "The bold claim (destroying society) retreats to a mild one (be more mindful) when challenged, then quietly returns."
+      },
+      {
+        "text": "\"Capitalism is evil and must be abolished!\" When debated: \"I'm just saying we need better regulations.\" Next week: \"We must abolish capitalism!\"",
+        "explanation": "The speaker oscillates between an extreme position and a moderate one, using the moderate position as a shield."
+      }
+    ]
+  },
+  {
+    "id": "kafkatrap",
+    "name": "Kafkatrap",
+    "category": "Presumption",
+    "level": 4,
+    "definition": "A situation where denying an accusation is used as evidence that the accusation is true.",
+    "description": "Named after Franz Kafka's novel 'The Trial,' where the protagonist is accused of a crime but never told what it is. In a Kafkatrap, if you deny being guilty, your denial is taken as proof of guilt. If you get angry about a false accusation, your anger 'proves' you're guilty. There's no way to defend yourself.",
+    "responseStrategy": "Name the trap explicitly: 'You've set this up so that any response I give is treated as proof of guilt. That's not a fair framework for discussion.'",
+    "examples": [
+      {
+        "text": "If you deny being a bigot, that's exactly what a bigot would say.",
+        "explanation": "The accusation is unfalsifiable — denial is treated as confirmation."
+      },
+      {
+        "text": "The fact that you're getting defensive proves you're guilty.",
+        "explanation": "A natural emotional response to a false accusation is used as evidence against you."
+      },
+      {
+        "text": "If you say you don't see color, that proves you're racist. If you acknowledge color, that also proves you're racist.",
+        "explanation": "Any response is interpreted as confirmation of the accusation — there's no winning."
+      }
+    ],
+    "quizScenarios": [
+      {
+        "text": "\"If you disagree that our company has a toxic culture, that's proof that you're part of the problem. Only someone contributing to toxicity would deny it.\"",
+        "explanation": "Disagreement is treated as evidence for the original claim, creating a trap where no defense is possible."
+      },
+      {
+        "text": "\"The more you insist you're not lying, the more it proves you're a liar. An honest person wouldn't need to defend themselves so much.\"",
+        "explanation": "Self-defense against the accusation is used as further evidence of guilt, making the claim unfalsifiable."
+      }
+    ]
+  },
+  {
+    "id": "sealioning",
+    "name": "Sealioning",
+    "category": "Relevance",
+    "level": 4,
+    "definition": "Persistently and disingenuously requesting evidence or explanations while appearing polite and reasonable.",
+    "description": "A form of harassment disguised as genuine intellectual curiosity. The 'sealioner' keeps asking for evidence, explanations, and justifications — not to learn, but to exhaust and frustrate the other person. They maintain a facade of politeness while putting unreasonable demands on others.",
+    "responseStrategy": "Set clear boundaries: 'I've provided my reasoning. If you're genuinely interested, here are some resources. I'm not obligated to endlessly re-explain my position.'",
+    "examples": [
+      {
+        "text": "\"I'm just asking questions! Can you provide a source? And for that source, can you provide a source? And explain that source?\"",
+        "explanation": "The endless requests aren't in good faith — they're designed to exhaust and frustrate."
+      },
+      {
+        "text": "\"I respectfully disagree. Could you explain exactly what you mean? And elaborate on that? And define each term? And provide three examples?\"",
+        "explanation": "The questions keep escalating, not because of genuine curiosity, but to wear down the other person."
+      },
+      {
+        "text": "\"I'm being perfectly civil. I just want you to justify every single claim you've made in this entire conversation.\"",
+        "explanation": "Polite tone masks unreasonable demands designed to make productive conversation impossible."
+      }
+    ],
+    "quizScenarios": [
+      {
+        "text": "\"I notice you said climate change is real. Could you define 'real'? And what do you mean by 'climate'? Could you provide 50 peer-reviewed sources? And explain the methodology of each one? I'm just trying to learn!\"",
+        "explanation": "The cascade of ever-expanding requests, despite the polite tone, is designed to exhaust rather than genuinely engage with the topic."
+      },
+      {
+        "text": "\"You mentioned systemic issues. Can you define 'systemic'? Now can you prove systems exist? What is your definition of 'exist'? I'm just asking reasonable questions!\"",
+        "explanation": "These aren't genuine questions but a strategy to make discussion impossible by demanding justification of every basic concept."
+      }
+    ]
+  },
+  {
+    "id": "gish-gallop",
+    "name": "Gish Gallop",
+    "category": "Relevance",
+    "level": 4,
+    "definition": "Overwhelming an opponent with a flood of arguments, regardless of their accuracy, to make a coherent response impossible.",
+    "description": "Named after creationist Duane Gish, who used this technique in debates. The strategy involves making so many arguments (often weak or misleading) that the opponent can't possibly address them all in the available time. If even one goes unrefuted, the galloper claims victory.",
+    "responseStrategy": "Don't chase every point. Say: 'You've raised many claims at once. Let's slow down and address them one at a time, starting with the strongest one.'",
+    "examples": [
+      {
+        "text": "In a debate: 'What about inflation? And immigration? And the deficit? And jobs? And healthcare? And education? And taxes? And crime? And infrastructure?' (all in 30 seconds)",
+        "explanation": "Rapid-fire topics prevent any single issue from being properly discussed or rebutted."
+      },
+      {
+        "text": "An email listing 20 different complaints about a project, each requiring a detailed response, sent right before a deadline.",
+        "explanation": "The volume makes it impossible to address everything thoroughly, making the recipient look unprepared."
+      },
+      {
+        "text": "A social media post listing 15 'problems' with a scientific study, each requiring expert-level knowledge to properly address.",
+        "explanation": "The sheer number of objections makes a complete response impractical, giving the false impression the study is fatally flawed."
+      }
+    ],
+    "quizScenarios": [
+      {
+        "text": "\"In the last quarter alone: revenue is down 2%, the website had 3 bugs, two employees left, the coffee machine broke, we ran out of paper once, and the parking lot needs repaving. This company is clearly failing!\"",
+        "explanation": "A flood of mostly trivial issues is presented together to create an overwhelming impression of failure that's hard to address point by point."
+      },
+      {
+        "text": "\"Here are my 25 reasons why your scientific paper is wrong: [lists a mix of valid concerns, misunderstandings, and irrelevant points]. You can't address all of them, can you?\"",
+        "explanation": "The sheer volume is the weapon — it's designed to make a complete response impossible, not to genuinely engage with the research."
+      }
+    ]
+  },
+  {
+    "id": "nirvana-fallacy",
+    "name": "Nirvana Fallacy (Perfect Solution)",
+    "category": "Presumption",
+    "level": 4,
+    "definition": "Rejecting a solution because it's not perfect, even though it's better than no solution.",
+    "description": "Comparing a realistic option to an idealized, perfect alternative that doesn't exist. 'Why bother recycling when it won't completely solve climate change?' The fact that a solution isn't perfect doesn't make it worthless. Don't let the perfect be the enemy of the good.",
+    "responseStrategy": "Reframe the comparison: 'The question isn't whether this solution is perfect, but whether it's better than the alternative. Don't let the perfect be the enemy of the good.'",
+    "examples": [
+      {
+        "text": "Why bother with seatbelt laws? People still die in car accidents even while wearing them.",
+        "explanation": "Seatbelts significantly reduce fatalities even though they don't prevent every death."
+      },
+      {
+        "text": "There's no point in learning Spanish because I'll never speak it as well as a native.",
+        "explanation": "Imperfect fluency is still useful — communicating is better than not communicating at all."
+      },
+      {
+        "text": "Why vote? The election system isn't perfect, so my vote probably doesn't matter anyway.",
+        "explanation": "An imperfect system is still better than not participating at all."
+      }
+    ],
+    "quizScenarios": [
+      {
+        "text": "\"Why should we implement this cybersecurity measure? It won't stop 100% of attacks, so it's pointless.\"",
+        "explanation": "No security measure is perfect, but reducing risk is still valuable. Demanding perfection means accepting zero protection."
+      },
+      {
+        "text": "\"This education reform won't help every single student, so we shouldn't bother implementing it.\"",
+        "explanation": "Helping many students is better than helping none. Rejecting improvement because it isn't universal is the nirvana fallacy."
+      }
+    ]
+  },
+  {
+    "id": "reification",
+    "name": "Reification (Concretism)",
+    "category": "Ambiguity",
+    "level": 4,
+    "definition": "Treating an abstract concept as if it were a concrete, physical thing.",
+    "description": "When we treat ideas, averages, or theoretical concepts as if they're real, tangible entities that can act on their own. 'The market wants lower taxes' treats 'the market' as a being with desires. 'Nature abhors a vacuum' gives nature human-like intentions. Abstractions are useful tools, but they're not real actors.",
+    "responseStrategy": "Clarify the abstraction: 'That's a useful concept, but it's not a real entity with intentions. Let's talk about the specific people or mechanisms actually involved.'",
+    "examples": [
+      {
+        "text": "The free market will decide what's best for society.",
+        "explanation": "'The free market' isn't a sentient entity that makes decisions — it's an abstraction describing many individual transactions."
+      },
+      {
+        "text": "Science says we should do X.",
+        "explanation": "'Science' doesn't say anything — scientists publish findings based on evidence. Treating 'science' as a unified authority reifies an abstract concept."
+      },
+      {
+        "text": "History teaches us that empires always fall.",
+        "explanation": "History is a record of events, not a teacher with lessons. Humans interpret historical patterns."
+      }
+    ],
+    "quizScenarios": [
+      {
+        "text": "\"Nature intended for humans to eat meat, which is why we have canine teeth.\"",
+        "explanation": "Nature doesn't have intentions or plans. Evolution isn't a designer — it's a process. Attributing intent to nature reifies an abstract concept."
+      },
+      {
+        "text": "\"The economy needs us to spend more money right now. We must obey what the economy demands.\"",
+        "explanation": "The economy isn't an entity with needs or demands. It's an abstract model describing patterns of production and consumption."
+      }
+    ]
+  },
+  {
+    "id": "moving-goalposts",
+    "name": "Moving the Goalposts",
+    "category": "Presumption",
+    "level": 4,
+    "definition": "Changing the criteria for proof or success after they have been met.",
+    "description": "When someone meets the standard of evidence you asked for, you simply raise the bar or change what you asked for. 'Show me one study' becomes 'show me ten studies,' then 'show me a meta-analysis,' then 'show me a consensus.' No amount of evidence is ever enough because the criteria keep shifting.",
+    "responseStrategy": "Call out the shift: 'I met your original criteria. You're now asking for something different. Can we agree on a fixed standard before continuing?'",
+    "examples": [
+      {
+        "text": "You wanted a 10% sales increase? Well, now I need to see 20% before I'm convinced.",
+        "explanation": "The original target was met, but the criteria were changed to avoid accepting the result."
+      },
+      {
+        "text": "You proved X works in the lab? Well, show me it works in the real world. It works in the real world? Show me it works for 10 years.",
+        "explanation": "Each time evidence is provided, new requirements appear."
+      },
+      {
+        "text": "You got straight A's? Well, that was an easy semester. Get straight A's in harder classes.",
+        "explanation": "The achievement is dismissed and new, harder criteria are substituted."
+      },
+      {
+        "text": "First they wanted me to get a degree, so I did. Then they wanted experience, so I got it. Now they say I need a certification too. The requirements keep growing.",
+        "explanation": "Each time a criterion is met, a new one appears, suggesting the original criteria were never the real standard."
+      }
+    ],
+    "quizScenarios": [
+      {
+        "text": "\"You wanted three references for this candidate? Here they are.\" \"Actually, I need five references.\" \"Here are five.\" \"Well, now I need references from CEOs specifically.\"",
+        "explanation": "The requirements keep changing after being met, revealing that no amount of evidence would be accepted."
+      },
+      {
+        "text": "\"Prove this diet works with a study.\" \"Here's a study.\" \"That's just one study, show me five.\" \"Here are five.\" \"Those aren't recent enough.\"",
+        "explanation": "Each time evidence is provided, the standard shifts to require more, preventing any conclusion from being reached."
+      }
+    ]
+  }
+]

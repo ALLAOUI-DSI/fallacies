@@ -1,0 +1,373 @@
+[
+  {
+    "id": "composition-division",
+    "name": "Composition / Division",
+    "category": "Formal",
+    "level": 3,
+    "definition": "Assuming what's true of the parts must be true of the whole (composition), or vice versa (division).",
+    "description": "Composition fallacy: because each part has a property, the whole must have it too (every player is great, so the team must be great). Division fallacy: because the whole has a property, each part must have it too (the team is great, so every player must be great). Groups and their parts can have very different properties.",
+    "responseStrategy": "Distinguish parts from wholes: 'What's true of the individual parts isn't necessarily true of the group, and vice versa. Can you show that it applies at both levels?'",
+    "examples": [
+      {
+        "text": "Every player on this team is a star, so this must be the best team in the league.",
+        "explanation": "Individual talent doesn't guarantee team chemistry, strategy, or overall performance."
+      },
+      {
+        "text": "Atoms are invisible. Humans are made of atoms. Therefore, humans are invisible.",
+        "explanation": "Properties of atoms don't necessarily transfer to the larger structures they compose."
+      },
+      {
+        "text": "This university is prestigious, so every course it offers must be excellent.",
+        "explanation": "Overall institutional reputation doesn't guarantee the quality of each individual course."
+      },
+      {
+        "text": "Hydrogen is not wet. Oxygen is not wet. Therefore, water (H2O) is not wet.",
+        "explanation": "Properties of individual elements don't necessarily carry over to the compounds they form."
+      }
+    ],
+    "quizScenarios": [
+      {
+        "text": "\"Each ingredient in this recipe is delicious on its own, so the dish must taste amazing.\"",
+        "explanation": "Individual ingredient quality doesn't guarantee they'll combine well together. This is the composition fallacy."
+      },
+      {
+        "text": "\"The United States is a wealthy country, so every American must be wealthy.\"",
+        "explanation": "National wealth doesn't mean each individual citizen is wealthy. This is the division fallacy."
+      }
+    ]
+  },
+  {
+    "id": "appeal-to-nature",
+    "name": "Appeal to Nature",
+    "category": "Presumption",
+    "level": 3,
+    "definition": "Arguing that something is good because it's natural, or bad because it's unnatural.",
+    "description": "Assuming that 'natural' equals good and 'unnatural' equals bad. Many natural things are harmful (arsenic, poison ivy) and many unnatural things are beneficial (medicine, eyeglasses). The natural/unnatural distinction doesn't determine moral or practical value.",
+    "responseStrategy": "Give counterexamples: 'Plenty of natural things are harmful and plenty of artificial things are helpful. Can you explain why being natural makes this specifically better?'",
+    "examples": [
+      {
+        "text": "Herbal remedies are better than medicine because they're all natural.",
+        "explanation": "Many effective medicines are synthetic, and many natural substances are toxic. 'Natural' doesn't mean 'better.'"
+      },
+      {
+        "text": "Homosexuality is unnatural, so it's wrong.",
+        "explanation": "Same-sex behavior is observed across many species in nature. But regardless, naturalness doesn't determine morality."
+      },
+      {
+        "text": "We shouldn't use artificial sweeteners because they're not natural.",
+        "explanation": "Being artificial doesn't automatically make something harmful, and being natural doesn't guarantee safety."
+      }
+    ],
+    "quizScenarios": [
+      {
+        "text": "\"I only use natural cleaning products because chemicals are bad for you. If it's from nature, it's safe.\"",
+        "explanation": "Many natural substances are toxic (e.g., ricin, cyanide in apple seeds), and 'chemical' simply describes any substance. Natural doesn't equal safe."
+      },
+      {
+        "text": "\"Our ancestors didn't use computers, so screen time must be inherently bad for us.\"",
+        "explanation": "What our ancestors did or didn't do doesn't determine what's good or bad for modern humans."
+      }
+    ]
+  },
+  {
+    "id": "genetic-fallacy",
+    "name": "Genetic Fallacy",
+    "category": "Relevance",
+    "level": 3,
+    "definition": "Judging something as good or bad based on where it comes from rather than its current merit.",
+    "description": "The origin of an idea, argument, or thing is used to accept or reject it, regardless of its actual qualities. An idea isn't wrong just because it came from a bad source, and it isn't right just because it came from a good one. Judge ideas on their own merits.",
+    "responseStrategy": "Separate origin from merit: 'Where an idea comes from doesn't determine whether it's correct. Let's evaluate the argument on its own evidence.'",
+    "examples": [
+      {
+        "text": "That idea came from a controversial politician, so it must be bad.",
+        "explanation": "The origin of an idea doesn't determine its quality. Even controversial figures can have good ideas."
+      },
+      {
+        "text": "This tradition has been around for centuries, so it must be valuable.",
+        "explanation": "Age of a practice doesn't prove its value — many old traditions have been harmful."
+      },
+      {
+        "text": "She grew up in a rough neighborhood, so her opinions on economics can't be sophisticated.",
+        "explanation": "Someone's background doesn't determine the quality of their reasoning."
+      }
+    ],
+    "quizScenarios": [
+      {
+        "text": "\"That management technique was developed in Japan, so it won't work in American companies.\"",
+        "explanation": "The country of origin doesn't determine whether a management technique is effective. It should be evaluated on its merits."
+      },
+      {
+        "text": "\"This scientific paper was funded by a pharmaceutical company, so all its conclusions are automatically wrong.\"",
+        "explanation": "While funding sources warrant scrutiny, they don't automatically invalidate research findings."
+      }
+    ]
+  },
+  {
+    "id": "middle-ground",
+    "name": "Middle Ground (Golden Mean)",
+    "category": "Presumption",
+    "level": 3,
+    "definition": "Assuming the truth must be a compromise between two opposing positions.",
+    "description": "While compromise is often good in negotiations, it's a fallacy to assume the truth always lies in the middle. If one person says 2+2=4 and another says 2+2=6, the answer isn't 5. Sometimes one side is simply right and the other is wrong.",
+    "responseStrategy": "Point out that truth isn't always in the middle: 'Compromise is great for negotiations, but facts aren't decided by splitting the difference. What does the evidence support?'",
+    "examples": [
+      {
+        "text": "Some scientists say the Earth is 4.5 billion years old and others say 6,000 years. The truth is probably somewhere in between.",
+        "explanation": "The scientific evidence overwhelmingly supports 4.5 billion years — the middle isn't automatically correct."
+      },
+      {
+        "text": "She says the project will take 2 weeks, he says 2 years. Let's compromise and say 6 months.",
+        "explanation": "The correct timeline should be based on analysis, not splitting the difference between estimates."
+      },
+      {
+        "text": "One side says vaccines are safe, the other says they're dangerous. The truth must be in the middle.",
+        "explanation": "Overwhelming evidence supports vaccine safety. Splitting the difference doesn't represent the scientific consensus."
+      }
+    ],
+    "quizScenarios": [
+      {
+        "text": "\"The prosecution says the defendant committed 10 crimes, and the defense says zero. The truth is probably around 5 crimes.\"",
+        "explanation": "Legal truth isn't found by averaging claims. Evidence must determine guilt for each charge independently."
+      },
+      {
+        "text": "\"Half of experts say this bridge is structurally sound, and half say it will collapse. Let's compromise and allow only light traffic.\"",
+        "explanation": "Bridge safety isn't a matter of compromise. Engineering analysis should determine whether it's safe or not."
+      }
+    ]
+  },
+  {
+    "id": "texas-sharpshooter",
+    "name": "Texas Sharpshooter",
+    "category": "Causal",
+    "level": 3,
+    "definition": "Cherry-picking data clusters to suit an argument, or finding a pattern after the fact and claiming it was predicted.",
+    "description": "Named after a joke about a Texan who shoots at a barn wall and then paints a bullseye around the closest cluster of bullet holes. It's about finding patterns in random data and treating them as meaningful, or selecting only the data that supports your conclusion while ignoring the rest.",
+    "responseStrategy": "Ask whether the pattern was predicted before the data was collected, or found after the fact. Say: 'Are you selecting only the data that fits your conclusion?'",
+    "examples": [
+      {
+        "text": "A psychic predicted 'something bad will happen in a major city' and then points to any negative event as proof.",
+        "explanation": "The prediction was so vague that almost any event could confirm it — the target was drawn after the shot."
+      },
+      {
+        "text": "This neighborhood has a cancer cluster, so the local power plant must be causing it.",
+        "explanation": "Random variation can produce clusters. Without controlled study, you can't assume the power plant is the cause."
+      },
+      {
+        "text": "Our product launched on a Tuesday and succeeded. Tuesday launches must be the key to success!",
+        "explanation": "Picking one successful data point and attributing it to the day of the week ignores all other factors."
+      }
+    ],
+    "quizScenarios": [
+      {
+        "text": "\"I looked at the last 100 years of stock market data and found a pattern: stocks always rise in months with the letter 'R.' This is my foolproof trading strategy.\"",
+        "explanation": "The pattern was found by searching data after the fact. Random data will always have some apparent patterns that don't predict future results."
+      },
+      {
+        "text": "\"Three of our top salespeople all drink green tea. Green tea must be the secret to sales success!\"",
+        "explanation": "This cherry-picks a coincidental trait shared by a few people while ignoring what the other top performers do."
+      }
+    ]
+  },
+  {
+    "id": "burden-of-proof",
+    "name": "Burden of Proof",
+    "category": "Presumption",
+    "level": 3,
+    "definition": "Shifting the burden of proof to the person who denies or questions a claim, rather than the person making it.",
+    "description": "The person making a claim is responsible for providing evidence. You can't say 'invisible unicorns exist, and they do until you prove they don't.' Extraordinary claims require extraordinary evidence, and it's not others' job to disprove your unsupported assertions.",
+    "responseStrategy": "Remind them who bears the burden: 'You made the claim, so it's your responsibility to provide evidence. I don't need to disprove something that hasn't been proven.'",
+    "examples": [
+      {
+        "text": "I believe aliens built the pyramids. Can you prove they didn't?",
+        "explanation": "The person claiming alien construction has the burden of providing evidence for their extraordinary claim."
+      },
+      {
+        "text": "This supplement cures all diseases until someone proves it doesn't.",
+        "explanation": "Medical claims require evidence from the claimant, not disproof from skeptics."
+      },
+      {
+        "text": "My conspiracy theory is true unless you can debunk every single detail.",
+        "explanation": "The conspiracy theorist needs to prove their theory, not demand others disprove it point by point."
+      }
+    ],
+    "quizScenarios": [
+      {
+        "text": "\"My new energy drink improves IQ by 30 points. Show me a study that says it doesn't!\"",
+        "explanation": "The maker of this claim must provide evidence that the drink improves IQ, not demand that others disprove it."
+      },
+      {
+        "text": "\"I sense a ghost in this room. Unless you can prove there's no ghost here, my feeling is valid evidence.\"",
+        "explanation": "The person claiming a ghost exists needs to provide evidence, not shift the burden to skeptics."
+      }
+    ]
+  },
+  {
+    "id": "anecdotal",
+    "name": "Anecdotal Evidence",
+    "category": "Presumption",
+    "level": 3,
+    "definition": "Using personal experience or an isolated example instead of systematic evidence or a compelling argument.",
+    "description": "Personal stories are powerful and memorable, but they don't represent the bigger picture. 'My grandfather smoked and lived to 95' doesn't disprove that smoking causes cancer. Anecdotes can illustrate a point but shouldn't replace statistical evidence.",
+    "responseStrategy": "Acknowledge the story, then broaden the scope: 'That's an interesting case, but what does the overall data say? One example doesn't represent the full picture.'",
+    "examples": [
+      {
+        "text": "My grandfather smoked his whole life and lived to 95, so smoking can't be that bad.",
+        "explanation": "One person's experience doesn't change the statistical reality that smoking significantly increases health risks."
+      },
+      {
+        "text": "I never wear a seatbelt and I've never been hurt, so seatbelts are unnecessary.",
+        "explanation": "Personal luck doesn't negate decades of data showing seatbelts save lives."
+      },
+      {
+        "text": "My friend dropped out of college and became a millionaire, so college is a waste of time.",
+        "explanation": "One success story doesn't invalidate the statistical advantages of higher education."
+      }
+    ],
+    "quizScenarios": [
+      {
+        "text": "\"I know someone who ate fast food every day and was perfectly healthy. So all these studies about unhealthy diets must be wrong.\"",
+        "explanation": "One person's experience doesn't invalidate large-scale nutritional research based on thousands of subjects."
+      },
+      {
+        "text": "\"My neighbor didn't vaccinate her kids and they're fine. Vaccines must be unnecessary.\"",
+        "explanation": "One family's experience doesn't override population-level data on vaccine effectiveness and disease prevention."
+      }
+    ]
+  },
+  {
+    "id": "cherry-picking",
+    "name": "Cherry Picking",
+    "category": "Presumption",
+    "level": 3,
+    "definition": "Selecting only the data that supports your position while ignoring contradicting evidence.",
+    "description": "Instead of looking at all available evidence, you pick only the facts that support your conclusion and hide or ignore the rest. This can make a weak position look strong by presenting a distorted picture of reality.",
+    "responseStrategy": "Ask for the full picture: 'Are there any studies or data points you're leaving out? I'd like to see all the evidence, not just the parts that support your position.'",
+    "examples": [
+      {
+        "text": "Our company is doing great — look at our sales in December! (Ignores declining sales for the other 11 months)",
+        "explanation": "Highlighting one good month while ignoring an overall downward trend is cherry picking."
+      },
+      {
+        "text": "This city is very safe — here are five neighborhoods with low crime rates. (Ignores high-crime areas)",
+        "explanation": "Selecting only safe neighborhoods gives a misleading picture of overall city safety."
+      },
+      {
+        "text": "Studies show chocolate is healthy! (Cites one small study while ignoring larger studies showing mixed results)",
+        "explanation": "Selecting one favorable study while ignoring the broader body of research is cherry picking."
+      }
+    ],
+    "quizScenarios": [
+      {
+        "text": "\"Climate change isn't real — look, it snowed in April this year!\"",
+        "explanation": "One weather event is cherry-picked to argue against a global, long-term climate trend supported by decades of data."
+      },
+      {
+        "text": "\"Our school's education program is excellent. Look at our top 10 students' test scores!\"",
+        "explanation": "Showing only the best performers hides how the average or below-average students are doing."
+      }
+    ]
+  },
+  {
+    "id": "false-equivalence",
+    "name": "False Equivalence",
+    "category": "Relevance",
+    "level": 3,
+    "definition": "Treating two things as comparable when they're significantly different in important ways.",
+    "description": "Presenting two sides of an issue as equally valid when the evidence strongly supports one over the other. This creates a misleading impression of balance. Not all viewpoints deserve equal weight — a flat earther and a geographer don't have equally credible perspectives on Earth's shape.",
+    "responseStrategy": "Highlight the imbalance: 'These two things aren't equally supported. One has significantly more evidence than the other. Let's weigh them proportionally.'",
+    "examples": [
+      {
+        "text": "Teaching both evolution and creationism in science class is fair and balanced.",
+        "explanation": "Evolution is supported by overwhelming scientific evidence; creationism is a religious belief. They aren't equivalent in a science context."
+      },
+      {
+        "text": "Both parties are equally corrupt, so it doesn't matter who you vote for.",
+        "explanation": "Even if both have issues, the degree and nature of problems likely differ significantly."
+      },
+      {
+        "text": "You complain about a few data breaches, but our competitor once had a server go down. We're basically the same.",
+        "explanation": "Data breaches and server downtime are very different in severity and implications."
+      }
+    ],
+    "quizScenarios": [
+      {
+        "text": "\"Sure, one candidate has been convicted of fraud, but the other candidate got a parking ticket once. Both have had legal troubles, so they're equally untrustworthy.\"",
+        "explanation": "Fraud and a parking ticket are vastly different in severity. Equating them creates a false impression of equivalence."
+      },
+      {
+        "text": "\"Some people believe the Earth is flat and some believe it's round. Both sides deserve equal time in our documentary.\"",
+        "explanation": "The overwhelming scientific evidence supports a round Earth. Giving equal time implies equal credibility where none exists."
+      }
+    ]
+  },
+  {
+    "id": "appeal-to-tradition",
+    "name": "Appeal to Tradition",
+    "category": "Presumption",
+    "level": 3,
+    "definition": "Arguing something is right or better because it's always been done that way.",
+    "description": "Using the age or tradition of a practice as evidence of its value. 'We've always done it this way' isn't a logical reason to continue. Many traditions were based on limited knowledge or outdated values. Change isn't inherently bad, and tradition isn't inherently good.",
+    "responseStrategy": "Ask why tradition matters here: 'How long we've done something doesn't tell us if it's the best approach. What evidence shows this is still the right way?'",
+    "examples": [
+      {
+        "text": "We've always used this filing system, so there's no reason to switch to a digital one.",
+        "explanation": "The age of a system doesn't mean it's still the best option."
+      },
+      {
+        "text": "Marriage has always been defined this way, so it should stay the same.",
+        "explanation": "Historical precedent doesn't constitute a logical argument against change."
+      },
+      {
+        "text": "Our family has always disciplined children this way, so it must be effective.",
+        "explanation": "Generational tradition doesn't prove a disciplinary method is effective or appropriate."
+      },
+      {
+        "text": "Handwritten letters are more meaningful than emails because that's how people have always communicated important messages.",
+        "explanation": "Historical communication methods don't determine the meaningfulness of a message's content."
+      }
+    ],
+    "quizScenarios": [
+      {
+        "text": "\"Our company has used this software for 20 years. It's worked fine all along, so there's no need to upgrade to something modern.\"",
+        "explanation": "The fact that something has been used for a long time doesn't mean it's still the best option. Technology and needs evolve."
+      },
+      {
+        "text": "\"People have been using this folk remedy for centuries, so it must be effective medicine.\"",
+        "explanation": "Centuries of use don't constitute clinical evidence. Many traditional remedies have been shown to be ineffective or harmful."
+      }
+    ]
+  },
+  {
+    "id": "personal-incredulity",
+    "name": "Personal Incredulity",
+    "category": "Presumption",
+    "level": 3,
+    "definition": "Claiming something isn't true because you personally can't understand or imagine it.",
+    "description": "Just because something is difficult to understand doesn't make it false. Quantum physics is incredibly counterintuitive, but that doesn't make it wrong. Our personal ability to comprehend something has no bearing on whether it's true.",
+    "responseStrategy": "Separate comprehension from truth: 'Something being hard to understand doesn't make it wrong. Let's look at what the evidence and experts say, not just our intuitions.'",
+    "examples": [
+      {
+        "text": "I can't understand how evolution could produce something as complex as the human eye, so it must not be true.",
+        "explanation": "Personal inability to understand a process doesn't invalidate the scientific evidence supporting it."
+      },
+      {
+        "text": "The universe can't possibly be expanding — I can't even imagine what it would expand into.",
+        "explanation": "Our inability to visualize cosmological concepts doesn't determine their truth."
+      },
+      {
+        "text": "I don't see how a tiny vaccine can prevent a serious disease, so I don't trust them.",
+        "explanation": "Personal incomprehension of immunology doesn't override the extensive evidence for vaccine effectiveness."
+      }
+    ],
+    "quizScenarios": [
+      {
+        "text": "\"There's no way that a computer can beat a human at chess. Computers don't think. I just can't imagine it.\"",
+        "explanation": "Personal inability to imagine something doesn't make it impossible — computers have been beating top chess players since 1997."
+      },
+      {
+        "text": "\"I can't wrap my head around how cryptocurrency works, so it must be a scam.\"",
+        "explanation": "Not understanding the technology doesn't determine whether it's legitimate. Complexity doesn't equal fraud."
+      }
+    ]
+  }
+]

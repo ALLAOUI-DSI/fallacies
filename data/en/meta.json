@@ -1,0 +1,36 @@
+{
+  "levelInfo": {
+    "1": {
+      "name": "Beginner",
+      "description": "Common fallacies you encounter every day. Easy to spot once you know them.",
+      "icon": "🌱",
+      "color": "#22c55e"
+    },
+    "2": {
+      "name": "Intermediate",
+      "description": "More subtle fallacies that require careful thinking to identify.",
+      "icon": "🌿",
+      "color": "#f59e0b"
+    },
+    "3": {
+      "name": "Advanced",
+      "description": "Complex fallacies often used in professional and academic debates.",
+      "icon": "🌳",
+      "color": "#ef4444"
+    },
+    "4": {
+      "name": "Expert",
+      "description": "Sophisticated rhetorical techniques that are very difficult to detect.",
+      "icon": "🏆",
+      "color": "#a855f7"
+    }
+  },
+  "categories": [
+    "Relevance",
+    "Presumption",
+    "Ambiguity",
+    "Causal",
+    "Formal",
+    "Emotional Appeal"
+  ]
+}
