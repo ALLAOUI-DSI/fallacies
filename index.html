@@ -143,6 +143,7 @@
           <div class="quiz-mode-tabs">
             <button class="quiz-mode-tab active" data-mode="classic" id="tab-classic">🎯 Classic Quiz</button>
             <button class="quiz-mode-tab" data-mode="extractor" id="tab-extractor">🔍 Extractor Mode</button>
+            <button class="quiz-mode-tab" data-mode="versus" id="tab-versus">⚔️ Versus Mode</button>
           </div>
 
           <!-- Classic Quiz Setup -->
@@ -169,6 +170,23 @@
             </div>
             <div class="quiz-option-mixed">
               <button class="btn btn-large btn-accent" id="extractor-mixed">
+                🎲 Mixed Mode — All Levels
+              </button>
+            </div>
+          </div>
+
+          <!-- Versus Quiz Setup -->
+          <div id="versus-setup" class="hidden">
+            <div class="extractor-intro">
+              <div class="extractor-intro-icon">⚔️</div>
+              <h3>Fallacy Versus</h3>
+              <p>Two similar fallacies face off! Read the scenario and pick the correct one. Sharpen your ability to distinguish fallacies that are easy to confuse.</p>
+            </div>
+            <div class="quiz-levels" id="versus-levels">
+              <!-- Filled by JS -->
+            </div>
+            <div class="quiz-option-mixed">
+              <button class="btn btn-large btn-accent" id="versus-mixed">
                 🎲 Mixed Mode — All Levels
               </button>
             </div>
@@ -271,6 +289,60 @@
               <button class="btn btn-outline" id="extractor-results-home">Back to Setup</button>
             </div>
             <div class="results-review" id="extractor-results-review">
+              <!-- Filled by JS -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Versus Active -->
+        <div id="versus-active" class="hidden">
+          <div class="quiz-header">
+            <div class="quiz-progress">
+              <span id="versus-question-num">1</span> / <span id="versus-total">10</span>
+            </div>
+            <div class="quiz-score">
+              Score: <span id="versus-score">0</span>
+            </div>
+            <button class="btn btn-small btn-outline" id="versus-quit">Quit</button>
+          </div>
+          <div class="quiz-progress-bar">
+            <div class="quiz-progress-fill" id="versus-progress-fill"></div>
+          </div>
+          <div class="quiz-card">
+            <p class="extractor-label">⚔️ Which fallacy is this?</p>
+            <div class="quiz-scenario" id="versus-scenario">
+              <!-- Filled by JS -->
+            </div>
+            <div class="versus-distinction" id="versus-distinction">
+              <!-- Filled by JS -->
+            </div>
+            <div class="versus-options" id="versus-options">
+              <!-- Filled by JS -->
+            </div>
+            <div class="quiz-feedback hidden" id="versus-feedback">
+              <!-- Filled by JS -->
+            </div>
+            <button class="btn btn-primary hidden" id="versus-next">Next Question →</button>
+          </div>
+        </div>
+
+        <!-- Versus Results -->
+        <div id="versus-results" class="hidden">
+          <div class="results-card">
+            <div class="results-emoji" id="versus-results-emoji">🎉</div>
+            <h2 id="versus-results-title">Versus Complete!</h2>
+            <p class="results-score">You scored <strong id="versus-results-score-num">0</strong> out of <strong id="versus-results-total-num">10</strong></p>
+            <div class="results-bar-container">
+              <div class="results-bar">
+                <div class="results-bar-fill" id="versus-results-bar-fill"></div>
+              </div>
+            </div>
+            <p class="results-message" id="versus-results-message"></p>
+            <div class="results-actions">
+              <button class="btn btn-primary" id="versus-results-retry">Try Again</button>
+              <button class="btn btn-outline" id="versus-results-home">Back to Setup</button>
+            </div>
+            <div class="results-review" id="versus-results-review">
               <!-- Filled by JS -->
             </div>
           </div>
